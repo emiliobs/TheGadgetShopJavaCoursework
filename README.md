@@ -3,7 +3,7 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
 
 ##
 
-# Form Desing
+# GUI Desing
 ![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/7dd2811e-8caf-45a8-a9d0-d45a8e70aa75)
 
 
