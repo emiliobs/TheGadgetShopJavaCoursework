@@ -31,17 +31,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanelMain" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanelMain" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanelMain">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d3" green="cc" red="96" type="rgb"/>
@@ -53,7 +53,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel2" min="-2" pref="1604" max="-2" attributes="0"/>
+                  <Component id="jPanelContent" min="-2" pref="1604" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -62,14 +62,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="jPanel2" min="-2" pref="799" max="-2" attributes="0"/>
+                  <Component id="jPanelContent" min="-2" pref="799" max="-2" attributes="0"/>
                   <EmptySpace pref="21" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="jPanelContent">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="d3" green="cc" red="96" type="rgb"/>
@@ -103,7 +103,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jLabel1" min="-2" pref="416" max="-2" attributes="0"/>
+                              <Component id="lblTitle" min="-2" pref="416" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="581" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -111,11 +111,11 @@
                                   <Component id="jSeparator1" min="-2" pref="1562" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="jPanel5" max="32767" attributes="0"/>
+                                          <Component id="jPanelShowData" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jPanelEnterMobileMp3Data" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jPanelCallDowbloads" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -126,7 +126,7 @@
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel2" min="-2" pref="488" max="-2" attributes="0"/>
+                                              <Component id="lblImagen" min="-2" pref="488" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -140,7 +140,7 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="3" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -148,15 +148,15 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jPanel3" max="32767" attributes="0"/>
-                                  <Component id="jPanel4" max="32767" attributes="0"/>
+                                  <Component id="jPanelEnterMobileMp3Data" max="32767" attributes="0"/>
+                                  <Component id="jPanelCallDowbloads" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jPanelShowData" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="30" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel2" min="-2" pref="470" max="-2" attributes="0"/>
+                              <Component id="lblImagen" min="-2" pref="470" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="btnExit" min="-2" pref="81" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
@@ -167,7 +167,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="lblTitle">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="48" style="3"/>
@@ -178,14 +178,14 @@
                 <Property name="text" type="java.lang.String" value="The Gadget Shop!"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="lblImagen">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/Helps/Images/TheGadgetShop1.png"/>
                 </Property>
               </Properties>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel3">
+            <Container class="javax.swing.JPanel" name="jPanelEnterMobileMp3Data">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d3" green="cc" red="96" type="rgb"/>
@@ -457,7 +457,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="jPanel4">
+            <Container class="javax.swing.JPanel" name="jPanelCallDowbloads">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d3" green="cc" red="96" type="rgb"/>
@@ -491,8 +491,8 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblPhoneNumber" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblDuration" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblWeight1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblSize1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDownload" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDisplayNumber" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -513,7 +513,7 @@
                                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                                   <Component id="btnMakeACall1" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnMakeACall" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDownloadMusic" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -536,12 +536,12 @@
                           </Group>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblWeight1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDownload" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDownload" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblSize1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblDisplayNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtDisplayNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -549,7 +549,7 @@
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnMakeACall1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnMakeACall" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnDownloadMusic" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
@@ -583,7 +583,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDuration">
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblWeight1">
+                <Component class="javax.swing.JLabel" name="lblDownload">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="3"/>
@@ -596,7 +596,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDownload">
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblSize1">
+                <Component class="javax.swing.JLabel" name="lblDisplayNumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="3"/>
@@ -609,7 +609,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtDisplayNumber">
                 </Component>
-                <Component class="javax.swing.JButton" name="btnMakeACall">
+                <Component class="javax.swing.JButton" name="btnDownloadMusic">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI" size="18" style="3"/>
@@ -624,7 +624,7 @@
                     <Property name="toolTipText" type="java.lang.String" value="Download Music"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMakeACallActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDownloadMusicActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnMakeACall1">
@@ -686,7 +686,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExitActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanel5">
+            <Container class="javax.swing.JPanel" name="jPanelShowData">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="d3" green="cc" red="96" type="rgb"/>
