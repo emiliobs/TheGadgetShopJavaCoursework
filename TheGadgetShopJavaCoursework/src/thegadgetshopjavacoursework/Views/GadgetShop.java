@@ -239,7 +239,7 @@ public class GadgetShop extends javax.swing.JFrame
 
         lblDisplayNumber.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblDisplayNumber.setForeground(new java.awt.Color(255, 51, 51));
-        lblDisplayNumber.setText("Display Numbar:");
+        lblDisplayNumber.setText("Display Number:");
 
         btnDownloadMusic.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnDownloadMusic.setForeground(new java.awt.Color(222, 8, 8));
@@ -398,7 +398,7 @@ public class GadgetShop extends javax.swing.JFrame
                                     .addGroup(jPanelContentLayout.createSequentialGroup()
                                         .addGap(175, 175, 175)
                                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 16, Short.MAX_VALUE))))
+                        .addGap(0, 18, Short.MAX_VALUE))))
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
