@@ -37,7 +37,18 @@ public class Mobile extends Gadget
 
     public void setNumberOfMinutesOfCallingCreditRemaining(int numberOfMinutesOfCallingCreditRemaining)
     {
-        this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
+        if (numberOfMinutesOfCallingCreditRemaining >= 0)
+        {
+             this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
+        }
+        else
+        {
+            System.out.println("");
+            System.out.println("***** - Sorry!. Please enter a positive amount for adding credit. - *****");
+           // this.numberOfMinutesOfCallingCreditRemaining = 0;
+            
+        }
+       
     }
 
     // Mehtod to add calling credit
@@ -49,7 +60,8 @@ public class Mobile extends Gadget
         }
         else
         {
-            System.out.println("Please enter a positive amount for adding credit.");
+            System.out.println("");
+            System.out.println("***** - Sorry!. Please enter a positive amount for adding credit. - *****");
         }
     }
 

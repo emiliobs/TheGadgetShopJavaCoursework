@@ -18,6 +18,7 @@ public class GadgetShopViewPrompt
     private TheGadgetShopController gadgetShopController;
     private Scanner scanner;
 
+    // Constructor to initialize view with controller and scanner
     public GadgetShopViewPrompt(TheGadgetShopController gadgetShopController)
     {
         System.out.println("");
@@ -26,6 +27,7 @@ public class GadgetShopViewPrompt
         this.scanner = new Scanner(System.in);
     }
 
+    // Method to display menu options
     public void displayMenu()
     {
 
@@ -39,6 +41,7 @@ public class GadgetShopViewPrompt
 
     }
 
+    // Method to run the gadget shop Application
     public void run()
     {
         int choice = -1;
@@ -49,42 +52,43 @@ public class GadgetShopViewPrompt
             System.out.print("Enter your Choice: ");
             try
             {
-                choice = scanner.nextInt();
-                scanner.nextLine(); //Consume newline
+                choice = scanner.nextInt(); // Read user choice
+                scanner.nextLine(); // Consume newline
 
                 switch (choice)
                 {
                     case 1:
-                        addMobile();
+                        addMobile(); // Add mobile phone
                         break;
                     case 2:
-                        addMP3Player();
+                        addMP3Player(); // Add MP3 Player
                         break;
                     case 3:
-                        displayAllGadgets();
+                        displayAllGadgets(); // Display all gadget
                         break;
                     case 4:
                         System.out.println("");
-                        System.out.println("##### Good Bye!. You leave the Program... #####");
+                        System.out.println("##### Good Bye!. You leave the Program... #####"); // Exit the Application
                         System.out.println("");
                         break;
                     default:
                         System.out.println("");
-                        System.out.println("*****  - Sorry!: Invalid Choice. Please enter again. - *****");
+                        System.out.println("*****  - Sorry!: Invalid Choice. Please enter again. - *****"); // Invalid choice
                 }
 
             }
             catch (InputMismatchException e)
             {
                 System.out.println("");
-                System.out.println("*****  - Sorry!. Invalid input. Please enter a number  -  *****");
-                scanner.nextLine();
+                System.out.println("*****  - Sorry!. Invalid input. Please enter a number  -  *****"); // Handle non-integer input
+                scanner.nextLine(); // Consume invalid input
                 choice = 0; // Rest choice to trigger menu redisplay
             }
         }
-        while (choice != 4);
+        while (choice != 4); // Continue ubtil choose to exit
     }
 
+    // Method to add a mobile phone
     private void addMobile()
     {
         System.out.println("");
@@ -95,24 +99,35 @@ public class GadgetShopViewPrompt
         double price = scanner.nextDouble();
         System.out.print("Enter Weight: ");
         int weight = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // Consume newLine
         System.out.print("Enter Size: ");
         String size = scanner.nextLine();
         System.out.print("Enter Calling Credit: ");
         int callingCredit = scanner.nextInt();
         System.out.println("-------------------------");
-        Mobile mobile = new Mobile();
+
+        Mobile mobile = new Mobile(); // Create new Mobile Object
         mobile.setModel(model);
         mobile.setPrice(price);
         mobile.setWeight(weight);
         mobile.setSize(size);
-        mobile.setNumberOfMinutesOfCallingCreditRemaining(callingCredit);
+        if (callingCredit >= 0)
+        {
+            mobile.setNumberOfMinutesOfCallingCreditRemaining(callingCredit);
+        }
+        else
+        {
+            System.out.println("");
+            System.out.println("***** - Sorry!. Please enter a positive amount for adding credit. - *****");
+            return;
+        }
 
         System.out.println("");
-        gadgetShopController.addGadget(mobile);
+        gadgetShopController.addGadget(mobile);  // Add mobile to the list
         System.out.println("##### Mobile Added Successfully! #####");
     }
 
+    //Method to add an MP3 player
     private void addMP3Player()
     {
         System.out.println("");
@@ -135,8 +150,20 @@ public class GadgetShopViewPrompt
         mp3.setPrice(price);
         mp3.setWeight(weight);
         mp3.setSize(size);
-        mp3.setAvailableMemory(availableMemory);
 
+        if (availableMemory >= 0)
+        {
+            mp3.setAvailableMemory(availableMemory);
+
+        }
+        else
+        {
+            System.out.println("");
+            System.out.println("");
+            System.out.println("***** - Sorry!. Please enter a positive amount for Available Memory. - *****");
+            return;
+        }
+        System.out.println("");
         System.out.println("");
         gadgetShopController.addGadget(mp3);
         System.out.println("##### MP3 Player Added Successfully! #####");
