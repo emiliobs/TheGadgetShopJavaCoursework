@@ -9,29 +9,30 @@ import thegadgetshopjavacoursework.Models.Gadget;
  *
  * @author Emilio
  */
-
 // Controller Class
-
 // TheGadgetShopController class
 public class TheGadgetShopController
 {
+
     // Create a empty ArrayList to store Gadget objects
-     List<Gadget> gadgets = new ArrayList<>();
-     
-     // Method to add a gadget to the list
-     public void addGadget(Gadget gadget)
-     {
-         gadgets.add(gadget);
-     }
-     
-     // Method to display all gadget in the list
-     public  void displayAllGadgets()
-     {
-         for (Gadget gadget : gadgets)
-         {
-             gadget.display();
-             System.out.println("");
-         }
-     }
-     
+    List<Gadget> gadgets = new ArrayList<>();
+
+    // Method to add a gadget to the list
+    public void addGadget(Gadget gadget)
+    {
+        gadgets.add(gadget);
+    }
+
+    // Method to display all gadget in the list
+    public void displayAllGadgets()
+    {
+        System.out.println("----- Showing All Gadgets ----- ");
+        for (Gadget gadget : gadgets)
+        {
+            gadget.display();
+            System.out.println("");
+        }
+        System.out.println("-------------------------------");
+    }
+
 }

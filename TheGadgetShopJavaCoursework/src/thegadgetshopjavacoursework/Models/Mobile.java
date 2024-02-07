@@ -72,7 +72,7 @@ public class Mobile extends Gadget
         public void display()
         {
             super.display();
-            System.out.println("Calling Credit: " + numberOfMinutesOfCallingCreditRemaining + " minutes");
+            System.out.println("Calling Credit: " + numberOfMinutesOfCallingCreditRemaining + " Minutes");
         }
     
 }
