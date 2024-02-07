@@ -1,6 +1,6 @@
 package thegadgetshopjavacoursework;
 
-import thegadgetshopjavacoursework.Views.GadgetShop;
+import thegadgetshopjavacoursework.Views.GadgetShopViewGUI;
 
 /**
  *
@@ -11,7 +11,7 @@ public class TheGadgetShopJavaCoursework
 
        public static void main(String[] args)
     {
-        GadgetShop gadgetShop = new GadgetShop();
+        GadgetShopViewGUI gadgetShop = new GadgetShopViewGUI();
         gadgetShop.setVisible(true);
         gadgetShop.setLocationRelativeTo(null);
     }

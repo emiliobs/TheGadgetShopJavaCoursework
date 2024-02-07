@@ -4,26 +4,32 @@ package thegadgetshopjavacoursework.Models;
  *
  * @author Emilio
  */
-public class Mobile extends Gadged
+
+// Subclass Mobile inheriting from Gadget
+public class Mobile extends Gadget
 {
 
     private int numberOfMinutesOfCallingCreditRemaining;
 
+    // Constructor empty
     public Mobile()
     {
     }
 
+    // Constructor to initialize Mobile attribute
     public Mobile(int numberOfMinutesOfCallingCreditRemaining)
     {
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
 
+    // Constructor to initialize Mobile attribute and Gatged attributes
     public Mobile(int numberOfMinutesOfCallingCreditRemaining, String model, double price, int weight, String size)
     {
         super(model, price, weight, size);
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
 
+    // Accesor mehtod for numberOfMinutesOfCallingCreditRemaining
     public int getNumberOfMinutesOfCallingCreditRemaining()
     {
         return numberOfMinutesOfCallingCreditRemaining;
@@ -34,6 +40,7 @@ public class Mobile extends Gadged
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
 
+    // Mehtod to add calling credit
     public void addCallingCredit(int credit)
     {
         if (credit > 0)
@@ -46,6 +53,7 @@ public class Mobile extends Gadged
         }
     }
 
+    // Mehtod to make a call
     public void mobileMakeCall(String phoneNumber, int duration)
     {
         if (numberOfMinutesOfCallingCreditRemaining >= duration)
@@ -59,6 +67,7 @@ public class Mobile extends Gadged
         }            
     }
     
+    // Override display mehtod to include calling credit
       @Override
         public void display()
         {

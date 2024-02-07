@@ -1,22 +1,28 @@
 package thegadgetshopjavacoursework.Models;
+
 /**
  *
  * @author Emilio
  */
-public class Gadged
+// Model classes
+
+//Class Gadget
+public class Gadget
 {
-    // INstance Variables
-    
+    // Instance Variables
+
     private String model;
     private double price;
     private int weight;
     private String size;
 
-    public Gadged()
+    // Constructor Gadget emty
+    public Gadget()
     {
     }
-
-    public Gadged(String model, double price, int weight, String size)
+    
+// Constructor to initialize Gadget attributes
+    public Gadget(String model, double price, int weight, String size)
     {
         this.model = model;
         this.price = price;
@@ -24,6 +30,7 @@ public class Gadged
         this.size = size;
     }
 
+    //  Accesor methods for Gadget attributes
     public String getSize()
     {
         return size;
@@ -63,13 +70,14 @@ public class Gadged
     {
         this.weight = weight;
     }
-    
-    public  void display()
+
+    // Mehtod to display Gadget details
+    public void display()
     {
         System.out.println("Model: " + model);
         System.out.println("Price: " + price + " Pounds");
         System.out.println("Weight: " + weight + " Grams");
         System.out.println("Size " + size);
     }
-    
+
 }

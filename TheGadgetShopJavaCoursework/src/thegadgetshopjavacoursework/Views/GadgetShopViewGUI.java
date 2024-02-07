@@ -7,13 +7,13 @@ import javax.swing.ImageIcon;
  *
  * @author Emilio
  */
-public class GadgetShop extends javax.swing.JFrame
+public class GadgetShopViewGUI extends javax.swing.JFrame
 {
 
     /**
      * Creates new form GadgetShop
      */
-    public GadgetShop()
+    public GadgetShopViewGUI()
     {
         initComponents();
         setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage());
