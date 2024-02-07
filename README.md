@@ -4,7 +4,8 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
 ##
 
 # GUI Desing
-![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/15722d9a-90cd-4373-aaea-6922ca5f94ed)
+![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/afb25b43-78f3-41cb-9d2a-1710ca943465)
+
 
 
 
