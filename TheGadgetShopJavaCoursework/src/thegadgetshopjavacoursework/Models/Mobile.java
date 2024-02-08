@@ -1,7 +1,5 @@
 package thegadgetshopjavacoursework.Models;
 
-import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
-
 /**
  *
  * @author Emilio
@@ -9,8 +7,6 @@ import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 // Subclass Mobile inheriting from Gadget
 public class Mobile extends Gadget
 {
-
-    
 
     //private int mobileId;
     private int numberOfMinutesOfCallingCreditRemaining;
@@ -24,7 +20,7 @@ public class Mobile extends Gadget
     // Constructor to initialize Mobile attribute
     public Mobile(int numberOfMinutesOfCallingCreditRemaining)
     {
-        
+
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
 
@@ -32,12 +28,11 @@ public class Mobile extends Gadget
     public Mobile(int numberOfMinutesOfCallingCreditRemaining, int gadgetId, String model, double price, int weight, String size)
     {
         super(gadgetId, model, price, weight, size);
-        
+
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
 
     // Accesor mehtod for numberOfMinutesOfCallingCreditRemaining
-
     public int getNumberOfMinutesOfCallingCreditRemaining()
     {
         return numberOfMinutesOfCallingCreditRemaining;
@@ -77,8 +72,7 @@ public class Mobile extends Gadget
     // Mehtod to make a call
     public boolean mobileMakeCall(int phoneNumber, int duration)
     {
-        
-        
+
         if (numberOfMinutesOfCallingCreditRemaining >= duration)
         {
             System.out.println("CALLING NUMBER: " + phoneNumber + " FOR " + duration + " MINUTES.");

@@ -308,7 +308,7 @@ public class GadgetShopViewPrompt
         catch (InputMismatchException | IndexOutOfBoundsException e)
         {
             System.out.println("");
-            System.out.println("Error: Invalid Choice, Please Enter a Valid Number  on the List. " + e.getMessage());
+            System.out.println("Error: Invalid Choice, Please Enter a Valid Number  On The List. " + e.getMessage());
         }
 
     }
