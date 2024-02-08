@@ -25,7 +25,7 @@ public class TheGadgetShopController
     // Method to display all gadget in the list
     public void displayAllGadgets()
     {
-        System.out.println("----- Showing All Gadgets ----- ");
+        System.out.println("========= DISPLAY ALL GADGETS =========");
 
         if (gadgets.isEmpty())
         {
@@ -36,35 +36,10 @@ public class TheGadgetShopController
         {
             gadget.display();
             System.out.println("");
+
         }
-        System.out.println("-------------------------------");
+        System.out.println("=======================================");
     }
-    
-    
-//    public void addCallingCredit( int gadgetId)
-//    {
-//        if (gadgets.isEmpty())
-//        {
-//            System.out.println("");
-//            System.out.println("Sorry!. No Gadgets Available to Add Calling Credit.");
-//        }
-//        
-//        System.out.println("");
-//        System.out.println("\nAdding Calling Credit to Mobile.");
-//       
-//        
-//        for (Gadget gadget : gadgets)
-//        {
-//            try
-//            {
-//                System.out.println("I am in......");
-//            }
-//            catch (Exception e)
-//            {
-//            }
-//    
-//        }
-   // }
 
     public List<Gadget> getGadgets()
     {

@@ -24,9 +24,20 @@ public class GadgetShopViewPrompt
     public GadgetShopViewPrompt(TheGadgetShopController gadgetShopController)
     {
         System.out.println("");
-        System.out.println("#####  - WELCOME TO THE GADGET SHOP! - #####");
+        System.out.println("");
+        System.out.println("================================================");
+        System.out.println("=                                              =");
+        System.out.println("=                                              =");
+        System.out.println("=                                              =");
+        System.out.println("=       WELCOME TO THE GADGET SHOP!  :)        =");
+        System.out.println("=                                              =");
+        System.out.println("=                                              =");
+        System.out.println("=                                              =");
+        System.out.println("================================================");
+
         this.gadgetShopController = gadgetShopController;
         this.scanner = new Scanner(System.in);
+        System.out.println("");
     }
 
     // Method to display menu options
@@ -34,7 +45,7 @@ public class GadgetShopViewPrompt
     {
 
         System.out.println("");
-        System.out.println("=======  Menu  =======");
+        System.out.println("================== MENU ==============");
         System.out.println("1. Add Mobile");
         System.out.println("2. Add MP3 Player");
         System.out.println("3. Display All Gadgets");
@@ -43,7 +54,7 @@ public class GadgetShopViewPrompt
         System.out.println("6. Download Music to MP3 Player");
         System.out.println("7. Delete Music from MP3 Player");
         System.out.println("8. Exit");
-        System.out.println("=======================");
+        System.out.println("=====================================");
 
     }
 
@@ -87,7 +98,18 @@ public class GadgetShopViewPrompt
                         break;
                     case 8:
                         System.out.println("");
-                        System.out.println("##### Good Bye!. You leave the Program... #####"); // Exit the Application
+                        System.out.println("");
+                        System.out.println("================================================");
+                        System.out.println("=                                              =");
+                        System.out.println("=                                              =");
+                        System.out.println("=                                              =");
+                        System.out.println("=  THANKS YOU!. GOOD BYE, EXIT THE SYSTEM  ):  =");
+                        System.out.println("=                                              =");
+                        System.out.println("=                                              =");
+                        System.out.println("=                                              =");
+                        System.out.println("================================================");
+                        System.out.println("");
+                        System.exit(0); // Exit the Application
                         System.out.println("");
                         break;
                     default:
@@ -111,7 +133,7 @@ public class GadgetShopViewPrompt
     private void addMobile()
     {
         System.out.println("");
-        System.out.println("----- Adding Mobile -----");
+        System.out.println("=========== ADDING MOBILE ===========");
         System.out.print("Enter Mobil Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
@@ -123,7 +145,7 @@ public class GadgetShopViewPrompt
         String size = scanner.nextLine();
         System.out.print("Enter Calling Credit: ");
         int callingCredit = scanner.nextInt();
-        System.out.println("-------------------------");
+        System.out.println("=====================================");
 
         Mobile mobile = new Mobile(); // Create new Mobile Object
         mobile.setModel(model);
@@ -151,7 +173,7 @@ public class GadgetShopViewPrompt
     private void addMP3Player()
     {
         System.out.println("");
-        System.out.println("----- Adding MP3 Player  -----");
+        System.out.println("=========== ADDING MP3 PLAYER ===========");
         System.out.print("Enter MP3 Player Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
@@ -163,7 +185,7 @@ public class GadgetShopViewPrompt
         String size = scanner.nextLine();
         System.out.print("Enter Available Memory (in MB): ");
         int availableMemory = scanner.nextInt();
-        System.out.print("--------------------------");
+        System.out.println("=========================================");
 
         MP3 mp3 = new MP3();
         mp3.setModel(model);
@@ -203,14 +225,13 @@ public class GadgetShopViewPrompt
         if (gadgetShopController.getGadgets().isEmpty())
         {
 
-            System.out.println("Sorry!. No Gadgets Available to Add Calling Credit.");
+            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
             return;
         }
 
-        gadgetShopController.displayAllGadgets();
+        displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
-        displayMobiles(gadgetShopController.getGadgets());
 
         try
         {
@@ -254,17 +275,22 @@ public class GadgetShopViewPrompt
     private static void displayMobiles(List<Gadget> gadgets)
     {
         System.out.println("");
-        System.out.println("=====  Mobiles =====");
 
+        System.out.println("=========== MOBILES ===========");
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof Mobile)
             {
-                System.out.println(gadget.getGadgetId() + ". " + gadget.getModel());
-
+                System.out.println("Gadget Id: " + gadget.getGadgetId());
+                System.out.println("Model: " + gadget.getModel());
+                System.out.println("Price: " + gadget.getPrice());
+                System.out.println("Weight: " + gadget.getWeight());
+                System.out.println("Size: " + gadget.getSize());
+                System.out.println("Calling Credit: " + ((Mobile) gadget).getNumberOfMinutesOfCallingCreditRemaining());
+                System.out.println("");
             }
         }
-          System.out.println("===================");
+        System.out.println("============================");
     }
 
 }
