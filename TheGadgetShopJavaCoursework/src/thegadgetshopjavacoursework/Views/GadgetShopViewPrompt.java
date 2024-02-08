@@ -54,7 +54,7 @@ public class GadgetShopViewPrompt
         System.out.println("6. Download Music to MP3 Player");
         System.out.println("7. Delete Music from MP3 Player");
         System.out.println("8. Exit");
-        System.out.println("=====================================");
+        System.out.println("======================================");
 
     }
 
@@ -240,10 +240,65 @@ public class GadgetShopViewPrompt
                 System.out.print("Enter Calling Credit to Add (Minutes): ");
                 int creditToAdd = scanner.nextInt();
                 System.out.println("");
-                System.out.println("===============================================");
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).addCallingCredit(creditToAdd);
+                ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).display();
+                System.out.println("===============================================");
                 System.out.println("");
-                System.out.println("##### Calling Credit Added Successfully! #####");
+                System.out.println("##### Calling Credit Added Successfully!  :) #####");
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+        catch (InputMismatchException | IndexOutOfBoundsException e)
+        {
+            System.out.println("");
+            System.out.println("Error: Invalid Choice, Please Enter a Valid Number  On The List. " + e.getMessage());
+        }
+
+    }
+
+    private void makeCallFromMobile()
+    {
+        System.out.println("");
+        System.out.println("======= MAKE A CALL FROM MOBILE =======");
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+
+            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+            return;
+        }
+
+        displayMobiles(gadgetShopController.getGadgets());
+        System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
+        int mobileId = scanner.nextInt();
+
+        try
+        {
+            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
+            {
+                System.out.print("Enter Phone Number: ");
+                int phoneNumber = scanner.nextInt();
+
+                System.out.print("Enter Duration Of The Call: ");
+                int duration = scanner.nextInt();
+                System.out.println("");
+                var resultCall = ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
+                ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).display();
+                System.out.println("===============================================");
+                System.out.println("");
+
+                if (resultCall)
+                {
+                    System.out.println("##### Great!!. Call Made Successfully! #####");
+                }
+                else
+                {
+                    System.out.println("##### Sorry!. The Call Was Not Initiated. #####");
+                    
+                }
             }
             else
             {
@@ -255,20 +310,6 @@ public class GadgetShopViewPrompt
             System.out.println("");
             System.out.println("Error: Invalid Choice, Please Enter a Valid Number  on the List. " + e.getMessage());
         }
-
-    }
-
-    private void makeCallFromMobile()
-    {
-        System.out.println("");
-        if (gadgetShopController.getGadgets().isEmpty())
-        {
-
-            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
-        }
-
-        displayMobiles(gadgetShopController.getGadgets());
-        System.out.println("");
 
     }
 

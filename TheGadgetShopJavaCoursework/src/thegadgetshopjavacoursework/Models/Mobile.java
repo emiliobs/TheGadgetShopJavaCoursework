@@ -10,7 +10,7 @@ import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 public class Mobile extends Gadget
 {
 
-    private static int mobileCounter = 1;
+    
 
     //private int mobileId;
     private int numberOfMinutesOfCallingCreditRemaining;
@@ -75,16 +75,20 @@ public class Mobile extends Gadget
     }
 
     // Mehtod to make a call
-    public void mobileMakeCall(String phoneNumber, int duration)
+    public boolean mobileMakeCall(int phoneNumber, int duration)
     {
+        
+        
         if (numberOfMinutesOfCallingCreditRemaining >= duration)
         {
-            System.out.println("Calling " + phoneNumber + " for " + duration + " minutes.");
+            System.out.println("CALLING NUMBER: " + phoneNumber + " FOR " + duration + " MINUTES.");
             numberOfMinutesOfCallingCreditRemaining -= duration;
+            return true;
         }
         else
         {
-            System.out.println("Insufficient credit to make the call.");
+            System.out.println("*****  - Sorry!. Insufficient credit to make the call.  - *****");
+            return false;
         }
     }
 
@@ -93,7 +97,7 @@ public class Mobile extends Gadget
     public void display()
     {
         super.display();
-        System.out.println("Calling Credit: " + getNumberOfMinutesOfCallingCreditRemaining() + " Minutes");
+        System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES. :) ");
     }
 
 }
