@@ -1,8 +1,10 @@
 package thegadgetshopjavacoursework.Views;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
+import thegadgetshopjavacoursework.Models.Gadget;
 import thegadgetshopjavacoursework.Models.MP3;
 import thegadgetshopjavacoursework.Models.Mobile;
 
@@ -33,10 +35,14 @@ public class GadgetShopViewPrompt
 
         System.out.println("");
         System.out.println("=======  Menu  =======");
-        System.out.println("1. Add Mobile.");
-        System.out.println("2. Add MP3 Player.");
-        System.out.println("3. Display All Gadgets.");
-        System.out.println("4. Exit.");
+        System.out.println("1. Add Mobile");
+        System.out.println("2. Add MP3 Player");
+        System.out.println("3. Display All Gadgets");
+        System.out.println("4. Add Calling Credit to Mobile");
+        System.out.println("5. Make Call from Mobile");
+        System.out.println("6. Download Music to MP3 Player");
+        System.out.println("7. Delete Music from MP3 Player");
+        System.out.println("8. Exit");
         System.out.println("=======================");
 
     }
@@ -62,11 +68,24 @@ public class GadgetShopViewPrompt
                         break;
                     case 2:
                         addMP3Player(); // Add MP3 Player
+
                         break;
                     case 3:
                         displayAllGadgets(); // Display all gadget
                         break;
                     case 4:
+                        addCallingCredit(); // Add MP3 Player
+                        break;
+                    case 5:
+                        makeCallFromMobile();
+                        break;
+                    case 6:
+                        DownloadMusictoMP3Player();
+                        break;
+                    case 7:
+                        deleteMusicFromMP3Player();
+                        break;
+                    case 8:
                         System.out.println("");
                         System.out.println("##### Good Bye!. You leave the Program... #####"); // Exit the Application
                         System.out.println("");
@@ -85,7 +104,7 @@ public class GadgetShopViewPrompt
                 choice = 0; // Rest choice to trigger menu redisplay
             }
         }
-        while (choice != 4); // Continue ubtil choose to exit
+        while (choice != 8); // Continue ubtil choose to exit
     }
 
     // Method to add a mobile phone
@@ -123,7 +142,8 @@ public class GadgetShopViewPrompt
         }
 
         System.out.println("");
-        gadgetShopController.addGadget(mobile);  // Add mobile to the list
+        gadgetShopController.addGadget(mobile);
+        //gadgetShopController.addGadget(mobile);  // Add mobile to the list
         System.out.println("##### Mobile Added Successfully! #####");
     }
 
@@ -175,6 +195,76 @@ public class GadgetShopViewPrompt
         System.out.println("");
         gadgetShopController.displayAllGadgets();
 
+    }
+
+    private void addCallingCredit()
+    {
+        System.out.println("");
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+
+            System.out.println("Sorry!. No Gadgets Available to Add Calling Credit.");
+            return;
+        }
+
+        gadgetShopController.displayAllGadgets();
+        System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
+        int mobileId = scanner.nextInt();
+        displayMobiles(gadgetShopController.getGadgets());
+
+        try
+        {
+            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
+            {
+                System.out.println("");
+                System.out.print("Enter Calling Credit to Add (Minutes): ");
+                int creditToAdd = scanner.nextInt();
+                ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).addCallingCredit(creditToAdd);
+                System.out.println("");
+                System.out.println("##### Calling Credit Added Successfully! #####");
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+        catch (InputMismatchException | IndexOutOfBoundsException e)
+        {
+            System.out.println("");
+            System.out.println("Error: Invalid Choice, Please Enter a Valid Number  on the List. " + e.getMessage());
+        }
+
+    }
+
+    private void makeCallFromMobile()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void DownloadMusictoMP3Player()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private void deleteMusicFromMP3Player()
+    {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private static void displayMobiles(List<Gadget> gadgets)
+    {
+        System.out.println("");
+        System.out.println("=====  Mobiles =====");
+
+        for (Gadget gadget : gadgets)
+        {
+            if (gadget instanceof Mobile)
+            {
+                System.out.println(gadget.getGadgetId() + ". " + gadget.getModel());
+
+            }
+        }
+          System.out.println("===================");
     }
 
 }
