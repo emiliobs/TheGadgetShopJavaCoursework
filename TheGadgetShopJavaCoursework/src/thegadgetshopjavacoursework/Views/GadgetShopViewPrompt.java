@@ -222,13 +222,13 @@ public class GadgetShopViewPrompt
     private void addCallingCredit()
     {
         System.out.println("");
+        System.out.println("======= ADDING CALLING CREDIT TO MOBILE =======");
         if (gadgetShopController.getGadgets().isEmpty())
         {
 
             System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
             return;
         }
-
         displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
@@ -237,9 +237,10 @@ public class GadgetShopViewPrompt
         {
             if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
             {
-                System.out.println("");
                 System.out.print("Enter Calling Credit to Add (Minutes): ");
                 int creditToAdd = scanner.nextInt();
+                System.out.println("");
+                System.out.println("===============================================");
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).addCallingCredit(creditToAdd);
                 System.out.println("");
                 System.out.println("##### Calling Credit Added Successfully! #####");
@@ -259,7 +260,16 @@ public class GadgetShopViewPrompt
 
     private void makeCallFromMobile()
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("");
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+
+            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+        }
+
+        displayMobiles(gadgetShopController.getGadgets());
+        System.out.println("");
+
     }
 
     private void DownloadMusictoMP3Player()
@@ -274,9 +284,7 @@ public class GadgetShopViewPrompt
 
     private static void displayMobiles(List<Gadget> gadgets)
     {
-        System.out.println("");
-
-        System.out.println("=========== MOBILES ===========");
+        System.out.println("----------- MOBILES -----------");
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof Mobile)
@@ -290,7 +298,7 @@ public class GadgetShopViewPrompt
                 System.out.println("");
             }
         }
-        System.out.println("============================");
+        System.out.println("---------------------------------");
     }
 
 }
