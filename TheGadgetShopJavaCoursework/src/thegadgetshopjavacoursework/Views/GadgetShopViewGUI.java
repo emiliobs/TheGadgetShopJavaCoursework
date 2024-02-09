@@ -114,6 +114,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnAddMobile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/44636_mobile_phone_icon (1).png"))); // NOI18N
         btnAddMobile.setText("Add Mobile");
         btnAddMobile.setToolTipText("Add Mobile");
+        btnAddMobile.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnAddMobileActionPerformed(evt);
+            }
+        });
 
         btnAddMP3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnAddMP3.setForeground(new java.awt.Color(222, 8, 8));
@@ -404,7 +411,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                                     .addGroup(jPanelContentLayout.createSequentialGroup()
                                         .addGap(175, 175, 175)
                                         .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 18, Short.MAX_VALUE))))
+                        .addGap(0, 13, Short.MAX_VALUE))))
         );
         jPanelContentLayout.setVerticalGroup(
             jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -488,6 +495,11 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     {//GEN-HEADEREND:event_btnExitActionPerformed
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnAddMobileActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddMobileActionPerformed
+    {//GEN-HEADEREND:event_btnAddMobileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddMobileActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaShowData;
