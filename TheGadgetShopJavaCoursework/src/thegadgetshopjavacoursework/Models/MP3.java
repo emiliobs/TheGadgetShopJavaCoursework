@@ -44,23 +44,16 @@ public class MP3 extends Gadget
     }
 
     // Method to dowload music
-    public void downloadMusic(double memoryReque)
+    public boolean downloadMusic(double memoryReque)
     {
-        try
+        if (memoryReque <= availableMemory)
         {
-            if (memoryReque <= availableMemory)
-            {
-                availableMemory -= memoryReque;
-            }
-            else
-            {
-                throw new IllegalArgumentException("Not enough memory to download music.");
-            }
+            availableMemory -= memoryReque;
+            return true;
         }
-        catch (IllegalArgumentException e)
-        {
-            System.out.println("Error: " + e.getMessage());
-        }
+        
+        return false;
+
     }
 
     // Method to delete music
@@ -74,7 +67,7 @@ public class MP3 extends Gadget
     public void display()
     {
         super.display();
-        System.out.println(" AVAILABLE MEMORY: " + availableMemory + " MB");
+        System.out.println("AVAILABLE MEMORY: " + availableMemory + " MB");
     }
 
 }

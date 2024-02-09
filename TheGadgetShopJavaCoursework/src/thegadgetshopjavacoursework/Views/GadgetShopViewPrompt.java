@@ -24,15 +24,24 @@ public class GadgetShopViewPrompt
     public GadgetShopViewPrompt(TheGadgetShopController gadgetShopController)
     {
         System.out.println("");
-        System.out.println("");
         System.out.println("================================================");
+        System.out.println("=                    WELCOME                   =");
+        System.out.println("=                                              =");
+        System.out.println("=                       TO                     =");
+        System.out.println("=                                              =");
+        System.out.println("=           COURSEWORK PROGRAMING JAVA         =");
         System.out.println("=                                              =");
         System.out.println("=                                              =");
+        System.out.println("=                 THE GADGET SHOP!             =");
         System.out.println("=                                              =");
-        System.out.println("=       WELCOME TO THE GADGET SHOP!  :)        =");
+        System.out.println("=                       BY                     =");
         System.out.println("=                                              =");
+        System.out.println("=             EMILIO BARRERA SEPULVEDA         =");
+        System.out.println("=                    22047090                  =");
         System.out.println("=                                              =");
-        System.out.println("=                                              =");
+        System.out.println("=                 MET UNIVERSITY               =");
+        System.out.println("=                     LONDON                   =");
+        System.out.println("=                      2024                    =");
         System.out.println("================================================");
 
         this.gadgetShopController = gadgetShopController;
@@ -46,14 +55,14 @@ public class GadgetShopViewPrompt
 
         System.out.println("");
         System.out.println("================== MENU ==============");
-        System.out.println("1. Add Mobile");
-        System.out.println("2. Add MP3 Player");
-        System.out.println("3. Display All Gadgets");
-        System.out.println("4. Add Calling Credit to Mobile");
-        System.out.println("5. Make Call from Mobile");
-        System.out.println("6. Download Music to MP3 Player");
-        System.out.println("7. Delete Music from MP3 Player");
-        System.out.println("8. Exit");
+        System.out.println("1. ADD MOBILE.");
+        System.out.println("2. ADD MP3 PLAYER.");
+        System.out.println("3. DISPLAY ALL GADGETS");
+        System.out.println("4. ADD CALLING CREDIT TO MOBILE.");
+        System.out.println("5. MAKE CALL FROM MOBILE.");
+        System.out.println("6. DOWNLOAD MUSIC TO MP3 PLAYER.");
+        System.out.println("7. DELETE MUSIC FROM MP3 PLAYER.");
+        System.out.println("8. EXIT.");
         System.out.println("======================================");
 
     }
@@ -206,7 +215,6 @@ public class GadgetShopViewPrompt
             return;
         }
         System.out.println("");
-        System.out.println("");
         gadgetShopController.addGadget(mp3);
         System.out.println("##### MP3 Player Added Successfully! #####");
 
@@ -292,12 +300,12 @@ public class GadgetShopViewPrompt
 
                 if (resultCall)
                 {
-                    System.out.println("##### Great!!. Call Made Successfully! #####");
+                    System.out.println("##### Great!!. Call Made Successfully! :) #####");
                 }
                 else
                 {
-                    System.out.println("##### Sorry!. The Call Was Not Initiated. #####");
-                    
+                    System.out.println("##### Sorry!. Insufficient Credit To Make The Call. ): #####");
+
                 }
             }
             else
@@ -315,12 +323,65 @@ public class GadgetShopViewPrompt
 
     private void DownloadMusictoMP3Player()
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("");
+        System.out.println("======= DOWNLOAD MUSIC TO MP3 PLAYER =======");
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+        }
+
+        try
+        {
+            displayMP3(gadgetShopController.getGadgets());
+            System.out.print("Choose The MP3 Player To Download Music (Enter Its Numbers): ");
+            int mp3Id = scanner.nextInt();
+            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
+            {
+                System.out.print("Enter Memory Required For The Music: ");
+                int memory = scanner.nextInt();
+                System.out.println("");
+                boolean resultDownload = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).downloadMusic(memory);
+                ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
+                System.out.println("===============================================");
+                System.out.println("");
+
+                if (resultDownload)
+                {
+                    System.out.println("##### Great!!. The Downlaod Successfully! :) #####");
+                }
+                else
+                {
+                    System.out.println("##### Sorry!. Not Enough Memory To Download Music! ): #####");
+
+                }
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+
+        }
+        catch (InputMismatchException | IndexOutOfBoundsException e)
+        {
+            System.out.println("*****  -   Error!. Invalid Choice, Please Enter a Valid Number.  -  *****");
+            scanner.nextLine();// Clear de input buffer
+        }
+
     }
 
     private void deleteMusicFromMP3Player()
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("");
+        System.out.println("======= DELETE MUSIC FROM  MP3 PLAYER =======");
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+        }
+
+        System.out.println("===============================================");
+        System.out.println("");
     }
 
     private static void displayMobiles(List<Gadget> gadgets)
@@ -335,7 +396,26 @@ public class GadgetShopViewPrompt
                 System.out.println("Price: " + gadget.getPrice());
                 System.out.println("Weight: " + gadget.getWeight());
                 System.out.println("Size: " + gadget.getSize());
-                System.out.println("Calling Credit: " + ((Mobile) gadget).getNumberOfMinutesOfCallingCreditRemaining());
+                System.out.println("CALLING CREDIT: " + ((Mobile) gadget).getNumberOfMinutesOfCallingCreditRemaining());
+                System.out.println("");
+            }
+        }
+        System.out.println("---------------------------------");
+    }
+
+    private void displayMP3(List<Gadget> gadgets)
+    {
+        System.out.println("----------- MP3s -----------");
+        for (Gadget gadget : gadgets)
+        {
+            if (gadget instanceof MP3)
+            {
+                System.out.println("Gadget Id: " + gadget.getGadgetId());
+                System.out.println("Model: " + gadget.getModel());
+                System.out.println("Price: " + gadget.getPrice());
+                System.out.println("Weight: " + gadget.getWeight());
+                System.out.println("Size: " + gadget.getSize());
+                System.out.println("AVAILABLE MEMORY: " + ((MP3) gadget).getAvailableMemory());
                 System.out.println("");
             }
         }

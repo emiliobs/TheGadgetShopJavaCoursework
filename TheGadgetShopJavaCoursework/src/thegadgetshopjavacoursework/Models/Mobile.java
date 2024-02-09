@@ -81,7 +81,7 @@ public class Mobile extends Gadget
         }
         else
         {
-            System.out.println("*****  - Sorry!. Insufficient credit to make the call.  - *****");
+           // System.out.println("*****  - Sorry!. Insufficient credit to make the call.  - *****");
             return false;
         }
     }
@@ -91,7 +91,7 @@ public class Mobile extends Gadget
     public void display()
     {
         super.display();
-        System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES. :) ");
+        System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
     }
 
 }
