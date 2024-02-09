@@ -54,16 +54,16 @@ public class GadgetShopViewPrompt
     {
 
         System.out.println("");
-        System.out.println("================== MENU ==============");
-        System.out.println("1. ADD MOBILE.");
-        System.out.println("2. ADD MP3 PLAYER.");
-        System.out.println("3. DISPLAY ALL GADGETS");
-        System.out.println("4. ADD CALLING CREDIT TO MOBILE.");
-        System.out.println("5. MAKE CALL FROM MOBILE.");
-        System.out.println("6. DOWNLOAD MUSIC TO MP3 PLAYER.");
-        System.out.println("7. DELETE MUSIC FROM MP3 PLAYER.");
-        System.out.println("8. EXIT.");
-        System.out.println("======================================");
+        System.out.println("======================= MENU ===================");
+        System.out.println("1. ADD MOBILE.                                 =");
+        System.out.println("2. ADD MP3 PLAYER.                             =");
+        System.out.println("3. DISPLAY ALL GADGETS.                        =");
+        System.out.println("4. ADD CALLING CREDIT TO MOBILE.               =");
+        System.out.println("5. MAKE CALL FROM MOBILE.                      =");
+        System.out.println("6. DOWNLOAD MUSIC TO MP3 PLAYER.               =");
+        System.out.println("7. DELETE MUSIC FROM MP3 PLAYER.               =");
+        System.out.println("8. EXIT.                                       =");
+        System.out.println("================================================");
 
     }
 
@@ -142,7 +142,7 @@ public class GadgetShopViewPrompt
     private void addMobile()
     {
         System.out.println("");
-        System.out.println("=========== ADDING MOBILE ===========");
+        System.out.println("================ ADDING MOBILE =================");
         System.out.print("Enter Mobil Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
@@ -154,7 +154,7 @@ public class GadgetShopViewPrompt
         String size = scanner.nextLine();
         System.out.print("Enter Calling Credit: ");
         int callingCredit = scanner.nextInt();
-        System.out.println("=====================================");
+        System.out.println("================================================");
 
         Mobile mobile = new Mobile(); // Create new Mobile Object
         mobile.setModel(model);
