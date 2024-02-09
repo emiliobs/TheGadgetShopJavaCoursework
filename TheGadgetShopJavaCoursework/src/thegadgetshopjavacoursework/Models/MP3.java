@@ -51,15 +51,23 @@ public class MP3 extends Gadget
             availableMemory -= memoryReque;
             return true;
         }
-        
+
         return false;
 
     }
 
     // Method to delete music
-    public void deleteMusic(int memoryFreed)
+    public boolean deleteMusic(int memoryFreed)
     {
-        availableMemory += memoryFreed;
+        if (memoryFreed >= 0)
+        {
+            availableMemory += memoryFreed;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     // Override display method to include available memory

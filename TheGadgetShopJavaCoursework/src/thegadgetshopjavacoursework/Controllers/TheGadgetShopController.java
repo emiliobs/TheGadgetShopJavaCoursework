@@ -25,7 +25,7 @@ public class TheGadgetShopController
     // Method to display all gadget in the list
     public void displayAllGadgets()
     {
-        System.out.println("========= DISPLAY ALL GADGETS =========");
+        System.out.println("============= DISPLAY ALL GADGETS ==============");
 
         if (gadgets.isEmpty())
         {
@@ -38,7 +38,7 @@ public class TheGadgetShopController
             System.out.println("");
 
         }
-        System.out.println("=======================================");
+        System.out.println("================================================");
     }
 
     public List<Gadget> getGadgets()

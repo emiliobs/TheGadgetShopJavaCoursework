@@ -88,7 +88,6 @@ public class GadgetShopViewPrompt
                         break;
                     case 2:
                         addMP3Player(); // Add MP3 Player
-
                         break;
                     case 3:
                         displayAllGadgets(); // Display all gadget
@@ -182,7 +181,7 @@ public class GadgetShopViewPrompt
     private void addMP3Player()
     {
         System.out.println("");
-        System.out.println("=========== ADDING MP3 PLAYER ===========");
+        System.out.println("============= ADDING MP3 PLAYER ================");
         System.out.print("Enter MP3 Player Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
@@ -194,7 +193,7 @@ public class GadgetShopViewPrompt
         String size = scanner.nextLine();
         System.out.print("Enter Available Memory (in MB): ");
         int availableMemory = scanner.nextInt();
-        System.out.println("=========================================");
+        System.out.println("===============================================");
 
         MP3 mp3 = new MP3();
         mp3.setModel(model);
@@ -230,14 +229,16 @@ public class GadgetShopViewPrompt
     private void addCallingCredit()
     {
         System.out.println("");
-        System.out.println("======= ADDING CALLING CREDIT TO MOBILE =======");
+        System.out.println("======= ADDING CALLING CREDIT TO MOBILE ========");
         if (gadgetShopController.getGadgets().isEmpty())
         {
 
             System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
             return;
         }
+        
         displayMobiles(gadgetShopController.getGadgets());
+        
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
@@ -270,12 +271,11 @@ public class GadgetShopViewPrompt
     private void makeCallFromMobile()
     {
         System.out.println("");
-        System.out.println("======= MAKE A CALL FROM MOBILE =======");
+        System.out.println("============ MAKE A CALL FROM MOBILE ============");
 
         if (gadgetShopController.getGadgets().isEmpty())
         {
-
-            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+            System.out.println("*****  - Sorry!. No Gadgets Available to Make Call From Mobile. - *****");
             return;
         }
 
@@ -295,7 +295,7 @@ public class GadgetShopViewPrompt
                 System.out.println("");
                 var resultCall = ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).display();
-                System.out.println("===============================================");
+                System.out.println("======================================================");
                 System.out.println("");
 
                 if (resultCall)
@@ -324,11 +324,12 @@ public class GadgetShopViewPrompt
     private void DownloadMusictoMP3Player()
     {
         System.out.println("");
-        System.out.println("======= DOWNLOAD MUSIC TO MP3 PLAYER =======");
+        System.out.println("========= DOWNLOAD MUSIC TO MP3 PLAYER =========");
 
         if (gadgetShopController.getGadgets().isEmpty())
         {
-            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+            System.out.println("*****  - Sorry!. No Gadgets Available to Download Music To MP3 Player. - *****");
+            return;
         }
 
         try
@@ -343,7 +344,7 @@ public class GadgetShopViewPrompt
                 System.out.println("");
                 boolean resultDownload = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).downloadMusic(memory);
                 ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
-                System.out.println("===============================================");
+                System.out.println("=================================================");
                 System.out.println("");
 
                 if (resultDownload)
@@ -373,14 +374,51 @@ public class GadgetShopViewPrompt
     private void deleteMusicFromMP3Player()
     {
         System.out.println("");
-        System.out.println("======= DELETE MUSIC FROM  MP3 PLAYER =======");
+        System.out.println("========= DELETE MUSIC FROM  MP3 PLAYER ========");
 
         if (gadgetShopController.getGadgets().isEmpty())
         {
-            System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
+            System.out.println("*****  - Sorry!. No Gadgets Available to Delete Music. - *****");
+            return;
         }
 
-        System.out.println("===============================================");
+        try
+        {
+            displayMP3(gadgetShopController.getGadgets());
+            System.out.print("Choose The MP3 Player To Delete Music (Enter Its Numbers): ");
+            int mp3Id = scanner.nextInt();
+            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
+            {
+                System.out.print("Enter Memory To Free From The Deleted  Music: ");
+                int memory = scanner.nextInt();
+                System.out.println("");
+                boolean resultdeletMusic = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).deleteMusic(memory);
+                ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
+                System.out.println("==================================================");
+                System.out.println("");
+                if (resultdeletMusic)
+                {
+                    System.out.println("##### Great!!. The Deleted Music Was Successfully! :) #####");
+                }
+                else
+                {
+                    System.out.println("##### Sorry!. The Music Could Not Delete (Please Enter a Value >= 0)! ): #####");
+
+                }
+
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+
+        }
+        catch (InputMismatchException | IndexOutOfBoundsException e)
+        {
+            System.out.println("*****  -   Error!. Invalid Choice, Please Enter a Valid Number On The List.  -  *****");
+            scanner.nextLine();// Clear de input buffer
+        }
+
         System.out.println("");
     }
 
