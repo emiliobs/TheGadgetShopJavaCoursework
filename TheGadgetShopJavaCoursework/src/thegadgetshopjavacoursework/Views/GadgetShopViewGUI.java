@@ -65,6 +65,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("GADGET SHOP!");
+        setBackground(new java.awt.Color(150, 204, 211));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
 
