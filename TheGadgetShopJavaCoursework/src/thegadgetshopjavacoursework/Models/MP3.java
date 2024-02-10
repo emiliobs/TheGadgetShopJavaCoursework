@@ -72,10 +72,14 @@ public class MP3 extends Gadget
 
     // Override display method to include available memory
     @Override
-    public void display()
+    public String display()
     {
         super.display();
-        System.out.println("AVAILABLE MEMORY: " + availableMemory + " MB");
+         return "MP3{" + "availableMemory=" + availableMemory + '}';
+        //System.out.println("AVAILABLE MEMORY: " + availableMemory + " MB");
     }
 
+  
+    
+    
 }

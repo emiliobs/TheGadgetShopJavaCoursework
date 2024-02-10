@@ -1,5 +1,6 @@
 package thegadgetshopjavacoursework.Models;
 
+
 /**
  *
  * @author Emilio
@@ -90,13 +91,16 @@ public class Gadget
     }
 
     // Mehtod to display Gadget details
-    public void display()
+    public String display()
     {
-        System.out.println("Id: " + gadgetId);
-        System.out.println("Model: " + model);
-        System.out.println("Price: £ " +price);
-        System.out.println("Weight: " + weight + " Grams");
-        System.out.println("Size: " + size);
+         return "Id: " + gadgetId + "\n " +" model: " + model + "\n " + " price: " + price + "\n " + " weight: " + weight + "\n " + " size: " + size;
+//        System.out.println("Id: " + getGadgetId());
+//        System.out.println("Model: " + getModel());
+//        System.out.println("Price: £ " + getPrice());
+//        System.out.println("Weight: " + getWeight() + " Grams");
+//        System.out.println("Size: " + getSize());
     }
 
+     
+    
 }

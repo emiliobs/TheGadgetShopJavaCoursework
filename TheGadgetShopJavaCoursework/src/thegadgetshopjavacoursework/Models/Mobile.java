@@ -88,10 +88,14 @@ public class Mobile extends Gadget
 
     // Override display mehtod to include calling credit
     @Override
-    public void display()
+    public String display()
     {
-        super.display();
-        System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
+         return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining;
+        //System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
     }
+
+  
+    
+    
 
 }

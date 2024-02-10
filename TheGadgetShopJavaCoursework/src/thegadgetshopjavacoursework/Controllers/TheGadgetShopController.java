@@ -34,12 +34,14 @@ public class TheGadgetShopController
 
         for (Gadget gadget : gadgets)
         {
-            gadget.display();
+            System.out.println(gadget.display());
             System.out.println("");
 
         }
         System.out.println("================================================");
     }
+    
+
 
     public List<Gadget> getGadgets()
     {
