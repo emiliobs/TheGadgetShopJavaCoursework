@@ -14,7 +14,16 @@ public class TheGadgetShopController
 {
 
     // Create a empty ArrayList to store Gadget objects
-    private List<Gadget> gadgets = new ArrayList<>();
+    private List<Gadget> gadgets;
+    
+
+    public TheGadgetShopController()
+    {
+        gadgets = new ArrayList<>();
+        
+    }
+    
+    
 
     // Method to add a gadget to the list
     public void addGadget(Gadget gadget)

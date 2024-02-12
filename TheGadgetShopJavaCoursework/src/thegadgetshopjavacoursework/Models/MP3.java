@@ -74,8 +74,7 @@ public class MP3 extends Gadget
     @Override
     public String display()
     {
-        super.display();
-         return "MP3{" + "availableMemory=" + availableMemory + '}';
+          return super.display() + "\n " + "AVAILABLE MEMORY: " + availableMemory  + " MB";
         //System.out.println("AVAILABLE MEMORY: " + availableMemory + " MB");
     }
 

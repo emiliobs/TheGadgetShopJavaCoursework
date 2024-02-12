@@ -90,7 +90,7 @@ public class Mobile extends Gadget
     @Override
     public String display()
     {
-         return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining;
+         return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining + " MINUTES.";
         //System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
     }
 

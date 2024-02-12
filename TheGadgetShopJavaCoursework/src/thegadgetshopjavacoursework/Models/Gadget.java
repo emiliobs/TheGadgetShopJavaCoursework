@@ -57,6 +57,7 @@ public class Gadget
 
     public void setSize(String size)
     {
+        
         this.size = size;
     }
 
@@ -93,7 +94,7 @@ public class Gadget
     // Mehtod to display Gadget details
     public String display()
     {
-         return "Id: " + gadgetId + "\n " +" model: " + model + "\n " + " price: " + price + "\n " + " weight: " + weight + "\n " + " size: " + size;
+         return "Id: " + gadgetId + "\n " +" model: " + model + "\n " + " price: £" + price + "\n " + " weight: " + weight + " Grams" + "\n " + " size: " + size + " MB";
 //        System.out.println("Id: " + getGadgetId());
 //        System.out.println("Model: " + getModel());
 //        System.out.println("Price: £ " + getPrice());

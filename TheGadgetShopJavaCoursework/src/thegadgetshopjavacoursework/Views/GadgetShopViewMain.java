@@ -4,6 +4,7 @@
  */
 package thegadgetshopjavacoursework.Views;
 
+import java.awt.Frame;
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 
 /**
@@ -44,8 +45,10 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         lblIdCard = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(150, 204, 211));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusable(false);
 
         jPanelMain.setBackground(new java.awt.Color(150, 204, 211));
 
@@ -238,39 +241,38 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt(gadgetShopController);
         viewPrompt.run();
 
-        GadgetShopViewMain gadgetShopViewMain = new GadgetShopViewMain();
-        gadgetShopViewMain.dispose();
-
+        this.dispose();
     }//GEN-LAST:event_btnCommandPromptActionPerformed
 
     private void btnGuiProgramActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGuiProgramActionPerformed
     {//GEN-HEADEREND:event_btnGuiProgramActionPerformed
-        //This code is to display the program in the graphical user interface
+
+    
+        
+//This code is to display the program in the graphical user interface
         GadgetShopViewGUI gadgetShop = new GadgetShopViewGUI();
         gadgetShop.setVisible(true);
         gadgetShop.setLocationRelativeTo(null);
 
-        GadgetShopViewMain gadgetShopViewMain = new GadgetShopViewMain();
-        gadgetShopViewMain.dispose();
+
     }//GEN-LAST:event_btnGuiProgramActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCommandPrompt;
-    private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnGuiProgram;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanelContainer;
-    private javax.swing.JPanel jPanelMain;
-    private javax.swing.JPanel jPanelOptionProgram;
-    private javax.swing.JLabel lblBy;
-    private javax.swing.JLabel lblIdCard;
-    private javax.swing.JLabel lblImage;
-    private javax.swing.JLabel lblTitleGadgetShop;
-    private javax.swing.JLabel lblTitleGadgetShop1;
+    public javax.swing.JButton btnCommandPrompt;
+    public javax.swing.JButton btnExit;
+    public javax.swing.JButton btnGuiProgram;
+    public javax.swing.JLabel jLabel1;
+    public javax.swing.JPanel jPanelContainer;
+    public javax.swing.JPanel jPanelMain;
+    public javax.swing.JPanel jPanelOptionProgram;
+    public javax.swing.JLabel lblBy;
+    public javax.swing.JLabel lblIdCard;
+    public javax.swing.JLabel lblImage;
+    public javax.swing.JLabel lblTitleGadgetShop;
+    public javax.swing.JLabel lblTitleGadgetShop1;
     // End of variables declaration//GEN-END:variables
 }
