@@ -45,10 +45,12 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         lblIdCard = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setBackground(new java.awt.Color(150, 204, 211));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setFocusTraversalPolicyProvider(true);
         setFocusable(false);
+        setResizable(false);
 
         jPanelMain.setBackground(new java.awt.Color(150, 204, 211));
 
