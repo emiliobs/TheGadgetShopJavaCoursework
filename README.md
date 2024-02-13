@@ -5,7 +5,8 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
 ##
 # GUI Desing
 # Add Mobile and MP3 and More
-![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/1e7b414b-9bd3-4fa9-bdb8-5bcbc7f506d7)
+![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/80746907-691f-47ae-8bce-4d2694df645c)
+
 
   ##
  # Command Prompt Desing
