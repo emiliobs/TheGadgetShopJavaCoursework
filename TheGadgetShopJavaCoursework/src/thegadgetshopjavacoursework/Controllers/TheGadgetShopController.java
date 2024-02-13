@@ -15,15 +15,22 @@ public class TheGadgetShopController
 
     // Create a empty ArrayList to store Gadget objects
     private List<Gadget> gadgets;
-    
 
     public TheGadgetShopController()
     {
         gadgets = new ArrayList<>();
-        
+
     }
-    
-    
+
+    public List<Gadget> getGadgets()
+    {
+        return gadgets;
+    }
+
+    public void setGadgets(List<Gadget> gadgets)
+    {
+        this.gadgets = gadgets;
+    }
 
     // Method to add a gadget to the list
     public void addGadget(Gadget gadget)
@@ -49,17 +56,8 @@ public class TheGadgetShopController
         }
         System.out.println("================================================");
     }
+
+    // Method to display all gadget in the list
     
-
-
-    public List<Gadget> getGadgets()
-    {
-        return gadgets;
-    }
-
-    public void setGadgets(List<Gadget> gadgets)
-    {
-        this.gadgets = gadgets;
-    }
-
+   
 }
