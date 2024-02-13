@@ -11,7 +11,7 @@ public class Gadget
 {
 
     // Instance Variables
-    private static int gadgetCounter = 1;
+    private static int gadgetCounter = 0;
 
     private int gadgetId;
     private String model;
