@@ -2,6 +2,7 @@ package thegadgetshopjavacoursework.Views;
 
 import java.awt.Image;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -31,7 +32,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage());
 
         gadgetShopController = new TheGadgetShopController();
-        
+
         txtModel.requestFocus();
 
     }
@@ -656,7 +657,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSeparator1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 4));
@@ -728,12 +729,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitle)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelContentLayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelCallDowbloads, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanelShowData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanelContentLayout.createSequentialGroup()
@@ -984,6 +985,20 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             return;
         }
 
+        if (!isNonNegativeNumeric(mobileId))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not Un: " + mobileId);
+            return;
+
+        }
+
+        if (!isNonNegativeNumeric(creditToAdd))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Add Credit From Mobile Minutes  (1,2...) Not Un: " + creditToAdd);
+            return;
+
+        }
+
         try
         {
             int id = Integer.parseInt(mobileId);
@@ -994,22 +1009,26 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
                 JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add." + creditToAdd + " Minutes");
                 TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display());
-                TextAreaShowData.append("\n----------------------------------------------------------------------");
-                
+
                 txtSelectMobileId.setText("");
                 txtPhoneNumber.setText("");
                 txtDuration.setText("");
                 txtDuration.setText("");
                 txtAddCallingCreditToMObile.setText("");
             }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+
         }
-        catch (Exception e)
+        catch (IndexOutOfBoundsException | InputMismatchException e)
         {
-            JOptionPane.showMessageDialog(null, "Error: Please, You Must Enter  A Number (Ej: 1,2.... OR 5.5....): " + e.getMessage());
-            return;
+            JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
+
         }
 
-
+        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
     }//GEN-LAST:event_btnAddCallingCreditActionPerformed
 
     private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
@@ -1019,7 +1038,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
     {//GEN-HEADEREND:event_btnMakeACallActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnMakeACallActionPerformed
 
     private void txtDisplayNumberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDisplayNumberActionPerformed
@@ -1058,6 +1077,11 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     {//GEN-HEADEREND:event_txtSelectMP3IdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSelectMP3IdActionPerformed
+
+    private boolean isNonNegativeNumeric(String text)
+    {
+        return text.matches("\\d+") && Integer.parseInt(text) > 0;
+    }
 
     private void Clear()
     {

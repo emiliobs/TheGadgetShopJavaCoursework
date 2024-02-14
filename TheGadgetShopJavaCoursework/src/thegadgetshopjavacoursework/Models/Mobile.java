@@ -57,7 +57,7 @@ public class Mobile extends Gadget
     // Mehtod to add calling credit
     public void addCallingCredit(int credit)
     {
-        if (credit > 0)
+        if (credit >= 0)
         {
             numberOfMinutesOfCallingCreditRemaining += credit;
 
