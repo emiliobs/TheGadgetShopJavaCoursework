@@ -56,7 +56,7 @@ public class MP3 extends Gadget
 
     }
 
-    // Method to delete music
+    // Method to delete music (More MB for the MP£ Display)
     public boolean deleteMusic(int memoryFreed)
     {
         if (memoryFreed >= 0)

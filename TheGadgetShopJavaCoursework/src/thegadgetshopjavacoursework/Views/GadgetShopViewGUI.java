@@ -337,7 +337,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         );
 
         jPanelCallDowbloads.setBackground(new java.awt.Color(150, 204, 211));
-        jPanelCallDowbloads.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 3), "Call And Download.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 51))); // NOI18N
+        jPanelCallDowbloads.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 3), "Call And Download .", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 51))); // NOI18N
 
         jPanel1.setBackground(new java.awt.Color(150, 204, 211));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 3), "Select Mobile Id To Add Calling Credit.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 0))); // NOI18N
@@ -798,6 +798,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append(" " + gadget.display());
                 TextAreaShowData.append("\n");
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Sorry! There Is Not Mobiles To Display (Empty LIst.)");
+                TextAreaShowData.append("Sorry!. Mobiles List Empty:\n");
+                return;
+            }
         }
         TextAreaShowData.append("----------------------------------------------------------------------\n");
     }//GEN-LAST:event_btnShowAllMobilesActionPerformed
@@ -1007,7 +1013,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             {
                 TextAreaShowData.append("Mobiles Update with Calling Credit:\n");
                 ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
-                JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add." + creditToAdd + " Minutes");
+                JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add Was Successfully." + creditToAdd + " Minutes");
                 TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display());
 
                 txtSelectMobileId.setText("");
@@ -1033,7 +1039,64 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
     {//GEN-HEADEREND:event_btnDeleteMusicMP3ActionPerformed
-        // TODO add your handling code here:
+        String mp3Id = txtSelectMP3Id.getText();
+        String deleteMusic = txtDeleteMusicFromMp3Player.getText();
+
+        if (mp3Id.trim().isBlank() && mp3Id.trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A MP3 Id From The List. ");
+            return;
+        }
+
+        if (deleteMusic.trim().isBlank() && deleteMusic.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(mp3Id))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid MP3 Id Number (1,2...) Not Un: " + mp3Id);
+            return;
+
+        }
+
+        if (!isNonNegativeNumeric(deleteMusic))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not Un: " + deleteMusic);
+            return;
+
+        }
+
+        try
+        {
+            int idMp3 = Integer.parseInt(mp3Id);
+
+            if (idMp3 >= 1 && idMp3 <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(idMp3 - 1) instanceof MP3)
+            {
+                TextAreaShowData.append("MP3 Update with Delete Memory:\n");
+                ((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).deleteMusic(Integer.parseInt(deleteMusic));
+                JOptionPane.showMessageDialog(null, "Great!. The Delete Music To MP3 Was Successfuully." + deleteMusic + " Minutes");
+                TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display());
+
+                txtSelectMP3Id.setText("");
+                txtDownload.setText("");
+                txtDeleteMusicFromMp3Player.setText("");
+
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+
+        }
+        catch (IndexOutOfBoundsException | InputMismatchException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
+
+        }
+
+        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
     }//GEN-LAST:event_btnDeleteMusicMP3ActionPerformed
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
@@ -1055,7 +1118,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             return;
         }
 
-        TextAreaShowData.append("\nMP3s List:\n");
+        TextAreaShowData.append("MP3s List:\n");
 
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
@@ -1064,8 +1127,15 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append(" " + gadget.display());
                 TextAreaShowData.append("\n");
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Sorry! There Is Not Mobiles To Display (Empty LIst.)");
+                TextAreaShowData.append("Sorry!. MP3 List Empty:\n");
+                return;
+            }
         }
-        TextAreaShowData.append("----------------------------------------------------------------------");
+
+        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
     }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
     private void txtSelectMobileIdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtSelectMobileIdActionPerformed
