@@ -31,6 +31,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage());
 
         gadgetShopController = new TheGadgetShopController();
+        
+        txtModel.requestFocus();
 
     }
 
@@ -66,7 +68,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jLabel1 = new javax.swing.JLabel();
         jPanelCallDowbloads = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        btnMakeACall1 = new javax.swing.JButton();
+        btnShowAllMobiles = new javax.swing.JButton();
         lblAddCallingCreditToMobile = new javax.swing.JLabel();
         txtAddCallingCreditToMObile = new javax.swing.JTextField();
         lblDisplayNumber = new javax.swing.JLabel();
@@ -78,16 +80,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblSelectMobileId = new javax.swing.JLabel();
         txtSelectMobileId = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
-        btnMakeACall2 = new javax.swing.JButton();
-        btnClear1 = new javax.swing.JButton();
+        btnMakeACall = new javax.swing.JButton();
+        btnAddCallingCredit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblDownload = new javax.swing.JLabel();
         txtDownload = new javax.swing.JTextField();
         lblAddCallingCreditToMobile1 = new javax.swing.JLabel();
         txtDeleteMusicFromMp3Player = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        btnMakeACall3 = new javax.swing.JButton();
-        btnClear2 = new javax.swing.JButton();
+        btnSHowAllMP3 = new javax.swing.JButton();
+        btnDeleteMusicMP3 = new javax.swing.JButton();
         btnDownloadMusic = new javax.swing.JButton();
         lblSelectMobileId1 = new javax.swing.JLabel();
         txtSelectMP3Id = new javax.swing.JTextField();
@@ -108,6 +110,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jPanelContent.setBackground(new java.awt.Color(150, 204, 211));
         jPanelContent.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 5), "THe Gadget Shop Options!", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 51)), "The Gadget Shop Options!", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 51))); // NOI18N
         jPanelContent.setForeground(new java.awt.Color(255, 51, 51));
+        jPanelContent.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelContent.setNextFocusableComponent(txtModel);
         jPanelContent.setPreferredSize(new java.awt.Dimension(1375, 1000));
 
         lblTitle.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
@@ -117,36 +121,52 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jPanelEnterMobileMp3Data.setBackground(new java.awt.Color(150, 204, 211));
         jPanelEnterMobileMp3Data.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 51), 3, true), "Enter Mobile and MP3 Data.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 51))); // NOI18N
         jPanelEnterMobileMp3Data.setForeground(new java.awt.Color(255, 51, 51));
+        jPanelEnterMobileMp3Data.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanelEnterMobileMp3Data.setNextFocusableComponent(txtPrice);
 
         lbpModel.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lbpModel.setForeground(new java.awt.Color(255, 51, 51));
         lbpModel.setText("Model: ");
 
+        txtModel.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        txtModel.setNextFocusableComponent(txtPrice);
+
         lblPrice.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblPrice.setForeground(new java.awt.Color(255, 51, 51));
         lblPrice.setText("Price:");
+
+        txtPrice.setNextFocusableComponent(txtWeight);
 
         lblWeight.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblWeight.setForeground(new java.awt.Color(255, 51, 51));
         lblWeight.setText("Weight:");
 
+        txtWeight.setNextFocusableComponent(txtSize);
+
         lblSize.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblSize.setForeground(new java.awt.Color(255, 51, 51));
         lblSize.setText("Size:");
+
+        txtSize.setNextFocusableComponent(txtCredit);
 
         lblCredit.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblCredit.setForeground(new java.awt.Color(255, 51, 51));
         lblCredit.setText("Credit: ");
 
+        txtCredit.setNextFocusableComponent(txtMemory);
+
         lblMemory.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblMemory.setForeground(new java.awt.Color(255, 51, 51));
         lblMemory.setText("Memory:");
+
+        txtMemory.setNextFocusableComponent(btnAddMobile);
 
         btnAddMobile.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnAddMobile.setForeground(new java.awt.Color(222, 8, 8));
         btnAddMobile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/44636_mobile_phone_icon (1).png"))); // NOI18N
         btnAddMobile.setText("Add Mobile");
         btnAddMobile.setToolTipText("Add Mobile");
+        btnAddMobile.setNextFocusableComponent(btnAddMP3);
         btnAddMobile.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -160,6 +180,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnAddMP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/7574_mp3_icon.png"))); // NOI18N
         btnAddMP3.setText("Add MP3");
         btnAddMP3.setToolTipText("Add MP3");
+        btnAddMP3.setNextFocusableComponent(btnDisplayAll);
         btnAddMP3.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -173,6 +194,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnDisplayAll.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/1055084_screen_monitor_display_icon.png"))); // NOI18N
         btnDisplayAll.setText("Display All");
         btnDisplayAll.setToolTipText("Display All");
+        btnDisplayAll.setNextFocusableComponent(btnClear);
         btnDisplayAll.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -186,6 +208,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/38988_edit_clear_sweep_sweeper_icon.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.setToolTipText("Clear");
+        btnClear.setNextFocusableComponent(btnShowAllMobiles);
         btnClear.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -318,16 +341,17 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(150, 204, 211));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 3), "Select Mobile Id To Add Calling Credit.", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 3, 18), new java.awt.Color(255, 51, 0))); // NOI18N
 
-        btnMakeACall1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnMakeACall1.setForeground(new java.awt.Color(222, 8, 8));
-        btnMakeACall1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/Showmobile_phone_icon.png"))); // NOI18N
-        btnMakeACall1.setText("Show All Mobiles");
-        btnMakeACall1.setToolTipText("Make a Call");
-        btnMakeACall1.addActionListener(new java.awt.event.ActionListener()
+        btnShowAllMobiles.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnShowAllMobiles.setForeground(new java.awt.Color(222, 8, 8));
+        btnShowAllMobiles.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/Showmobile_phone_icon.png"))); // NOI18N
+        btnShowAllMobiles.setText("Show All Mobiles");
+        btnShowAllMobiles.setToolTipText("Make a Call");
+        btnShowAllMobiles.setNextFocusableComponent(txtSelectMobileId);
+        btnShowAllMobiles.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnMakeACall1ActionPerformed(evt);
+                btnShowAllMobilesActionPerformed(evt);
             }
         });
 
@@ -335,10 +359,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblAddCallingCreditToMobile.setForeground(new java.awt.Color(255, 51, 51));
         lblAddCallingCreditToMobile.setText("Add Credit From Mobile:");
 
+        txtAddCallingCreditToMObile.setNextFocusableComponent(btnMakeACall);
+
         lblDisplayNumber.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblDisplayNumber.setForeground(new java.awt.Color(255, 51, 51));
         lblDisplayNumber.setText("Display Number:");
 
+        txtDisplayNumber.setNextFocusableComponent(txtAddCallingCreditToMObile);
         txtDisplayNumber.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -351,14 +378,19 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblDuration.setForeground(new java.awt.Color(255, 51, 51));
         lblDuration.setText("Duration:");
 
+        txtDuration.setNextFocusableComponent(txtDisplayNumber);
+
         lblPhoneNumber.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblPhoneNumber.setForeground(new java.awt.Color(255, 51, 51));
         lblPhoneNumber.setText("Phone Number:");
+
+        txtPhoneNumber.setNextFocusableComponent(txtDuration);
 
         lblSelectMobileId.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblSelectMobileId.setForeground(new java.awt.Color(255, 51, 51));
         lblSelectMobileId.setText("Select Mobile Id From LIst:");
 
+        txtSelectMobileId.setNextFocusableComponent(txtPhoneNumber);
         txtSelectMobileId.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -370,29 +402,31 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jSeparator3.setBackground(new java.awt.Color(255, 51, 0));
         jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 51), 3));
 
-        btnMakeACall2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnMakeACall2.setForeground(new java.awt.Color(222, 8, 8));
-        btnMakeACall2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/5964548_call_mobile_phone_technology_icon.png"))); // NOI18N
-        btnMakeACall2.setText("Make a Call");
-        btnMakeACall2.setToolTipText("Make a Call");
-        btnMakeACall2.addActionListener(new java.awt.event.ActionListener()
+        btnMakeACall.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnMakeACall.setForeground(new java.awt.Color(222, 8, 8));
+        btnMakeACall.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/5964548_call_mobile_phone_technology_icon.png"))); // NOI18N
+        btnMakeACall.setText("Make a Call");
+        btnMakeACall.setToolTipText("Make a Call");
+        btnMakeACall.setNextFocusableComponent(btnAddCallingCredit);
+        btnMakeACall.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnMakeACall2ActionPerformed(evt);
+                btnMakeACallActionPerformed(evt);
             }
         });
 
-        btnClear1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnClear1.setForeground(new java.awt.Color(222, 8, 8));
-        btnClear1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/add_add credit card_card_credit_icon.png"))); // NOI18N
-        btnClear1.setText("Add Calling Credit");
-        btnClear1.setToolTipText("Clear");
-        btnClear1.addActionListener(new java.awt.event.ActionListener()
+        btnAddCallingCredit.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnAddCallingCredit.setForeground(new java.awt.Color(222, 8, 8));
+        btnAddCallingCredit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/add_add credit card_card_credit_icon.png"))); // NOI18N
+        btnAddCallingCredit.setText("Add Calling Credit");
+        btnAddCallingCredit.setToolTipText("Clear");
+        btnAddCallingCredit.setNextFocusableComponent(btnSHowAllMP3);
+        btnAddCallingCredit.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnClear1ActionPerformed(evt);
+                btnAddCallingCreditActionPerformed(evt);
             }
         });
 
@@ -423,14 +457,14 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                                     .addComponent(txtDuration, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtSelectMobileId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(btnMakeACall1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnShowAllMobiles, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnMakeACall2)
+                                .addComponent(btnMakeACall)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnClear1))
+                                .addComponent(btnAddCallingCredit))
                             .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
@@ -443,7 +477,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                         .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(btnMakeACall1)
+                        .addComponent(btnShowAllMobiles)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSelectMobileId)
@@ -466,8 +500,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear1)
-                    .addComponent(btnMakeACall2))
+                    .addComponent(btnAddCallingCredit)
+                    .addComponent(btnMakeACall))
                 .addGap(0, 19, Short.MAX_VALUE))
         );
 
@@ -478,10 +512,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblDownload.setForeground(new java.awt.Color(255, 51, 51));
         lblDownload.setText("Download:");
 
+        txtDownload.setNextFocusableComponent(txtDeleteMusicFromMp3Player);
+
         lblAddCallingCreditToMobile1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         lblAddCallingCreditToMobile1.setForeground(new java.awt.Color(255, 51, 51));
         lblAddCallingCreditToMobile1.setText("Delete Music From MP3: ");
 
+        txtDeleteMusicFromMp3Player.setNextFocusableComponent(btnDownloadMusic);
         txtDeleteMusicFromMp3Player.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -492,29 +529,31 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         jSeparator2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 51, 51), 3, true));
 
-        btnMakeACall3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnMakeACall3.setForeground(new java.awt.Color(222, 8, 8));
-        btnMakeACall3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/ipod_listen_mp3_music_player_icon.png"))); // NOI18N
-        btnMakeACall3.setText("Show All MP3");
-        btnMakeACall3.setToolTipText("Make a Call");
-        btnMakeACall3.addActionListener(new java.awt.event.ActionListener()
+        btnSHowAllMP3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnSHowAllMP3.setForeground(new java.awt.Color(222, 8, 8));
+        btnSHowAllMP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/ipod_listen_mp3_music_player_icon.png"))); // NOI18N
+        btnSHowAllMP3.setText("Show All MP3");
+        btnSHowAllMP3.setToolTipText("Make a Call");
+        btnSHowAllMP3.setNextFocusableComponent(txtSelectMP3Id);
+        btnSHowAllMP3.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnMakeACall3ActionPerformed(evt);
+                btnSHowAllMP3ActionPerformed(evt);
             }
         });
 
-        btnClear2.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        btnClear2.setForeground(new java.awt.Color(222, 8, 8));
-        btnClear2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/music_email_delete_recycle_trash_icon.png"))); // NOI18N
-        btnClear2.setText("Delete Music MP3");
-        btnClear2.setToolTipText("Clear");
-        btnClear2.addActionListener(new java.awt.event.ActionListener()
+        btnDeleteMusicMP3.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnDeleteMusicMP3.setForeground(new java.awt.Color(222, 8, 8));
+        btnDeleteMusicMP3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/music_email_delete_recycle_trash_icon.png"))); // NOI18N
+        btnDeleteMusicMP3.setText("Delete Music MP3");
+        btnDeleteMusicMP3.setToolTipText("Clear");
+        btnDeleteMusicMP3.setNextFocusableComponent(btnExit);
+        btnDeleteMusicMP3.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnClear2ActionPerformed(evt);
+                btnDeleteMusicMP3ActionPerformed(evt);
             }
         });
 
@@ -523,6 +562,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnDownloadMusic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/678152_arrow_dowload_down_file_icon.png"))); // NOI18N
         btnDownloadMusic.setText("Download Music");
         btnDownloadMusic.setToolTipText("Download Music");
+        btnDownloadMusic.setNextFocusableComponent(btnDeleteMusicMP3);
         btnDownloadMusic.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -535,6 +575,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblSelectMobileId1.setForeground(new java.awt.Color(255, 51, 51));
         lblSelectMobileId1.setText("Select MP3 Id From List:");
 
+        txtSelectMP3Id.setNextFocusableComponent(txtDownload);
         txtSelectMP3Id.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -553,12 +594,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnDownloadMusic)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear2))
+                        .addComponent(btnDeleteMusicMP3))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnMakeACall3, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnSHowAllMP3, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblAddCallingCreditToMobile1)
@@ -576,7 +617,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(btnMakeACall3)
+                .addComponent(btnSHowAllMP3)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSelectMobileId1)
@@ -594,7 +635,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDownloadMusic)
-                    .addComponent(btnClear2))
+                    .addComponent(btnDeleteMusicMP3))
                 .addGap(23, 23, 23))
         );
 
@@ -639,6 +680,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         TextAreaShowData.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         TextAreaShowData.setForeground(new java.awt.Color(255, 51, 51));
         TextAreaShowData.setRows(5);
+        TextAreaShowData.setNextFocusableComponent(btnExit);
         jScrollPane1.setViewportView(TextAreaShowData);
 
         javax.swing.GroupLayout jPanelShowDataLayout = new javax.swing.GroupLayout(jPanelShowData);
@@ -738,15 +780,15 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDownloadMusicActionPerformed
 
-    private void btnMakeACall1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACall1ActionPerformed
-    {//GEN-HEADEREND:event_btnMakeACall1ActionPerformed
+    private void btnShowAllMobilesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnShowAllMobilesActionPerformed
+    {//GEN-HEADEREND:event_btnShowAllMobilesActionPerformed
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry! There Is Not Mobiles To Display (Empty LIst.)");
             return;
         }
 
-        TextAreaShowData.append("\nMobiles List:\n");
+        TextAreaShowData.append("Mobiles List:\n");
 
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
@@ -756,8 +798,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append("\n");
             }
         }
-        TextAreaShowData.append("----------------------------------------------------------------------");
-    }//GEN-LAST:event_btnMakeACall1ActionPerformed
+        TextAreaShowData.append("----------------------------------------------------------------------\n");
+    }//GEN-LAST:event_btnShowAllMobilesActionPerformed
 
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDisplayAllActionPerformed
     {//GEN-HEADEREND:event_btnDisplayAllActionPerformed
@@ -776,7 +818,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             TextAreaShowData.append("  " + gadget.display());
             TextAreaShowData.append("\n\n");
         }
-        TextAreaShowData.append("----------------------------------------------------------------------");
+        TextAreaShowData.append("----------------------------------------------------------------------\n");
 
     }//GEN-LAST:event_btnDisplayAllActionPerformed
 
@@ -925,18 +967,41 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDeleteMusicFromMp3PlayerActionPerformed
 
-    private void btnClear1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClear1ActionPerformed
-    {//GEN-HEADEREND:event_btnClear1ActionPerformed
-
+    private void btnAddCallingCreditActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddCallingCreditActionPerformed
+    {//GEN-HEADEREND:event_btnAddCallingCreditActionPerformed
+        String mobileId = txtSelectMobileId.getText();
         String creditToAdd = txtAddCallingCreditToMObile.getText();
-        TextAreaShowData.append(creditToAdd);
+
+        if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
+            return;
+        }
+
+        if (creditToAdd.trim().isBlank() && creditToAdd.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Calling Credit  To Mobile (MInutes).");
+            return;
+        }
+
         try
         {
-            if (creditToAdd.trim().isBlank() && creditToAdd.isEmpty())
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter A Calling Credit  To Mobile (MInutes).");
-            }
+            int id = Integer.parseInt(mobileId);
 
+            if (id >= 1 && id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(id - 1) instanceof Mobile)
+            {
+                TextAreaShowData.append("Mobiles Update with Calling Credit:\n");
+                ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
+                JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add." + creditToAdd + " Minutes");
+                TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display());
+                TextAreaShowData.append("\n----------------------------------------------------------------------");
+                
+                txtSelectMobileId.setText("");
+                txtPhoneNumber.setText("");
+                txtDuration.setText("");
+                txtDuration.setText("");
+                txtAddCallingCreditToMObile.setText("");
+            }
         }
         catch (Exception e)
         {
@@ -945,25 +1010,25 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         }
 
 
-    }//GEN-LAST:event_btnClear1ActionPerformed
+    }//GEN-LAST:event_btnAddCallingCreditActionPerformed
 
-    private void btnClear2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClear2ActionPerformed
-    {//GEN-HEADEREND:event_btnClear2ActionPerformed
+    private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
+    {//GEN-HEADEREND:event_btnDeleteMusicMP3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnClear2ActionPerformed
+    }//GEN-LAST:event_btnDeleteMusicMP3ActionPerformed
 
-    private void btnMakeACall2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACall2ActionPerformed
-    {//GEN-HEADEREND:event_btnMakeACall2ActionPerformed
+    private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
+    {//GEN-HEADEREND:event_btnMakeACallActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMakeACall2ActionPerformed
+    }//GEN-LAST:event_btnMakeACallActionPerformed
 
     private void txtDisplayNumberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDisplayNumberActionPerformed
     {//GEN-HEADEREND:event_txtDisplayNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDisplayNumberActionPerformed
 
-    private void btnMakeACall3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACall3ActionPerformed
-    {//GEN-HEADEREND:event_btnMakeACall3ActionPerformed
+    private void btnSHowAllMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSHowAllMP3ActionPerformed
+    {//GEN-HEADEREND:event_btnSHowAllMP3ActionPerformed
 
         if (gadgetShopController.getGadgets().isEmpty())
         {
@@ -982,7 +1047,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             }
         }
         TextAreaShowData.append("----------------------------------------------------------------------");
-    }//GEN-LAST:event_btnMakeACall3ActionPerformed
+    }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
     private void txtSelectMobileIdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtSelectMobileIdActionPerformed
     {//GEN-HEADEREND:event_txtSelectMobileIdActionPerformed
@@ -1002,22 +1067,30 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         txtSize.setText("");
         txtCredit.setText("");
         txtMemory.setText("");
+        txtSelectMobileId.setText("");
+        txtSelectMP3Id.setText("");
+        txtPhoneNumber.setText("");
+        txtDuration.setText("");
+        txtDisplayNumber.setText("");
+        txtAddCallingCreditToMObile.setText("");
+        txtDownload.setText("");
+        txtDeleteMusicFromMp3Player.setText("");
         TextAreaShowData.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaShowData;
+    private javax.swing.JButton btnAddCallingCredit;
     private javax.swing.JButton btnAddMP3;
     private javax.swing.JButton btnAddMobile;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnClear1;
-    private javax.swing.JButton btnClear2;
+    private javax.swing.JButton btnDeleteMusicMP3;
     private javax.swing.JButton btnDisplayAll;
     private javax.swing.JButton btnDownloadMusic;
     private javax.swing.JButton btnExit;
-    private javax.swing.JButton btnMakeACall1;
-    private javax.swing.JButton btnMakeACall2;
-    private javax.swing.JButton btnMakeACall3;
+    private javax.swing.JButton btnMakeACall;
+    private javax.swing.JButton btnSHowAllMP3;
+    private javax.swing.JButton btnShowAllMobiles;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

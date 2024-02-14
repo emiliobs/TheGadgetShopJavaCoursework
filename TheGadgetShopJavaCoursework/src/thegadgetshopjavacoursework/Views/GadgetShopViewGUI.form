@@ -99,6 +99,12 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="ff" type="rgb"/>
             </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="txtModel"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[1375, 1000]"/>
             </Property>
@@ -189,6 +195,12 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="ff" type="rgb"/>
+                </Property>
+                <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                  <Color id="Default Cursor"/>
+                </Property>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtPrice"/>
                 </Property>
               </Properties>
 
@@ -336,6 +348,14 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtModel">
+                  <Properties>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Text Cursor"/>
+                    </Property>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtPrice"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblPrice">
                   <Properties>
@@ -349,6 +369,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtPrice">
+                  <Properties>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtWeight"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblWeight">
                   <Properties>
@@ -362,6 +387,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtWeight">
+                  <Properties>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtSize"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblSize">
                   <Properties>
@@ -375,6 +405,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtSize">
+                  <Properties>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtCredit"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCredit">
                   <Properties>
@@ -388,6 +423,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCredit">
+                  <Properties>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="txtMemory"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblMemory">
                   <Properties>
@@ -401,6 +441,11 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtMemory">
+                  <Properties>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnAddMobile"/>
+                    </Property>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnAddMobile">
                   <Properties>
@@ -415,6 +460,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add Mobile"/>
                     <Property name="toolTipText" type="java.lang.String" value="Add Mobile"/>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnAddMP3"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddMobileActionPerformed"/>
@@ -433,6 +481,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Add MP3"/>
                     <Property name="toolTipText" type="java.lang.String" value="Add MP3"/>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnDisplayAll"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddMP3ActionPerformed"/>
@@ -451,6 +502,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Display All"/>
                     <Property name="toolTipText" type="java.lang.String" value="Display All"/>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnClear"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDisplayAllActionPerformed"/>
@@ -469,6 +523,9 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Clear"/>
                     <Property name="toolTipText" type="java.lang.String" value="Clear"/>
+                    <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                      <ComponentRef name="btnShowAllMobiles"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
@@ -619,16 +676,16 @@
                                                   <Component id="txtSelectMobileId" alignment="1" min="-2" pref="208" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Component id="btnMakeACall1" alignment="1" min="-2" pref="438" max="-2" attributes="0"/>
+                                          <Component id="btnShowAllMobiles" alignment="1" min="-2" pref="438" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="btnMakeACall2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnMakeACall" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="btnClear1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnAddCallingCredit" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jSeparator3" min="-2" pref="449" max="-2" attributes="0"/>
                                       </Group>
@@ -648,7 +705,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                      <Component id="btnMakeACall1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnShowAllMobiles" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblSelectMobileId" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -677,8 +734,8 @@
                               <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnClear1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnMakeACall2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddCallingCredit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnMakeACall" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="19" max="32767" attributes="0"/>
                           </Group>
@@ -686,7 +743,7 @@
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Component class="javax.swing.JButton" name="btnMakeACall1">
+                    <Component class="javax.swing.JButton" name="btnShowAllMobiles">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="3"/>
@@ -699,9 +756,12 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Show All Mobiles"/>
                         <Property name="toolTipText" type="java.lang.String" value="Make a Call"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtSelectMobileId"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMakeACall1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowAllMobilesActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAddCallingCreditToMobile">
@@ -716,6 +776,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtAddCallingCreditToMObile">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnMakeACall"/>
+                        </Property>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblDisplayNumber">
                       <Properties>
@@ -729,6 +794,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDisplayNumber">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtAddCallingCreditToMObile"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDisplayNumberActionPerformed"/>
                       </Events>
@@ -745,6 +815,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDuration">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtDisplayNumber"/>
+                        </Property>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblPhoneNumber">
                       <Properties>
@@ -758,6 +833,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtPhoneNumber">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtDuration"/>
+                        </Property>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblSelectMobileId">
                       <Properties>
@@ -771,6 +851,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSelectMobileId">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtPhoneNumber"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSelectMobileIdActionPerformed"/>
                       </Events>
@@ -789,7 +874,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnMakeACall2">
+                    <Component class="javax.swing.JButton" name="btnMakeACall">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="3"/>
@@ -802,12 +887,15 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Make a Call"/>
                         <Property name="toolTipText" type="java.lang.String" value="Make a Call"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnAddCallingCredit"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMakeACall2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMakeACallActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnClear1">
+                    <Component class="javax.swing.JButton" name="btnAddCallingCredit">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="3"/>
@@ -820,9 +908,12 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Add Calling Credit"/>
                         <Property name="toolTipText" type="java.lang.String" value="Clear"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnSHowAllMP3"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClear1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddCallingCreditActionPerformed"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -856,13 +947,13 @@
                                   <Group type="102" attributes="0">
                                       <Component id="btnDownloadMusic" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnClear2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnDeleteMusicMP3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="jSeparator2" alignment="0" min="-2" pref="458" max="-2" attributes="0"/>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="btnMakeACall3" min="-2" pref="433" max="-2" attributes="0"/>
+                                              <Component id="btnSHowAllMP3" min="-2" pref="433" max="-2" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="lblAddCallingCreditToMobile1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -889,7 +980,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace pref="14" max="32767" attributes="0"/>
-                              <Component id="btnMakeACall3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSHowAllMP3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblSelectMobileId1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -910,7 +1001,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnDownloadMusic" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnClear2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnDeleteMusicMP3" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                           </Group>
@@ -930,6 +1021,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDownload">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtDeleteMusicFromMp3Player"/>
+                        </Property>
+                      </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblAddCallingCreditToMobile1">
                       <Properties>
@@ -943,6 +1039,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDeleteMusicFromMp3Player">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnDownloadMusic"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDeleteMusicFromMp3PlayerActionPerformed"/>
                       </Events>
@@ -958,7 +1059,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnMakeACall3">
+                    <Component class="javax.swing.JButton" name="btnSHowAllMP3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="3"/>
@@ -971,12 +1072,15 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Show All MP3"/>
                         <Property name="toolTipText" type="java.lang.String" value="Make a Call"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtSelectMP3Id"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMakeACall3ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSHowAllMP3ActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnClear2">
+                    <Component class="javax.swing.JButton" name="btnDeleteMusicMP3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="18" style="3"/>
@@ -989,9 +1093,12 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Delete Music MP3"/>
                         <Property name="toolTipText" type="java.lang.String" value="Clear"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnExit"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClear2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteMusicMP3ActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnDownloadMusic">
@@ -1007,6 +1114,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Download Music"/>
                         <Property name="toolTipText" type="java.lang.String" value="Download Music"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnDeleteMusicMP3"/>
+                        </Property>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDownloadMusicActionPerformed"/>
@@ -1024,6 +1134,11 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtSelectMP3Id">
+                      <Properties>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txtDownload"/>
+                        </Property>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSelectMP3IdActionPerformed"/>
                       </Events>
@@ -1118,6 +1233,9 @@
                           <Color blue="33" green="33" red="ff" type="rgb"/>
                         </Property>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="btnExit"/>
+                        </Property>
                       </Properties>
                     </Component>
                   </SubComponents>
