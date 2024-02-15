@@ -60,25 +60,23 @@ public class TheGadgetShopController
         System.out.println("================================================");
     }
 
-   
-
     public String makeCallFromMobile(int mobileId, int phoneNumber, int duration)
     {
-       
 
-     
         try
         {
             if (mobileId >= 1 && mobileId <= gadgets.size() && gadgets.get(mobileId - 1) instanceof Mobile)
             {
                 var resultMakeCall = ((Mobile) gadgets.get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
 
-                if (!resultMakeCall)
+                if (resultMakeCall)
                 {
-                    return null;
+                    return ((Mobile) gadgets.get(mobileId - 1)).display();
+
                 }
 
-                return ((Mobile) gadgets.get(mobileId- 1)).display();
+                return null;
+
             }
             else
             {
