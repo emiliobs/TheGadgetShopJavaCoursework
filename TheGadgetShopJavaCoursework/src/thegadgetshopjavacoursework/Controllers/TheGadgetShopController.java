@@ -62,25 +62,23 @@ public class TheGadgetShopController
 
    
 
-    public String makeCallFromMobile(String mobileId, String phoneNumber, String duration)
+    public String makeCallFromMobile(int mobileId, int phoneNumber, int duration)
     {
-        int mobileID = Integer.parseInt(mobileId);
-        int NumberPhone = Integer.parseInt(phoneNumber);
-        int callDuration = Integer.parseInt(duration);
+       
 
      
         try
         {
-            if (mobileID >= 1 && mobileID <= gadgets.size() && gadgets.get(mobileID - 1) instanceof Mobile)
+            if (mobileId >= 1 && mobileId <= gadgets.size() && gadgets.get(mobileId - 1) instanceof Mobile)
             {
-                var resultMakeCall = ((Mobile) gadgets.get(mobileID - 1)).mobileMakeCall(NumberPhone, callDuration);
+                var resultMakeCall = ((Mobile) gadgets.get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
 
                 if (!resultMakeCall)
                 {
                     return null;
                 }
 
-                return ((Mobile) gadgets.get(mobileID - 1)).display();
+                return ((Mobile) gadgets.get(mobileId- 1)).display();
             }
             else
             {

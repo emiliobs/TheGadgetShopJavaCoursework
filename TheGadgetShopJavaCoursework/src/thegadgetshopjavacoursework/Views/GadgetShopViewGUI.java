@@ -4,6 +4,8 @@ import java.awt.Image;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
@@ -1106,7 +1108,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         catch (IndexOutOfBoundsException | InputMismatchException e)
         {
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
-
+            return;
         }
 
         TextAreaShowData.append("\n----------------------------------------------------------------------\n");
@@ -1119,79 +1121,90 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         String phoneNumber = txtPhoneNumber.getText();
         String duration = txtDuration.getText();
 
-        if (gadgetShopController.getGadgets().isEmpty())
+        try
         {
-            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
+
+            if (gadgetShopController.getGadgets().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
+                return;
+
+            }
+
+            if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
+                return;
+            }
+
+            if (!isNonNegativeNumeric(mobileId))
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
+                return;
+
+            }
+
+            if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
+                return;
+            }
+
+            if (!isValidUKPhoneNumber(phoneNumber))
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  Valid To Make A Call (MInutes)." + phoneNumber);
+                return;
+            }
+
+            if (!isNonNegativeNumeric(phoneNumber))
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
+                return;
+
+            }
+
+            if (duration.trim().isBlank() && duration.isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
+                return;
+            }
+
+            if (!isNonNegativeNumeric(duration))
+            {
+                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
+                return;
+
+            }
+
+            int mobileID = Integer.parseInt(mobileId);
+            int NumberPhone = Integer.parseInt(phoneNumber);
+            int callDuration = Integer.parseInt(duration);
+
+            var resultMakeCall = gadgetShopController.makeCallFromMobile(mobileID, NumberPhone, callDuration);
+            if (resultMakeCall.isBlank() && resultMakeCall.isEmpty())
+            {
+                TextAreaShowData.append("Making A Call From Mobile\n");
+                JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
+
+                TextAreaShowData.append("CALLING NUMBER:" + phoneNumber + " FOR: " + duration + " MINUTES.\n");
+                TextAreaShowData.append(resultMakeCall);
+                txtDisplayNumber.setText(txtPhoneNumber.getText());
+                txtSelectMobileId.setText("");
+                txtPhoneNumber.setText("");
+                txtDuration.setText("");
+                txtAddCallingCreditToMObile.setText("");
+
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
+
+            }
+        }
+        catch (Exception e)
+        {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
             return;
-
-        }
-        
-         if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
-            return;
-        }
-
-        if (!isNonNegativeNumeric(mobileId))
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
-            return;
-
-        }
-
-        if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
-            return;
-        }
-
-//        if (!isNonNegativeNumeric(phoneNumber))
-//        {
-//            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
-//            return;
-//
-//        }
-        
-        if (!phoneNumber.matches("\\d{10}"))
-        {
-            JOptionPane.showMessageDialog(null, "Error: " + phoneNumber);
-            return;
-        }
-        
-
-
-        if (duration.trim().isBlank() && duration.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
-            return;
-        }
-
-        if (!isNonNegativeNumeric(duration))
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
-            return;
-
-        }
-
-        var resultMakeCall = gadgetShopController.makeCallFromMobile(mobileId, phoneNumber, duration);
-        if (resultMakeCall != null)
-        {
-            TextAreaShowData.append("Making A Call From Mobile\n");
-            JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
-
-            TextAreaShowData.append("CALLING NUMBER:" + phoneNumber + " FOR: " + duration + " MINUTES.\n");
-            TextAreaShowData.append(resultMakeCall);
-            txtDisplayNumber.setText(txtPhoneNumber.getText());
-            txtSelectMobileId.setText("");
-            txtPhoneNumber.setText("");
-            txtDuration.setText("");
-            txtAddCallingCreditToMObile.setText("");
-
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
-
         }
 
         TextAreaShowData.append("\n----------------------------------------------------------------------\n");
@@ -1246,6 +1259,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private boolean isNonNegativeNumeric(String text)
     {
         return text.matches("\\d+") && Integer.parseInt(text) >= 0;
+
+    }
+
+    public static boolean isValidUKPhoneNumber(String phoneNumber)
+    {
+        // Patrón de expresión regular para validar números de teléfono del Reino Unido
+        String regex = "\\d{10}";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(phoneNumber);
+        return matcher.matches();
     }
 
     private void Clear()
