@@ -1,8 +1,11 @@
 package thegadgetshopjavacoursework.Controllers;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.regex.Pattern;
 import thegadgetshopjavacoursework.Models.Gadget;
+import thegadgetshopjavacoursework.Models.Mobile;
 
 /**
  *
@@ -57,7 +60,37 @@ public class TheGadgetShopController
         System.out.println("================================================");
     }
 
-    // Method to display all gadget in the list
-    
    
+
+    public String makeCallFromMobile(String mobileId, String phoneNumber, String duration)
+    {
+        int mobileID = Integer.parseInt(mobileId);
+        int NumberPhone = Integer.parseInt(phoneNumber);
+        int callDuration = Integer.parseInt(duration);
+
+     
+        try
+        {
+            if (mobileID >= 1 && mobileID <= gadgets.size() && gadgets.get(mobileID - 1) instanceof Mobile)
+            {
+                var resultMakeCall = ((Mobile) gadgets.get(mobileID - 1)).mobileMakeCall(NumberPhone, callDuration);
+
+                if (!resultMakeCall)
+                {
+                    return null;
+                }
+
+                return ((Mobile) gadgets.get(mobileID - 1)).display();
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+        }
+        catch (IndexOutOfBoundsException | InputMismatchException e)
+        {
+            throw new Error("Error: Invalid Choice. Please Enter a Valid Number On The List." + e.getMessage());
+        }
+    }
+
 }

@@ -979,15 +979,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         String mobileId = txtSelectMobileId.getText();
         String creditToAdd = txtAddCallingCreditToMObile.getText();
 
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Add Calling Credit..");
+            return;
+
+        }
+
         if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
-            return;
-        }
-
-        if (creditToAdd.trim().isBlank() && creditToAdd.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Calling Credit  To Mobile (MInutes).");
             return;
         }
 
@@ -998,9 +999,15 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         }
 
+        if (creditToAdd.trim().isBlank() && creditToAdd.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Calling Credit  To Mobile (MInutes).");
+            return;
+        }
+
         if (!isNonNegativeNumeric(creditToAdd))
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Add Credit From Mobile Minutes  (1,2...) Not Un: " + creditToAdd);
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Add Credit From Mobile Minutes  (1,2...) Not A: " + creditToAdd);
             return;
 
         }
@@ -1018,7 +1025,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
                 txtSelectMobileId.setText("");
                 txtPhoneNumber.setText("");
-                txtDuration.setText("");
                 txtDuration.setText("");
                 txtAddCallingCreditToMObile.setText("");
             }
@@ -1042,15 +1048,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         String mp3Id = txtSelectMP3Id.getText();
         String deleteMusic = txtDeleteMusicFromMp3Player.getText();
 
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Delete Music MP3.");
+            return;
+
+        }
+
         if (mp3Id.trim().isBlank() && mp3Id.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A MP3 Id From The List. ");
-            return;
-        }
-
-        if (deleteMusic.trim().isBlank() && deleteMusic.isEmpty())
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
             return;
         }
 
@@ -1061,9 +1068,15 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         }
 
+        if (deleteMusic.trim().isBlank() && deleteMusic.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
+            return;
+        }
+
         if (!isNonNegativeNumeric(deleteMusic))
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not Un: " + deleteMusic);
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not A: " + deleteMusic);
             return;
 
         }
@@ -1101,6 +1114,88 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
     {//GEN-HEADEREND:event_btnMakeACallActionPerformed
+
+        String mobileId = txtSelectMobileId.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String duration = txtDuration.getText();
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
+            return;
+
+        }
+        
+         if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(mobileId))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
+            return;
+
+        }
+
+        if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
+            return;
+        }
+
+//        if (!isNonNegativeNumeric(phoneNumber))
+//        {
+//            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
+//            return;
+//
+//        }
+        
+        if (!phoneNumber.matches("\\d{10}"))
+        {
+            JOptionPane.showMessageDialog(null, "Error: " + phoneNumber);
+            return;
+        }
+        
+
+
+        if (duration.trim().isBlank() && duration.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(duration))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
+            return;
+
+        }
+
+        var resultMakeCall = gadgetShopController.makeCallFromMobile(mobileId, phoneNumber, duration);
+        if (resultMakeCall != null)
+        {
+            TextAreaShowData.append("Making A Call From Mobile\n");
+            JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
+
+            TextAreaShowData.append("CALLING NUMBER:" + phoneNumber + " FOR: " + duration + " MINUTES.\n");
+            TextAreaShowData.append(resultMakeCall);
+            txtDisplayNumber.setText(txtPhoneNumber.getText());
+            txtSelectMobileId.setText("");
+            txtPhoneNumber.setText("");
+            txtDuration.setText("");
+            txtAddCallingCreditToMObile.setText("");
+
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
+
+        }
+
+        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
+
 
     }//GEN-LAST:event_btnMakeACallActionPerformed
 
@@ -1150,7 +1245,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private boolean isNonNegativeNumeric(String text)
     {
-        return text.matches("\\d+") && Integer.parseInt(text) > 0;
+        return text.matches("\\d+") && Integer.parseInt(text) >= 0;
     }
 
     private void Clear()

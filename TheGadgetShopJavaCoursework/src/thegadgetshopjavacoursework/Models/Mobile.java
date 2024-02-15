@@ -73,7 +73,7 @@ public class Mobile extends Gadget
     public boolean mobileMakeCall(int phoneNumber, int duration)
     {
 
-        if (numberOfMinutesOfCallingCreditRemaining >= duration)
+        if (numberOfMinutesOfCallingCreditRemaining != 0 && numberOfMinutesOfCallingCreditRemaining >= duration)
         {
             System.out.println("CALLING NUMBER: " + phoneNumber + " FOR " + duration + " MINUTES.");
             numberOfMinutesOfCallingCreditRemaining -= duration;
