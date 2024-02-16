@@ -14,7 +14,7 @@ public class MP3 extends Gadget
     // Constructor empty
     public MP3()
     {
-
+            
     }
 
     // Contructor to initialize MP3 atributte

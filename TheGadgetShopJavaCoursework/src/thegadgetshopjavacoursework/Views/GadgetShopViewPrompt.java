@@ -236,9 +236,9 @@ public class GadgetShopViewPrompt
             System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
             return;
         }
-        
+
         displayMobiles(gadgetShopController.getGadgets());
-        
+
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
@@ -425,19 +425,14 @@ public class GadgetShopViewPrompt
     private static void displayMobiles(List<Gadget> gadgets)
     {
         System.out.println("----------- MOBILES -----------");
-        for (Gadget gadget : gadgets)
+
+        for (int i = 0; i < gadgets.size(); i++)
         {
-            if (gadget instanceof Mobile)
-            {
-                System.out.println("Gadget Id: " + gadget.getGadgetId());
-                System.out.println("Model: " + gadget.getModel());
-                System.out.println("Price: " + gadget.getPrice());
-                System.out.println("Weight: " + gadget.getWeight());
-                System.out.println("Size: " + gadget.getSize());
-                System.out.println("CALLING CREDIT: " + ((Mobile) gadget).getNumberOfMinutesOfCallingCreditRemaining());
-                System.out.println("");
-            }
+            System.out.println("  Id: " + (i + 1) + " \n " + gadgets.get(i).display());
+            //System.out.println("CALLING CREDIT: " + ((Mobile) gadgets.get(i)).getNumberOfMinutesOfCallingCreditRemaining());
+            System.out.println("");
         }
+
         System.out.println("---------------------------------");
     }
 

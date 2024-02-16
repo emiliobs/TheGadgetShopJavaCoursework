@@ -8,26 +8,26 @@ package thegadgetshopjavacoursework.Models;
 public class Mobile extends Gadget
 {
 
-    //private int mobileId;
+    
     private int numberOfMinutesOfCallingCreditRemaining;
 
     // Constructor empty
     public Mobile()
     {
-        //this.mobileId = mobileCounter++;
-    }
-
-    // Constructor to initialize Mobile attribute
-    public Mobile(int numberOfMinutesOfCallingCreditRemaining)
-    {
-
-        this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
+       
     }
 
     // Constructor to initialize Mobile attribute and Gatged attributes
     public Mobile(int numberOfMinutesOfCallingCreditRemaining, int gadgetId, String model, double price, int weight, String size)
     {
         super(gadgetId, model, price, weight, size);
+
+        this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
+    }
+
+    // Constructor to initialize Mobile attribute
+    public Mobile(int numberOfMinutesOfCallingCreditRemaining)
+    {
 
         this.numberOfMinutesOfCallingCreditRemaining = numberOfMinutesOfCallingCreditRemaining;
     }
@@ -81,7 +81,7 @@ public class Mobile extends Gadget
         }
         else
         {
-           // System.out.println("*****  - Sorry!. Insufficient credit to make the call.  - *****");
+            // System.out.println("*****  - Sorry!. Insufficient credit to make the call.  - *****");
             return false;
         }
     }
@@ -90,12 +90,8 @@ public class Mobile extends Gadget
     @Override
     public String display()
     {
-         return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining + " MINUTES.";
+        return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining + " MINUTES.";
         //System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
     }
-
-  
-    
-    
 
 }

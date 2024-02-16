@@ -944,12 +944,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             if (gadget instanceof Mobile)
             {
                 TextAreaShowData.append("Mobiles List:\n");
+                TextAreaShowData.append(" Id: " + gadget.getGadgetId() + "\n");
                 TextAreaShowData.append(" " + gadget.display());
                 TextAreaShowData.append("\n");
 
             }
         }
-       TextAreaShowData.append("-------------------------------------------------------------\n");
+        TextAreaShowData.append("-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnShowAllMobilesActionPerformed
 
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDisplayAllActionPerformed
@@ -966,7 +967,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         TextAreaShowData.append("Display All Gadgets:\n");
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
-            TextAreaShowData.append("  " + gadget.display());
+            TextAreaShowData.append("  Id: " + gadget.getGadgetId() + "\n");
+            TextAreaShowData.append(" " + gadget.display());
             TextAreaShowData.append("\n");
         }
         TextAreaShowData.append("-------------------------------------------------------------\n");
@@ -984,7 +986,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         String model = txtModel.getText();
         String price = txtPrice.getText();
         String weight = txtWeight.getText();
-        String size = txtSize.getText();;
+        String size = txtSize.getText();
         String credit = txtCredit.getText();
 
         try
@@ -1288,16 +1290,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
     {//GEN-HEADEREND:event_btnMakeACallActionPerformed
-       
+
         try
         {
-              callMakeACall();
+            callMakeACall();
         }
         catch (Exception e)
         {
             JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
-      
+
     }//GEN-LAST:event_btnMakeACallActionPerformed
 
     private void txtDisplayNumberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDisplayNumberActionPerformed
@@ -1319,13 +1321,14 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             if (gadget instanceof MP3)
             {
                 TextAreaShowData.append("MP3s List:\n");
+                TextAreaShowData.append(" Id: " + gadget.getGadgetId() + "\n");
                 TextAreaShowData.append(" " + gadget.display());
                 TextAreaShowData.append("\n");
 
             }
 
         }
-       TextAreaShowData.append("-------------------------------------------------------------\n");
+        TextAreaShowData.append("-------------------------------------------------------------\n");
 
     }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
