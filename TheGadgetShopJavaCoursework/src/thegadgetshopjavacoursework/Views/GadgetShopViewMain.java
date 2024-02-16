@@ -245,7 +245,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt(gadgetShopController);
         viewPrompt.run();
 
-        this.dispose();
+        
     }//GEN-LAST:event_btnCommandPromptActionPerformed
 
     private void btnGuiProgramActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGuiProgramActionPerformed
