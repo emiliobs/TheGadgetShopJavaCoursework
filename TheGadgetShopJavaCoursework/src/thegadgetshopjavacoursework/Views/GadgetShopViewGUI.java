@@ -1,11 +1,13 @@
 package thegadgetshopjavacoursework.Views;
 
 import java.awt.Image;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
@@ -24,6 +26,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     Gadget gadget = new Gadget();
     Mobile mobile;
     MP3 mp3;
+    ButtonGroup buttonGroup = new ButtonGroup();
 
     /**
      * Creates new form GadgetShop
@@ -36,7 +39,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         gadgetShopController = new TheGadgetShopController();
 
         txtModel.requestFocus();
-
+//        buttonGroup.add(jRadioButtonMObile);
+//        buttonGroup.add(jRadioButtonMPS);        
     }
 
     @SuppressWarnings("unchecked")
@@ -44,6 +48,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private void initComponents()
     {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanelMain = new javax.swing.JPanel();
         jPanelContent = new javax.swing.JPanel();
         lblTitle = new javax.swing.JLabel();
@@ -69,6 +75,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         lblsize3 = new javax.swing.JLabel();
         lblsize4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jRadioButtonMObile = new javax.swing.JRadioButton();
+        jRadioButtonMPS = new javax.swing.JRadioButton();
         jPanelCallDowbloads = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         btnShowAllMobiles = new javax.swing.JButton();
@@ -236,63 +244,91 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Helps/Images/logo.png"))); // NOI18N
 
+        jRadioButtonMObile.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jRadioButtonMObile.setForeground(new java.awt.Color(255, 51, 0));
+        jRadioButtonMObile.setText("Add Mobiles");
+        jRadioButtonMObile.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jRadioButtonMObileActionPerformed(evt);
+            }
+        });
+
+        jRadioButtonMPS.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jRadioButtonMPS.setForeground(new java.awt.Color(255, 51, 51));
+        jRadioButtonMPS.setText("Add MP3 Players");
+        jRadioButtonMPS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jRadioButtonMPSActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelEnterMobileMp3DataLayout = new javax.swing.GroupLayout(jPanelEnterMobileMp3Data);
         jPanelEnterMobileMp3Data.setLayout(jPanelEnterMobileMp3DataLayout);
         jPanelEnterMobileMp3DataLayout.setHorizontalGroup(
             jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                .addGap(0, 199, Short.MAX_VALUE)
-                .addComponent(lblLogo)
-                .addGap(205, 205, 205))
             .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
                 .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                                .addComponent(lblMemory)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMemory, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                                .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(79, 79, 79)
+                        .addComponent(lblLogo)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
+                            .addGap(82, 82, 82)
+                            .addComponent(jRadioButtonMObile)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jRadioButtonMPS))
+                        .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
+                            .addGap(24, 24, 24)
+                            .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
+                                    .addComponent(lblMemory)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtMemory, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
                                     .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                                            .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(lbpModel)
-                                                .addComponent(lblCredit))
-                                            .addGap(5, 5, 5))
-                                        .addComponent(lblWeight, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(lblPrice)
-                                    .addComponent(lblSize))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtWeight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblsize2, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(txtCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblsize3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblsize4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btnDisplayAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddMP3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAddMobile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                        .addGap(199, 199, 199)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
+                                                .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(lbpModel)
+                                                    .addComponent(lblCredit))
+                                                .addGap(5, 5, 5))
+                                            .addComponent(lblWeight, javax.swing.GroupLayout.Alignment.TRAILING))
+                                        .addComponent(lblPrice)
+                                        .addComponent(lblSize))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtWeight, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtModel, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtSize, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblsize2, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(txtCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblsize3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblsize4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(btnDisplayAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAddMP3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAddMobile, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelEnterMobileMp3DataLayout.setVerticalGroup(
             jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblLogo)
-                .addGap(30, 30, 30)
+                .addGap(66, 66, 66)
+                .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButtonMObile)
+                    .addComponent(jRadioButtonMPS))
+                .addGap(85, 85, 85)
                 .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelEnterMobileMp3DataLayout.createSequentialGroup()
                         .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -334,7 +370,9 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                             .addComponent(txtMemory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnClear))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addGroup(jPanelEnterMobileMp3DataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(lblLogo))
                 .addGap(65, 65, 65))
         );
 
@@ -705,9 +743,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jPanelShowDataLayout.setVerticalGroup(
             jPanelShowDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelShowDataLayout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 741, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelContentLayout = new javax.swing.GroupLayout(jPanelContent);
@@ -749,7 +786,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                     .addGroup(jPanelContentLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jPanelEnterMobileMp3Data, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelMainLayout = new javax.swing.GroupLayout(jPanelMain);
@@ -784,6 +821,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void btnDownloadMusicActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDownloadMusicActionPerformed
     {//GEN-HEADEREND:event_btnDownloadMusicActionPerformed
@@ -1273,11 +1311,23 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         }
     }//GEN-LAST:event_txtPhoneNumberKeyTyped
 
+    private void jRadioButtonMObileActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jRadioButtonMObileActionPerformed
+    {//GEN-HEADEREND:event_jRadioButtonMObileActionPerformed
+      JOptionPane.showMessageDialog(null, "Add Mobiles");
+    }//GEN-LAST:event_jRadioButtonMObileActionPerformed
+
+    private void jRadioButtonMPSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jRadioButtonMPSActionPerformed
+    {//GEN-HEADEREND:event_jRadioButtonMPSActionPerformed
+       JOptionPane.showMessageDialog(null, "Add  MP3 Players.");
+    }//GEN-LAST:event_jRadioButtonMPSActionPerformed
+
     private boolean isNonNegativeNumeric(String text)
     {
         return text.matches("\\d+") && Integer.parseInt(text) >= 0;
 
     }
+
+    
 
     private void Clear()
     {
@@ -1311,6 +1361,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private javax.swing.JButton btnMakeACall;
     private javax.swing.JButton btnSHowAllMP3;
     private javax.swing.JButton btnShowAllMobiles;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1319,6 +1371,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private javax.swing.JPanel jPanelEnterMobileMp3Data;
     private javax.swing.JPanel jPanelMain;
     private javax.swing.JPanel jPanelShowData;
+    private javax.swing.JRadioButton jRadioButtonMObile;
+    private javax.swing.JRadioButton jRadioButtonMPS;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
