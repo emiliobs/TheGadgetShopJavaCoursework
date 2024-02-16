@@ -14,6 +14,8 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
   ##
  # Command Prompt Desing
   Welcome, Menu and Exit the System.
+  ![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/b8766540-c9df-42d6-941d-978966cf1239)
+
  
 
 
