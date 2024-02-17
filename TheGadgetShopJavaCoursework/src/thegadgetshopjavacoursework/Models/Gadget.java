@@ -94,12 +94,8 @@ public class Gadget
     // Mehtod to display Gadget details
     public String display()
     {
-         return " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
-//        System.out.println("Id: " + getGadgetId());
-//        System.out.println("Model: " + getModel());
-//        System.out.println("Price: £ " + getPrice());
-//        System.out.println("Weight: " + getWeight() + " Grams");
-//        System.out.println("Size: " + getSize());
+         return  " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
+
     }
 
      

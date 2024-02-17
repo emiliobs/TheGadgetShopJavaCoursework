@@ -242,7 +242,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
     {//GEN-HEADEREND:event_btnCommandPromptActionPerformed
         // This code is to show the program in the command prompt
         TheGadgetShopController gadgetShopController = new TheGadgetShopController();
-        GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt(gadgetShopController);
+        GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt();
         viewPrompt.run();
 
         

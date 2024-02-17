@@ -21,7 +21,7 @@ public class GadgetShopViewPrompt
     private Scanner scanner;
 
     // Constructor to initialize view with controller and scanner
-    public GadgetShopViewPrompt(TheGadgetShopController gadgetShopController)
+    public GadgetShopViewPrompt()
     {
         System.out.println("");
         System.out.println("================================================");
@@ -44,7 +44,7 @@ public class GadgetShopViewPrompt
         System.out.println("=                      2024                    =");
         System.out.println("================================================");
 
-        this.gadgetShopController = gadgetShopController;
+        this.gadgetShopController = new TheGadgetShopController();
         this.scanner = new Scanner(System.in);
         System.out.println("");
     }
@@ -237,7 +237,8 @@ public class GadgetShopViewPrompt
             return;
         }
 
-        displayMobiles(gadgetShopController.getGadgets());
+        displayAllGadgets();
+        //displayMobiles(gadgetShopController.getGadgets());
 
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
@@ -278,8 +279,10 @@ public class GadgetShopViewPrompt
             System.out.println("*****  - Sorry!. No Gadgets Available to Make Call From Mobile. - *****");
             return;
         }
+        
+        displayAllGadgets();
 
-        displayMobiles(gadgetShopController.getGadgets());
+        //displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
@@ -334,7 +337,8 @@ public class GadgetShopViewPrompt
 
         try
         {
-            displayMP3(gadgetShopController.getGadgets());
+            displayAllGadgets();
+           // displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The MP3 Player To Download Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
             if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
@@ -384,7 +388,8 @@ public class GadgetShopViewPrompt
 
         try
         {
-            displayMP3(gadgetShopController.getGadgets());
+            displayAllGadgets();
+            //displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The MP3 Player To Delete Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
             if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
@@ -425,12 +430,20 @@ public class GadgetShopViewPrompt
     private static void displayMobiles(List<Gadget> gadgets)
     {
         System.out.println("----------- MOBILES -----------");
-
-        for (int i = 0; i < gadgets.size(); i++)
+        
+        int index= 1;
+      
+        
+        for (Gadget gadget : gadgets)
         {
-            System.out.println("  Id: " + (i + 1) + " \n " + gadgets.get(i).display());
-            //System.out.println("CALLING CREDIT: " + ((Mobile) gadgets.get(i)).getNumberOfMinutesOfCallingCreditRemaining());
-            System.out.println("");
+            if (gadget instanceof Mobile)
+            {
+                System.out.println(" Id: " + index);
+                System.out.println(" " + gadget.display());
+                System.out.println("");
+                index++;
+            }
+
         }
 
         System.out.println("---------------------------------");
@@ -439,19 +452,21 @@ public class GadgetShopViewPrompt
     private void displayMP3(List<Gadget> gadgets)
     {
         System.out.println("----------- MP3s -----------");
+          
+        int index= 1;    
+        
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof MP3)
             {
-                System.out.println("Gadget Id: " + gadget.getGadgetId());
-                System.out.println("Model: " + gadget.getModel());
-                System.out.println("Price: " + gadget.getPrice());
-                System.out.println("Weight: " + gadget.getWeight());
-                System.out.println("Size: " + gadget.getSize());
-                System.out.println("AVAILABLE MEMORY: " + ((MP3) gadget).getAvailableMemory());
+                System.out.println(" Id: " + index);
+                System.out.println(" " + gadget.display());
                 System.out.println("");
+                index++;
             }
+
         }
+
         System.out.println("---------------------------------");
     }
 
