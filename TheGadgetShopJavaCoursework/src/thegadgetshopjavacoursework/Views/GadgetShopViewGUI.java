@@ -835,7 +835,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addGap(152, 152, 152)
                 .addComponent(lblResults)
                 .addContainerGap(119, Short.MAX_VALUE))
-            .addGroup(jPanelShowDataLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelShowDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1)
                 .addContainerGap())
@@ -886,7 +886,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelCallDowbloads, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelMobileMp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelShowData, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addComponent(jPanelShowData, javax.swing.GroupLayout.PREFERRED_SIZE, 793, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -926,7 +926,81 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnDownloadMusicActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDownloadMusicActionPerformed
     {//GEN-HEADEREND:event_btnDownloadMusicActionPerformed
-        // TODO add your handling code here:
+        String mp3Id = txtSelectMP3Id.getText();
+        String downloadMusic = txtDownload.getText();
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Delete Music MP3.");
+            return;
+
+        }
+
+        if (mp3Id.trim().isBlank() && mp3Id.trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A MP3 Id From The List. ");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(mp3Id))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid MP3 Id Number (1,2...) Not Un: " + mp3Id);
+            return;
+
+        }
+
+        if (downloadMusic.trim().isBlank() && downloadMusic.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(downloadMusic))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not A: " + downloadMusic);
+            return;
+
+        }
+
+        try
+        {
+            int idMp3 = Integer.parseInt(mp3Id);
+
+            if (idMp3 >= 1 && idMp3 <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(idMp3 - 1) instanceof MP3)
+            {
+
+                boolean resultDownload = ((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).downloadMusic(Integer.parseInt(downloadMusic));
+
+                if (resultDownload)
+                {
+                    TextAreaShowData.append("MP3 Update With Download Music In MB:\n");
+                    JOptionPane.showMessageDialog(null, "Great!. The Download Music To MP3 Was Successfuully: " + downloadMusic + " MB");
+                    TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display());
+
+                    txtSelectMP3Id.setText("");
+                    txtDownload.setText("");
+                    txtDeleteMusicFromMp3Player.setText("");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Sorry!. Not Enough Memory To Download Music!");
+                    return;
+                }
+
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
+
+        }
+        catch (IndexOutOfBoundsException | InputMismatchException e)
+        {
+            JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
+            return;
+        }
+
+        TextAreaShowData.append("\n-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnDownloadMusicActionPerformed
 
     private void btnShowAllMobilesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnShowAllMobilesActionPerformed
@@ -951,6 +1025,10 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             }
         }
         TextAreaShowData.append("-------------------------------------------------------------\n");
+
+        txtSelectMP3Id.setText("");
+        txtDeleteMusicFromMp3Player.setText("");
+        txtDownload.setText("");
     }//GEN-LAST:event_btnShowAllMobilesActionPerformed
 
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDisplayAllActionPerformed
@@ -1197,7 +1275,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append("Mobiles Update with Calling Credit:\n");
                 ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
                 JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add Was Successfully." + creditToAdd + " Minutes");
-                TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display());
+                TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display()+ "\n");
 
                 txtSelectMobileId.setText("");
                 txtPhoneNumber.setText("");
@@ -1215,8 +1293,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
 
         }
-
-        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
+       TextAreaShowData.append("-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnAddCallingCreditActionPerformed
 
     private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
@@ -1266,7 +1343,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append("MP3 Update with Delete Music Memory:\n");
                 ((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).deleteMusic(Integer.parseInt(deleteMusic));
                 JOptionPane.showMessageDialog(null, "Great!. The Delete Music To MP3 Was Successfuully." + deleteMusic + " Minutes");
-                TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display());
+                TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display() + "\n");
 
                 txtSelectMP3Id.setText("");
                 txtDownload.setText("");
@@ -1284,20 +1361,108 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
             return;
         }
-
-        TextAreaShowData.append("\n----------------------------------------------------------------------\n");
+        TextAreaShowData.append("-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnDeleteMusicMP3ActionPerformed
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
     {//GEN-HEADEREND:event_btnMakeACallActionPerformed
 
+        String mobileId = txtSelectMobileId.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String duration = txtDuration.getText();
+
+        if (gadgetShopController.getGadgets().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
+            return;
+
+        }
+
+        if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(mobileId))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
+            return;
+
+        }
+
+        if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
+            return;
+        }
+
+        if (phoneNumber.length() > 10)
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  ( 9-Digits) Not A: " + phoneNumber);
+            return;
+        }
+
+        if (!isNonNegativeNumeric(phoneNumber))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
+            return;
+
+        }
+
+        if (duration.trim().isBlank() && duration.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
+            return;
+        }
+
+        if (!isNonNegativeNumeric(duration))
+        {
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
+            return;
+
+        }
+
         try
         {
-            callMakeACall();
+
+            int mobileID = Integer.parseInt(mobileId);
+            int NumberPhone = Integer.parseInt(phoneNumber);
+            int callDuration = Integer.parseInt(duration);
+
+            if (mobileID >= 1 && mobileID <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileID - 1) instanceof Mobile)
+            {
+
+                boolean resultMakeCAll = ((Mobile) gadgetShopController.getGadgets().get(mobileID - 1)).mobileMakeCall(NumberPhone, callDuration);
+                if (resultMakeCAll)
+                {
+                    TextAreaShowData.append("Making A Call From Mobile\n");
+                    JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
+                    TextAreaShowData.append("CALLING NUMBER: " + phoneNumber + " FOR: " + duration + " MINUTES.\n");
+                    TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(mobileID - 1)).display() + "\n");
+
+                    txtDisplayNumber.setText(txtPhoneNumber.getText());
+                    txtSelectMobileId.setText("");
+                    txtPhoneNumber.setText("");
+                    txtDuration.setText("");
+                    txtAddCallingCreditToMObile.setText("");
+                    TextAreaShowData.append("-------------------------------------------------------------\n");
+
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
+                }
+            }
+            else
+            {
+                throw new IndexOutOfBoundsException();
+            }
         }
-        catch (Exception e)
+        catch (IndexOutOfBoundsException | InputMismatchException e)
         {
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter A Valid Number On The List.: " + e.getMessage());
+
         }
 
     }//GEN-LAST:event_btnMakeACallActionPerformed
@@ -1334,97 +1499,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void callMakeACall()
     {
-        String mobileId = txtSelectMobileId.getText();
-        String phoneNumber = txtPhoneNumber.getText();
-        String duration = txtDuration.getText();
-
-        try
-        {
-
-            if (gadgetShopController.getGadgets().isEmpty())
-            {
-                JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
-                return;
-
-            }
-
-            if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
-                return;
-            }
-
-            if (!isNonNegativeNumeric(mobileId))
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
-                return;
-
-            }
-
-            if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
-                return;
-            }
-
-            if (phoneNumber.length() > 10)
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  ( 9-Digits) Not A: " + phoneNumber);
-                return;
-            }
-
-            if (!isNonNegativeNumeric(phoneNumber))
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
-                return;
-
-            }
-
-            if (duration.trim().isBlank() && duration.isEmpty())
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
-                return;
-            }
-
-            if (!isNonNegativeNumeric(duration))
-            {
-                JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
-                return;
-
-            }
-
-            int mobileID = Integer.parseInt(mobileId);
-            int NumberPhone = Integer.parseInt(phoneNumber);
-            int callDuration = Integer.parseInt(duration);
-
-            var resultMakeCall = gadgetShopController.makeCallFromMobile(mobileID, NumberPhone, callDuration);
-            if (resultMakeCall != null)
-            {
-                TextAreaShowData.append("Making A Call From Mobile\n");
-                JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
-
-                TextAreaShowData.append("CALLING NUMBER: " + phoneNumber + " FOR: " + duration + " MINUTES.\n");
-                TextAreaShowData.append(resultMakeCall);
-
-                txtDisplayNumber.setText(txtPhoneNumber.getText());
-                txtSelectMobileId.setText("");
-                txtPhoneNumber.setText("");
-                txtDuration.setText("");
-                txtAddCallingCreditToMObile.setText("");
-                TextAreaShowData.append("\n----------------------------------------------------------------------\n");
-
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
-
-            }
-        }
-        catch (Exception e)
-        {
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
-            return;
-        }
 
     }
     private void txtSelectMobileIdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtSelectMobileIdActionPerformed

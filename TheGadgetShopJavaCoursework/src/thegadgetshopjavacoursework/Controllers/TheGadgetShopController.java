@@ -3,6 +3,7 @@ package thegadgetshopjavacoursework.Controllers;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 import thegadgetshopjavacoursework.Models.Gadget;
 import thegadgetshopjavacoursework.Models.Mobile;
@@ -54,40 +55,11 @@ public class TheGadgetShopController
 
         for (int i = 0; i < gadgets.size(); i++)
         {
-             System.out.println("  Id: " + (i+1)  + " \n " + gadgets.get(i).display());
-            System.out.println(""); 
+            System.out.println("  Id: " + (i + 1) + " \n " + gadgets.get(i).display());
+            System.out.println("");
         }
         System.out.println("================================================");
 
-    }
-
-    public String makeCallFromMobile(int mobileId, int phoneNumber, int duration)
-    {
-
-        try
-        {
-            if (mobileId >= 1 && mobileId <= gadgets.size() && gadgets.get(mobileId - 1) instanceof Mobile)
-            {
-                var resultMakeCall = ((Mobile) gadgets.get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
-                 
-                if (resultMakeCall)
-                {
-                    return ((Mobile) gadgets.get(mobileId - 1)).display();
-
-                }
-
-                return null;
-
-            }
-            else
-            {
-                throw new IndexOutOfBoundsException();
-            }
-        }
-        catch (IndexOutOfBoundsException | InputMismatchException e)
-        {
-            throw new Error("Error: Invalid Choice. Please Enter a Valid Number On The List." + e.getMessage());
-        }
     }
 
 }
