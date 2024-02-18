@@ -11,7 +11,7 @@ public class Gadget
 {
 
     // Instance Variables
-    private static int gadgetCounter = 0 ;
+    private static int gadgetCounter = -1;
 
     private int gadgetId;
     private String model;
@@ -94,7 +94,7 @@ public class Gadget
     // Mehtod to display Gadget details
     public String display()
     {
-         return  " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
+         return  " Id: "  + gadgetId + " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
 
     }
 

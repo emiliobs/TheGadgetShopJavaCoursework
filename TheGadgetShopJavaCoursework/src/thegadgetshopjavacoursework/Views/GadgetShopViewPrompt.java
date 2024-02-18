@@ -453,16 +453,18 @@ public class GadgetShopViewPrompt
     {
         System.out.println("----------- MP3s -----------");
           
-        int index= 1;    
+      //  int index= 1;    
         
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof MP3)
             {
-                System.out.println(" Id: " + index);
-                System.out.println(" " + gadget.display());
+                System.out.println(gadget);
+                
+//                System.out.println(" Id: " + index);
+//                System.out.println(" " + gadget.display());
                 System.out.println("");
-                index++;
+                //index++;
             }
 
         }
