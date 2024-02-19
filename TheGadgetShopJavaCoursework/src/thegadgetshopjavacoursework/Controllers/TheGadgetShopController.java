@@ -54,18 +54,13 @@ public class TheGadgetShopController
         {
             System.out.println("Sorry!. No Gadgets available to Add Calling Credit.");
         }
-        
+
         for (Gadget gadget : gadgets)
         {
             System.out.println(gadget.display());
             System.out.println("");
         }
 
-//        for (int i = 0; i < gadgets.size(); i++)
-//        {
-//            System.out.println("  Id: " + (i + 1) + " \n " + gadgets.get(i).display());
-//            System.out.println("");
-//        }
         System.out.println("================================================");
 
     }

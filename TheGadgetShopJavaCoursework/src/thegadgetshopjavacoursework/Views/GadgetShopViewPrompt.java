@@ -172,8 +172,7 @@ public class GadgetShopViewPrompt
         }
 
         System.out.println("");
-        gadgetShopController.addGadget(mobile);
-        //gadgetShopController.addGadget(mobile);  // Add mobile to the list
+        gadgetShopController.addGadget(mobile);  // Add mobile to the list
         System.out.println("##### Mobile Added Successfully! #####");
     }
 
@@ -237,9 +236,8 @@ public class GadgetShopViewPrompt
             return;
         }
 
-        displayAllGadgets();
-        //displayMobiles(gadgetShopController.getGadgets());
-
+     
+        displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
@@ -279,10 +277,8 @@ public class GadgetShopViewPrompt
             System.out.println("*****  - Sorry!. No Gadgets Available to Make Call From Mobile. - *****");
             return;
         }
-        
-        displayAllGadgets();
 
-        //displayMobiles(gadgetShopController.getGadgets());
+        displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
@@ -337,8 +333,8 @@ public class GadgetShopViewPrompt
 
         try
         {
-            displayAllGadgets();
-           // displayMP3(gadgetShopController.getGadgets());
+           
+            displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The MP3 Player To Download Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
             if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
@@ -430,18 +426,15 @@ public class GadgetShopViewPrompt
     private static void displayMobiles(List<Gadget> gadgets)
     {
         System.out.println("----------- MOBILES -----------");
-        
-        int index= 1;
-      
-        
+
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof Mobile)
             {
-                System.out.println(" Id: " + index);
+
                 System.out.println(" " + gadget.display());
                 System.out.println("");
-                index++;
+
             }
 
         }
@@ -452,19 +445,15 @@ public class GadgetShopViewPrompt
     private void displayMP3(List<Gadget> gadgets)
     {
         System.out.println("----------- MP3s -----------");
-          
-      //  int index= 1;    
-        
+
         for (Gadget gadget : gadgets)
         {
             if (gadget instanceof MP3)
             {
-                System.out.println(gadget);
-                
-//                System.out.println(" Id: " + index);
-//                System.out.println(" " + gadget.display());
+
+                System.out.println(" " + gadget.display());
                 System.out.println("");
-                //index++;
+
             }
 
         }

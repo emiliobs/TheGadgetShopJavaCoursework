@@ -1018,8 +1018,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             if (gadget instanceof Mobile)
             {
                 TextAreaShowData.append("Mobiles List:\n");
-                TextAreaShowData.append(" Id: " + gadget.getGadgetId() + "\n");
-                TextAreaShowData.append(" " + gadget.display());
+               TextAreaShowData.append(" " + gadget.display() + "\n");
                 TextAreaShowData.append("\n");
 
             }
@@ -1045,8 +1044,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         TextAreaShowData.append("Display All Gadgets:\n");
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
-            TextAreaShowData.append("  Id: " + gadget.getGadgetId() + "\n");
-            TextAreaShowData.append(" " + gadget.display());
+            //TextAreaShowData.append("  Id: " + gadget.getGadgetId() + "\n");
+            TextAreaShowData.append(" " + gadget.display() + "\n");
             TextAreaShowData.append("\n");
         }
         TextAreaShowData.append("-------------------------------------------------------------\n");
@@ -1275,7 +1274,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 TextAreaShowData.append("Mobiles Update with Calling Credit:\n");
                 ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
                 JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add Was Successfully." + creditToAdd + " Minutes");
-                TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display()+ "\n");
+                TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display() + "\n");
 
                 txtSelectMobileId.setText("");
                 txtPhoneNumber.setText("");
@@ -1293,7 +1292,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
 
         }
-       TextAreaShowData.append("-------------------------------------------------------------\n");
+        TextAreaShowData.append("-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnAddCallingCreditActionPerformed
 
     private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
@@ -1486,8 +1485,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             if (gadget instanceof MP3)
             {
                 TextAreaShowData.append("MP3s List:\n");
-                TextAreaShowData.append(" Id: " + gadget.getGadgetId() + "\n");
-                TextAreaShowData.append(" " + gadget.display());
+                TextAreaShowData.append(" " + gadget.display() + "\n");
                 TextAreaShowData.append("\n");
 
             }
