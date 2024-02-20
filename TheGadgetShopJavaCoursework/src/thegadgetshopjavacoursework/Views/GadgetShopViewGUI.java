@@ -86,11 +86,11 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         jPanelEnterData = new javax.swing.JPanel();
         lblMemory = new javax.swing.JLabel();
         txtMemory = new javax.swing.JTextField();
-        lblsize4 = new javax.swing.JLabel();
+        lblMP3 = new javax.swing.JLabel();
         btnClear = new javax.swing.JButton();
         lblCredit = new javax.swing.JLabel();
         txtCredit = new javax.swing.JTextField();
-        lblsize3 = new javax.swing.JLabel();
+        lblMobile = new javax.swing.JLabel();
         btnDisplayAll = new javax.swing.JButton();
         lblSize = new javax.swing.JLabel();
         txtSize = new javax.swing.JTextField();
@@ -233,9 +233,9 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         txtMemory.setNextFocusableComponent(btnAddMobile);
 
-        lblsize4.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        lblsize4.setForeground(new java.awt.Color(255, 0, 0));
-        lblsize4.setText("(MP3)");
+        lblMP3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        lblMP3.setForeground(new java.awt.Color(255, 0, 0));
+        lblMP3.setText("(MP3)");
 
         btnClear.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnClear.setForeground(new java.awt.Color(222, 8, 8));
@@ -257,9 +257,9 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         txtCredit.setNextFocusableComponent(txtMemory);
 
-        lblsize3.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        lblsize3.setForeground(new java.awt.Color(255, 0, 0));
-        lblsize3.setText("(Mobile)");
+        lblMobile.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        lblMobile.setForeground(new java.awt.Color(255, 0, 0));
+        lblMobile.setText("(Mobile)");
 
         btnDisplayAll.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnDisplayAll.setForeground(new java.awt.Color(222, 8, 8));
@@ -365,9 +365,9 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                                 .addComponent(lblCredit)
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelEnterDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblsize3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCredit, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblsize4, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(lblMP3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEnterDataLayout.createSequentialGroup()
                         .addComponent(lblMemory)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -417,13 +417,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                         .addGap(57, 57, 57)))
                 .addGroup(jPanelEnterDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelEnterDataLayout.createSequentialGroup()
-                        .addComponent(lblsize3)
+                        .addComponent(lblMobile)
                         .addGap(10, 10, 10)
                         .addGroup(jPanelEnterDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCredit)
                             .addComponent(txtCredit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(lblsize4)
+                        .addComponent(lblMP3)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelEnterDataLayout.createSequentialGroup()
                         .addComponent(btnDisplayAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1006,19 +1006,21 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private void btnShowAllMobilesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnShowAllMobilesActionPerformed
     {//GEN-HEADEREND:event_btnShowAllMobilesActionPerformed
 
+        TextAreaShowData.setText("");
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available From Mobiles");
             return;
 
         }
+        TextAreaShowData.append("Mobiles List:\n");
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
 
             if (gadget instanceof Mobile)
             {
-                TextAreaShowData.append("Mobiles List:\n");
-               TextAreaShowData.append(" " + gadget.display() + "\n");
+
+                TextAreaShowData.append(" " + gadget.display() + "\n");
                 TextAreaShowData.append("\n");
 
             }
@@ -1028,6 +1030,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         txtSelectMP3Id.setText("");
         txtDeleteMusicFromMp3Player.setText("");
         txtDownload.setText("");
+
+
     }//GEN-LAST:event_btnShowAllMobilesActionPerformed
 
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDisplayAllActionPerformed
@@ -1473,25 +1477,31 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     private void btnSHowAllMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSHowAllMP3ActionPerformed
     {//GEN-HEADEREND:event_btnSHowAllMP3ActionPerformed
+        TextAreaShowData.setText("");
+
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available From MP3s.");
             return;
 
         }
-
-        for (Gadget gadget : gadgetShopController.getGadgets())
+        else
         {
-            if (gadget instanceof MP3)
+            TextAreaShowData.append("MP3s List:\n");
+            for (Gadget gadget : gadgetShopController.getGadgets())
             {
-                TextAreaShowData.append("MP3s List:\n");
-                TextAreaShowData.append(" " + gadget.display() + "\n");
-                TextAreaShowData.append("\n");
+                if (gadget instanceof MP3)
+                {
+
+                    TextAreaShowData.append(" " + gadget.display() + "\n");
+                    TextAreaShowData.append("\n");
+
+                }
 
             }
-
+            TextAreaShowData.append("-------------------------------------------------------------\n");
         }
-        TextAreaShowData.append("-------------------------------------------------------------\n");
+
 
     }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
@@ -1531,6 +1541,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnAddMobile.setEnabled(true);
         btnAddMP3.setEnabled(false);
 
+        txtMemory.setVisible(false);
+        lblMP3.setVisible(false);
+        lblMemory.setVisible(false);
+        txtCredit.setVisible(true);
+        lblMobile.setVisible(true);
+        lblCredit.setVisible(true);
+
 
     }//GEN-LAST:event_jRadioButtonMObileActionPerformed
 
@@ -1547,6 +1564,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         btnAddMobile.setEnabled(false);
         btnAddMP3.setEnabled(true);
+
+        txtMemory.setVisible(true);
+        lblMP3.setVisible(true);
+        lblMemory.setVisible(true);
+        txtCredit.setVisible(false);
+        lblMobile.setVisible(false);
+        lblCredit.setVisible(false);
 
     }//GEN-LAST:event_jRadioButtonMPSActionPerformed
 
@@ -1614,7 +1638,9 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private javax.swing.JLabel lblDisplayNumber;
     private javax.swing.JLabel lblDownload;
     private javax.swing.JLabel lblDuration;
+    private javax.swing.JLabel lblMP3;
     private javax.swing.JLabel lblMemory;
+    private javax.swing.JLabel lblMobile;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblResults;
@@ -1624,8 +1650,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel lblsize2;
-    private javax.swing.JLabel lblsize3;
-    private javax.swing.JLabel lblsize4;
     private javax.swing.JLabel lbpModel;
     private javax.swing.JTextField txtAddCallingCreditToMObile;
     private javax.swing.JTextField txtCredit;

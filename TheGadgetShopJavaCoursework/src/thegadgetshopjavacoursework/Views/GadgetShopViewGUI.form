@@ -407,9 +407,9 @@
                                               <Component id="lblCredit" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblsize3" min="-2" pref="56" max="-2" attributes="0"/>
+                                                  <Component id="lblMobile" min="-2" pref="56" max="-2" attributes="0"/>
                                                   <Component id="txtCredit" min="-2" pref="207" max="-2" attributes="0"/>
-                                                  <Component id="lblsize4" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
+                                                  <Component id="lblMP3" alignment="0" min="-2" pref="56" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -479,14 +479,14 @@
                               </Group>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="lblsize3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMobile" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
                                           <Component id="lblCredit" alignment="3" min="-2" max="-2" attributes="0"/>
                                           <Component id="txtCredit" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblsize4" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblMP3" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -523,7 +523,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblsize4">
+                    <Component class="javax.swing.JLabel" name="lblMP3">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="3"/>
@@ -573,7 +573,7 @@
                         </Property>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblsize3">
+                    <Component class="javax.swing.JLabel" name="lblMobile">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="14" style="3"/>

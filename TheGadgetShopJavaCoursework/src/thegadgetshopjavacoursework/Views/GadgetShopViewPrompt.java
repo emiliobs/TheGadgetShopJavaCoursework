@@ -238,7 +238,7 @@ public class GadgetShopViewPrompt
 
      
         displayMobiles(gadgetShopController.getGadgets());
-        System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
+        System.out.print("Choose the Id Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
         try
@@ -279,7 +279,7 @@ public class GadgetShopViewPrompt
         }
 
         displayMobiles(gadgetShopController.getGadgets());
-        System.out.print("Choose the Mobile to Add Calling Credit (Enter its Number): ");
+        System.out.print("Choose the Id Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
         try
@@ -335,7 +335,7 @@ public class GadgetShopViewPrompt
         {
            
             displayMP3(gadgetShopController.getGadgets());
-            System.out.print("Choose The MP3 Player To Download Music (Enter Its Numbers): ");
+            System.out.print("Choose The Id MP3 Player To Download Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
             if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
             {
@@ -386,7 +386,7 @@ public class GadgetShopViewPrompt
         {
             displayAllGadgets();
             //displayMP3(gadgetShopController.getGadgets());
-            System.out.print("Choose The MP3 Player To Delete Music (Enter Its Numbers): ");
+            System.out.print("Choose The Id MP3 Player To Delete Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
             if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
             {
@@ -394,7 +394,9 @@ public class GadgetShopViewPrompt
                 int memory = scanner.nextInt();
                 System.out.println("");
                 boolean resultdeletMusic = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).deleteMusic(memory);
-                ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
+                //((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
+                System.out.println("Update The MP3sPlayer Was Delete Music.");
+                displayMP3(gadgetShopController.getGadgets());
                 System.out.println("==================================================");
                 System.out.println("");
                 if (resultdeletMusic)

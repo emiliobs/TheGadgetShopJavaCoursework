@@ -8,13 +8,12 @@ package thegadgetshopjavacoursework.Models;
 public class Mobile extends Gadget
 {
 
-    
     private int numberOfMinutesOfCallingCreditRemaining;
 
     // Constructor empty
     public Mobile()
     {
-       
+
     }
 
     // Constructor to initialize Mobile attribute and Gatged attributes
@@ -91,7 +90,6 @@ public class Mobile extends Gadget
     public String display()
     {
         return super.display() + "\n " + " CALLING CREDIT: " + numberOfMinutesOfCallingCreditRemaining + " MINUTES.";
-        //System.out.println("CALLING CREDIT: " + getNumberOfMinutesOfCallingCreditRemaining() + " MINUTES.");
     }
 
 }
