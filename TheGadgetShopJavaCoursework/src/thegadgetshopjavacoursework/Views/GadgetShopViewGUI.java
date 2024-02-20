@@ -1541,12 +1541,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnAddMobile.setEnabled(true);
         btnAddMP3.setEnabled(false);
 
-        txtMemory.setVisible(false);
-        lblMP3.setVisible(false);
-        lblMemory.setVisible(false);
-        txtCredit.setVisible(true);
-        lblMobile.setVisible(true);
-        lblCredit.setVisible(true);
+//        txtMemory.setVisible(false);
+//        lblMP3.setVisible(false);
+//        lblMemory.setVisible(false);
+//        txtCredit.setVisible(true);
+//        lblMobile.setVisible(true);
+//        lblCredit.setVisible(true);
 
 
     }//GEN-LAST:event_jRadioButtonMObileActionPerformed
@@ -1565,12 +1565,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         btnAddMobile.setEnabled(false);
         btnAddMP3.setEnabled(true);
 
-        txtMemory.setVisible(true);
-        lblMP3.setVisible(true);
-        lblMemory.setVisible(true);
-        txtCredit.setVisible(false);
-        lblMobile.setVisible(false);
-        lblCredit.setVisible(false);
+//        txtMemory.setVisible(true);
+//        lblMP3.setVisible(true);
+//        lblMemory.setVisible(true);
+//        txtCredit.setVisible(false);
+//        lblMobile.setVisible(false);
+//        lblCredit.setVisible(false);
 
     }//GEN-LAST:event_jRadioButtonMPSActionPerformed
 
