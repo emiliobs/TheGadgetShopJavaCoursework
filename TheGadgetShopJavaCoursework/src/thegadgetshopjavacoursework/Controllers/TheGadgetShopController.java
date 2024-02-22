@@ -6,48 +6,75 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import thegadgetshopjavacoursework.Models.Gadget;
+
 import thegadgetshopjavacoursework.Models.Mobile;
 
 /**
+ * Controller class responsible for managing gadgets within the Gadget Shop
+ * application. TheGadgetShopController class provides methods to add gadgets to
+ * a list, retrieve the list of gadgets, and display all gadgets in the list.
+ *
+ * This class serves as an intermediary between the user interface and the data
+ * model, facilitating the management of gadgets.
+ *
+ * It contains functionality to interact with Gadget and Mobile objects,
+ * including adding gadgets to a list and displaying all gadgets.
  *
  * @author Emilio
  */
-// Controller Class
-// TheGadgetShopController class
 public class TheGadgetShopController
 {
 
-    // Create a empty ArrayList to store Gadget objects
+    // Create an empty ArrayList to store Gadget objects
     private List<Gadget> gadgets;
     Gadget gadget;
 
+    /**
+     * Default constructor for creating a TheGadgetShopController object.
+     * Initializes the gadgets list and a reference to a Gadget object.
+     */
     public TheGadgetShopController()
     {
         gadgets = new ArrayList<>();
         gadget = new Gadget();
-
     }
 
+    /**
+     * Retrieves the list of gadgets.
+     *
+     * @return The list of gadgets.
+     */
     public List<Gadget> getGadgets()
     {
         return gadgets;
     }
 
+    /**
+     * Sets the list of gadgets.
+     *
+     * @param gadgets The list of gadgets to set.
+     */
     public void setGadgets(List<Gadget> gadgets)
     {
         this.gadgets = gadgets;
     }
 
-    // Method to add a gadget to the list
+    /**
+     * Adds a gadget to the list of gadgets.
+     *
+     * @param gadget The gadget to add to the list.
+     */
     public void addGadget(Gadget gadget)
     {
         gadgets.add(gadget);
     }
 
-    // Method to display all gadget in the list
+    /**
+     * Displays all gadgets in the list. If the list is empty, it prints a
+     * message indicating that no gadgets are available.
+     */
     public void displayAllGadgets()
     {
-
         System.out.println("============= DISPLAY ALL GADGETS ==============");
 
         if (gadgets.isEmpty())
@@ -62,7 +89,5 @@ public class TheGadgetShopController
         }
 
         System.out.println("================================================");
-
     }
-
 }
