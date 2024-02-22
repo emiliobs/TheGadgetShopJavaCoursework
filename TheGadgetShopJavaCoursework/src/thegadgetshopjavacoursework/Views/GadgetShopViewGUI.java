@@ -1,7 +1,6 @@
 package thegadgetshopjavacoursework.Views;
 
 import java.util.InputMismatchException;
-
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -11,12 +10,15 @@ import thegadgetshopjavacoursework.Models.MP3;
 import thegadgetshopjavacoursework.Models.Mobile;
 
 /**
+ * This class represents the GUI view for a gadget shop application. It contains
+ * components and functionalities to interact with the user.
  *
  * @author Emilio
  */
 public class GadgetShopViewGUI extends javax.swing.JFrame
 {
 
+    // Instance variables declaration
     TheGadgetShopController gadgetShopController;
     Gadget gadget = new Gadget();
     Mobile mobile;
@@ -24,20 +26,23 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     ButtonGroup buttonGroup = new ButtonGroup();
 
     /**
-     * Creates new form GadgetShop
+     * Creates a new instance of GadgetShopViewGUI. This constructor initializes
+     * the GUI components and sets up initial configurations.
      */
     public GadgetShopViewGUI()
     {
-        initComponents();
-        setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage());
+        initComponents(); // Initialize GUI components
+        setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage()); // Set application icon
 
-        gadgetShopController = new TheGadgetShopController();
+        gadgetShopController = new TheGadgetShopController(); // Instantiate controller
 
-        txtModel.requestFocus();
+        txtModel.requestFocus(); // Set focus to txtModel text field
 
+        // Add radio buttons to a button group
         buttonGroup.add(jRadioButtonMObile);
         buttonGroup.add(jRadioButtonMPS);
 
+        // Disable text fields and buttons
         txtModel.setEnabled(false);
         txtPrice.setEnabled(false);
         txtWeight.setEnabled(false);
@@ -64,7 +69,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         txtDeleteMusicFromMp3Player.setEnabled(false);
         btnDownloadMusic.setEnabled(false);
         btnDeleteMusicMP3.setEnabled(false);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -923,58 +927,74 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Handles the action event when the user clicks the "Download Music"
+     * button. This method retrieves the MP3 ID and the memory to free from the
+     * UI components. It performs validations and then attempts to download
+     * music to the specified MP3 player. If successful, it updates the UI with
+     * the information of the MP3 player and the download status. If
+     * unsuccessful, it displays an error message.
+     *
+     * @param evt The ActionEvent representing the user's action
+     */
 
     private void btnDownloadMusicActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDownloadMusicActionPerformed
     {//GEN-HEADEREND:event_btnDownloadMusicActionPerformed
         String mp3Id = txtSelectMP3Id.getText();
         String downloadMusic = txtDownload.getText();
 
+        // Check if the gadget list is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Delete Music MP3.");
             return;
-
         }
 
+        // Validate MP3 ID input
         if (mp3Id.trim().isBlank() && mp3Id.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A MP3 Id From The List. ");
             return;
         }
 
+        // Validate if MP3 ID is a non-negative number
         if (!isNonNegativeNumeric(mp3Id))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid MP3 Id Number (1,2...) Not Un: " + mp3Id);
             return;
-
         }
 
+        // Validate memory input
         if (downloadMusic.trim().isBlank() && downloadMusic.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
             return;
         }
 
+        // Validate if memory input is a non-negative number
         if (!isNonNegativeNumeric(downloadMusic))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not A: " + downloadMusic);
             return;
-
         }
 
         try
         {
+            // Parsing MP3 ID
             int idMp3 = Integer.parseInt(mp3Id);
 
+            // Validation and Checking MP3 ID
             if (idMp3 >= 1 && idMp3 <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(idMp3 - 1) instanceof MP3)
             {
-
+                // Attempting to download music
                 boolean resultDownload = ((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).downloadMusic(Integer.parseInt(downloadMusic));
 
+                // Handling Download Result
                 if (resultDownload)
                 {
+                    // Actions if download is successful
                     TextAreaShowData.append("MP3 Update With Download Music In MB:\n");
-                    JOptionPane.showMessageDialog(null, "Great!. The Download Music To MP3 Was Successfuully: " + downloadMusic + " MB");
+                    JOptionPane.showMessageDialog(null, "Great!. The Download Music To MP3 Was Successfully: " + downloadMusic + " MB");
                     TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display());
 
                     txtSelectMP3Id.setText("");
@@ -983,50 +1003,73 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 }
                 else
                 {
+                    // Actions if download fails
                     JOptionPane.showMessageDialog(null, "Sorry!. Not Enough Memory To Download Music!");
                     return;
                 }
-
             }
             else
             {
+                // Invalid MP3 ID
                 throw new IndexOutOfBoundsException();
             }
-
         }
         catch (IndexOutOfBoundsException | InputMismatchException e)
         {
+            // Exception Handling
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
             return;
         }
 
+// Appending to TextArea
         TextAreaShowData.append("\n-------------------------------------------------------------\n");
+
     }//GEN-LAST:event_btnDownloadMusicActionPerformed
 
+    /**
+     * Handles the action event when the user clicks the "Show All Mobiles"
+     * button. This method clears the TextAreaShowData and then iterates through
+     * the gadget list. It displays information only for the gadgets that are
+     * instances of Mobile. If no mobile gadgets are found, it displays an error
+     * message.
+     *
+     * @param evt The ActionEvent representing the user's action
+     */
     private void btnShowAllMobilesActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnShowAllMobilesActionPerformed
     {//GEN-HEADEREND:event_btnShowAllMobilesActionPerformed
 
+        // Clearing the text area
         TextAreaShowData.setText("");
+
+        // Checking if the list of gadgets is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
+            // Displaying a message if there are no gadgets available
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available From Mobiles");
+            // Exiting the method
             return;
-
         }
+
+        // Appending a header for the Mobiles List
         TextAreaShowData.append("Mobiles List:\n");
+
+        // Iterating over each gadget in the list
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
-
+            // Checking if the gadget is an instance of Mobile
             if (gadget instanceof Mobile)
             {
-
+                // Displaying information about the mobile gadget
                 TextAreaShowData.append(" " + gadget.display() + "\n");
+                // Adding a newline after displaying each mobile gadget
                 TextAreaShowData.append("\n");
-
             }
         }
+
+        // Appending a separator line
         TextAreaShowData.append("-------------------------------------------------------------\n");
 
+        // Resetting input fields 
         txtSelectMP3Id.setText("");
         txtDeleteMusicFromMp3Player.setText("");
         txtDownload.setText("");
@@ -1034,36 +1077,71 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     }//GEN-LAST:event_btnShowAllMobilesActionPerformed
 
+    /**
+     * Handles the action event when the user clicks the "Display All" button.
+     * This method clears the TextAreaShowData and then iterates through the
+     * gadget list. It displays information for all gadgets. If the gadget list
+     * is empty, it displays an error message.
+     *
+     * @param evt The ActionEvent representing the user's action
+     */
     private void btnDisplayAllActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDisplayAllActionPerformed
     {//GEN-HEADEREND:event_btnDisplayAllActionPerformed
 
+        // Clearing the text area
         TextAreaShowData.setText("");
 
+        // Checking if the list of gadgets is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Sorry! There Is Not gadgets To Display (Empty LIst.)");
+            // Displaying a message if the list is empty
+            JOptionPane.showMessageDialog(null, "Sorry! There Is Not gadgets To Display (Empty List.)");
+            // Exiting the method
             return;
         }
 
+        // Appending a header for displaying all gadgets
         TextAreaShowData.append("Display All Gadgets:\n");
+
+        // Iterating over each gadget in the list
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
-            //TextAreaShowData.append("  Id: " + gadget.getGadgetId() + "\n");
+            // Displaying information about the gadget
             TextAreaShowData.append(" " + gadget.display() + "\n");
+            // Adding a newline after displaying each gadget
             TextAreaShowData.append("\n");
         }
+
+        // Appending a separator line
         TextAreaShowData.append("-------------------------------------------------------------\n");
+
 
     }//GEN-LAST:event_btnDisplayAllActionPerformed
 
+    /**
+     * This method is an event handler for the button "btnExit". It is invoked
+     * when the user clicks on the button to exit the application. It disposes
+     * of the current window, effectively closing it.
+     *
+     * @param evt The ActionEvent representing the user's action (clicking the
+     * button)
+     */
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnExitActionPerformed
     {//GEN-HEADEREND:event_btnExitActionPerformed
-        dispose();
+        dispose(); // Dispose of the current window
     }//GEN-LAST:event_btnExitActionPerformed
 
+    /**
+     * This method is an event handler for the button "btnAddMobile". It is
+     * invoked when the user clicks on the button to add a mobile gadget.
+     *
+     * @param evt The ActionEvent representing the user's action (clicking the
+     * button)
+     */
     private void btnAddMobileActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddMobileActionPerformed
     {//GEN-HEADEREND:event_btnAddMobileActionPerformed
 
+        // Retrieving input values from text fields
         String model = txtModel.getText();
         String price = txtPrice.getText();
         String weight = txtWeight.getText();
@@ -1072,13 +1150,16 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         try
         {
+            // Input validation
             if (model.trim().isBlank() && model.trim().isEmpty())
             {
-                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobil Model.");
+                // Display an error message if the model field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Model.");
                 return;
             }
             else
             {
+                // Enabling buttons and text fields related to mobile gadgets
                 btnDisplayAll.setEnabled(true);
                 btnShowAllMobiles.setEnabled(true);
                 txtSelectMobileId.setEnabled(true);
@@ -1092,47 +1173,55 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
             if (price.trim().isBlank() && price.trim().isEmpty())
             {
-
-                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobil Price (£).");
+                // Display an error message if the price field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Price (£).");
                 return;
             }
 
             if (weight.isBlank() && weight.isEmpty())
             {
-
-                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobil Weight (Grams).");
+                // Display an error message if the weight field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Weight (Grams).");
                 return;
             }
 
             if (size.isBlank() && size.isEmpty())
             {
-                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobil Size (12mm X 17mm x 4mm).");
+                // Display an error message if the size field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Size (12mm X 17mm x 4mm).");
                 return;
             }
 
             if (credit.isBlank() && credit.isEmpty())
             {
-                JOptionPane.showMessageDialog(null, "Please, Enter a Calling Credit (Minutes).");
+                // Display an error message if the credit field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter Calling Credit (Minutes).");
                 return;
             }
 
-            mobile = new Mobile();
+            // Creating a new Mobile object
+            Mobile mobile = new Mobile();
+            // Setting properties of the Mobile object
             mobile.setModel(model);
             mobile.setPrice(Double.parseDouble(price));
             mobile.setWeight(Integer.parseInt(weight));
             mobile.setSize(size);
             mobile.setNumberOfMinutesOfCallingCreditRemaining(Integer.parseInt(credit));
+            // Adding the Mobile object to the gadget shop controller
             gadgetShopController.addGadget(mobile);
 
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Error: Please, You Must Enter  A Number (Ej: 1,2.... OR 5.5....): " + e.getMessage());
+            // Exception handling
+            JOptionPane.showMessageDialog(null, "Error: Please, Enter a Number (e.g., 1, 2, or 5.5): " + e.getMessage());
             return;
         }
 
+        // Displaying a success message
         JOptionPane.showMessageDialog(null, "Great!. Mobile Added Successfully!");
 
+        // Clearing input fields
         txtModel.setText("");
         txtPrice.setText("");
         txtWeight.setText("");
@@ -1142,29 +1231,49 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     }//GEN-LAST:event_btnAddMobileActionPerformed
 
+    /**
+     * This method is an event handler for the button "btnClear". It is invoked
+     * when the user clicks on the button to clear/reset some data or
+     * components.
+     *
+     * @param evt The ActionEvent representing the user's action (clicking the
+     * button)
+     */
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnClearActionPerformed
     {//GEN-HEADEREND:event_btnClearActionPerformed
-        Clear();
+        Clear(); //method is defined as private, indicating that it is only accessible within the same class
     }//GEN-LAST:event_btnClearActionPerformed
+
+    /**
+     * This method is an event handler for the button "btnAddMP3". It is invoked
+     * when the user clicks on the button to add an MP3 gadget.
+     *
+     * @param evt The ActionEvent representing the user's action (clicking the
+     * button)
+     */
 
     private void btnAddMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddMP3ActionPerformed
     {//GEN-HEADEREND:event_btnAddMP3ActionPerformed
 
+        // Retrieving input values from text fields
         String model = txtModel.getText();
         String price = txtPrice.getText();
         String weight = txtWeight.getText();
-        String size = txtSize.getText();;
+        String size = txtSize.getText();
         String memory = txtMemory.getText();
+
         try
         {
-
+            // Input validation
             if (model.trim().isBlank() && model.trim().isEmpty())
             {
+                // Display an error message if the model field is empty
                 JOptionPane.showMessageDialog(null, "Please, Enter a MP3 Model.");
                 return;
             }
             else
             {
+                // Enabling buttons and text fields related to MP3 gadgets
                 btnDisplayAll.setEnabled(true);
                 btnSHowAllMP3.setEnabled(true);
                 txtSelectMP3Id.setEnabled(true);
@@ -1176,47 +1285,55 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
             if (price.trim().isBlank() && price.trim().isEmpty())
             {
-
+                // Display an error message if the price field is empty
                 JOptionPane.showMessageDialog(null, "Please, Enter a MP3 Price (£).");
                 return;
             }
 
             if (weight.isBlank() && weight.isEmpty())
             {
-
+                // Display an error message if the weight field is empty
                 JOptionPane.showMessageDialog(null, "Please, Enter a MP3 Weight (Grams).");
                 return;
             }
 
             if (size.isBlank() && size.isEmpty())
             {
+                // Display an error message if the size field is empty
                 JOptionPane.showMessageDialog(null, "Please, Enter a MP3 Size (12mm X 17mm x 4mm).");
                 return;
             }
 
             if (memory.isBlank() && memory.isEmpty())
             {
-                JOptionPane.showMessageDialog(null, "Please, Enter a Available Memory (MB).");
+                // Display an error message if the memory field is empty
+                JOptionPane.showMessageDialog(null, "Please, Enter Available Memory (MB).");
                 return;
             }
 
+            // Creating a new MP3 object
             mp3 = new MP3();
+            // Setting properties of the MP3 object
             mp3.setModel(model);
             mp3.setPrice(Double.parseDouble(price));
             mp3.setWeight(Integer.parseInt(weight));
             mp3.setSize(size);
             mp3.setAvailableMemory(Double.parseDouble(memory));
+            // Adding the MP3 object to the gadget shop controller
             gadgetShopController.addGadget(mp3);
 
         }
         catch (Exception e)
         {
-            JOptionPane.showMessageDialog(null, "Error: Please, You Must Enter  A Number (Ej: 1,2.... OR 5.5....): " + e.getMessage());
+            // Exception handling
+            JOptionPane.showMessageDialog(null, "Error: Please, You Must Enter a Number (e.g., 1, 2, or 5.5): " + e.getMessage());
             return;
         }
 
+        // Displaying a success message
         JOptionPane.showMessageDialog(null, "Great!. MP3 Added Successfully!");
 
+        // Clearing input fields
         txtModel.setText("");
         txtPrice.setText("");
         txtWeight.setText("");
@@ -1547,7 +1664,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 //        txtCredit.setVisible(true);
 //        lblMobile.setVisible(true);
 //        lblCredit.setVisible(true);
-
 
     }//GEN-LAST:event_jRadioButtonMObileActionPerformed
 
