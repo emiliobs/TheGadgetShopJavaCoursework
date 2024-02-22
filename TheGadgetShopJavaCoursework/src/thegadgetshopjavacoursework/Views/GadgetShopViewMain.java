@@ -43,7 +43,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         btnCommandPrompt = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         lblBy = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
         lblIdCard = new javax.swing.JLabel();
         lblImage = new javax.swing.JLabel();
 
@@ -111,11 +111,11 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         jPanelOptionProgramLayout.setHorizontalGroup(
             jPanelOptionProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelOptionProgramLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(btnCommandPrompt)
-                .addGap(75, 75, 75)
+                .addGap(50, 50, 50)
                 .addComponent(btnGuiProgram)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnCommandPrompt)
+                .addGap(69, 69, 69)
                 .addComponent(btnExit)
                 .addGap(68, 68, 68))
         );
@@ -125,8 +125,8 @@ public class GadgetShopViewMain extends javax.swing.JFrame
                 .addGap(59, 59, 59)
                 .addGroup(jPanelOptionProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCommandPrompt)
-                    .addComponent(btnGuiProgram)
-                    .addComponent(btnExit))
+                    .addComponent(btnExit)
+                    .addComponent(btnGuiProgram))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -134,9 +134,9 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         lblBy.setForeground(new java.awt.Color(255, 51, 0));
         lblBy.setText("By");
 
-        jLabel1.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 51, 0));
-        jLabel1.setText("Emilio Barrera Sepulveda.");
+        lblName.setFont(new java.awt.Font("Arial", 3, 36)); // NOI18N
+        lblName.setForeground(new java.awt.Color(255, 51, 0));
+        lblName.setText("Emilio Barrera Sepulveda.");
 
         lblIdCard.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblIdCard.setForeground(new java.awt.Color(255, 51, 0));
@@ -169,7 +169,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
                                         .addComponent(lblBy, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanelContainerLayout.createSequentialGroup()
                                         .addGap(125, 125, 125)
-                                        .addComponent(jLabel1))
+                                        .addComponent(lblName))
                                     .addGroup(jPanelContainerLayout.createSequentialGroup()
                                         .addGap(266, 266, 266)
                                         .addComponent(lblIdCard)))
@@ -189,7 +189,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
                         .addGap(29, 29, 29)
                         .addComponent(lblBy)
                         .addGap(39, 39, 39)
-                        .addComponent(jLabel1)
+                        .addComponent(lblName)
                         .addGap(41, 41, 41)
                         .addComponent(lblIdCard)
                         .addGap(72, 72, 72))
@@ -267,13 +267,13 @@ public class GadgetShopViewMain extends javax.swing.JFrame
     public javax.swing.JButton btnCommandPrompt;
     public javax.swing.JButton btnExit;
     public javax.swing.JButton btnGuiProgram;
-    public javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanelContainer;
     public javax.swing.JPanel jPanelMain;
     public javax.swing.JPanel jPanelOptionProgram;
     public javax.swing.JLabel lblBy;
     public javax.swing.JLabel lblIdCard;
     public javax.swing.JLabel lblImage;
+    public javax.swing.JLabel lblName;
     public javax.swing.JLabel lblTitleGadgetShop;
     public javax.swing.JLabel lblTitleGadgetShop1;
     // End of variables declaration//GEN-END:variables

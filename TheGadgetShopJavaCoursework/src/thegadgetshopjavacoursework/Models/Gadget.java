@@ -1,33 +1,44 @@
 package thegadgetshopjavacoursework.Models;
-
-
 /**
+ * Model class representing a Gadget. A Gadget object encapsulates information
+ * about a particular gadget, including its ID, model, price, weight, and size.
+ *
+ * Gadget objects are used to represent gadgets within the Gadget Shop
+ * application.
  *
  * @author Emilio
  */
-// Model classes
-//Class Gadget
 public class Gadget
 {
-
     // Instance Variables
-    private static int gadgetCounter = -1;
+    private static int gadgetCounter = -1; // Counter for generating unique gadget IDs
 
-    private int gadgetId;
-    private String model;
-    private double price;
-    private int weight;
-    private String size;
+    private int gadgetId; // Unique ID of the gadget
+    private String model; // Model of the gadget
+    private double price; // Price of the gadget
+    private int weight; // Weight of the gadget
+    private String size; // Size of the gadget
 
-
-    // Constructor Gadget emty
+    // Constructors
+    /**
+     * Default constructor for creating a Gadget object. Increments the gadget
+     * counter to generate a unique ID for the gadget.
+     */
     public Gadget()
     {
         this.gadgetId = gadgetCounter++;
-
     }
 
-// Constructor to initialize Gadget attributes
+    /**
+     * Constructor for initializing Gadget attributes with specified values.
+     * Increments the gadget counter to generate a unique ID for the gadget.
+     *
+     * @param gadgetId Unique ID of the gadget
+     * @param model Model of the gadget
+     * @param price Price of the gadget
+     * @param weight Weight of the gadget
+     * @param size Size of the gadget
+     */
     public Gadget(int gadgetId, String model, double price, int weight, String size)
     {
         this.gadgetId = gadgetCounter++;
@@ -35,10 +46,9 @@ public class Gadget
         this.price = price;
         this.weight = weight;
         this.size = size;
-
     }
 
-    //  Accesor methods for Gadget attributes
+    // Accessor methods for Gadget attributes
     public int getGadgetId()
     {
         return gadgetId;
@@ -49,7 +59,6 @@ public class Gadget
         this.gadgetId = gadgetId;
     }
 
-
     public String getSize()
     {
         return size;
@@ -57,7 +66,6 @@ public class Gadget
 
     public void setSize(String size)
     {
-        
         this.size = size;
     }
 
@@ -91,13 +99,16 @@ public class Gadget
         this.weight = weight;
     }
 
-    // Mehtod to display Gadget details
+    // Method to display Gadget details
+    /**
+     * Generates a string representation of the Gadget object, including its
+     * details.
+     *
+     * @return A string containing details of the gadget (ID, model, price,
+     * weight, size)
+     */
     public String display()
     {
-         return  " Id: "  + gadgetId + "\n " + " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
-
+        return " Id: " + gadgetId + "\n " + " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
     }
-
-     
-    
 }
