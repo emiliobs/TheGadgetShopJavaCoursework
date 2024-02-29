@@ -1348,24 +1348,32 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDeleteMusicFromMp3PlayerActionPerformed
 
+    /*
+        This method appears to handle adding calling credit to a mobile gadget in a shop's inventory. 
+        It validates user input, performs necessary checks, 
+        updates the gadget's calling credit, and displays appropriate messages.
+     */
     private void btnAddCallingCreditActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnAddCallingCreditActionPerformed
     {//GEN-HEADEREND:event_btnAddCallingCreditActionPerformed
+        // Step 1: Extracting Input
         String mobileId = txtSelectMobileId.getText();
         String creditToAdd = txtAddCallingCreditToMObile.getText();
 
+        // Step 2: Checking for Empty Gadget List
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Add Calling Credit..");
             return;
-
         }
 
+        // Step 3: Validating Mobile ID
         if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
             return;
         }
 
+        // Step 4: Validating Mobile ID Format
         if (!isNonNegativeNumeric(mobileId))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not Un: " + mobileId);
@@ -1373,12 +1381,14 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         }
 
+        // Step 5: Validating Credit to Add
         if (creditToAdd.trim().isBlank() && creditToAdd.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A Calling Credit  To Mobile (MInutes).");
             return;
         }
 
+        // Step 6: Validating Credit to Add Format
         if (!isNonNegativeNumeric(creditToAdd))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Add Credit From Mobile Minutes  (1,2...) Not A: " + creditToAdd);
@@ -1388,15 +1398,21 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         try
         {
+            // Step 7: Parsing Mobile ID
             int id = Integer.parseInt(mobileId);
 
+            // Step 8: Checking Mobile ID Range and Type
             if (id >= 1 && id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(id - 1) instanceof Mobile)
             {
+                // Step 9: Updating Mobile's Calling Credit
                 TextAreaShowData.append("Mobiles Update with Calling Credit:\n");
                 ((Mobile) gadgetShopController.getGadgets().get(id - 1)).addCallingCredit(Integer.parseInt(creditToAdd));
+
+                // Step 10: Displaying Updates
                 JOptionPane.showMessageDialog(null, "Great!. The Calling Credit To Add Was Successfully." + creditToAdd + " Minutes");
                 TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(id - 1)).display() + "\n");
 
+                // Step 11: Clearing Text Fields
                 txtSelectMobileId.setText("");
                 txtPhoneNumber.setText("");
                 txtDuration.setText("");
@@ -1410,157 +1426,186 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         }
         catch (IndexOutOfBoundsException | InputMismatchException e)
         {
+            // Step 12: Exception Handling
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
-
         }
+        // Step 13: Appending Separator
         TextAreaShowData.append("-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnAddCallingCreditActionPerformed
 
+    /*
+        This method handles the deletion of music from an MP3 player in a Java GUI application. 
+        It takes input from text fields for MP3 ID and the amount of memory to delete, performs validation checks, 
+        updates the MP3 player's memory, and displays appropriate messages. Finally, 
+        it appends a separator to the text area for visual distinction.
+     */
     private void btnDeleteMusicMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnDeleteMusicMP3ActionPerformed
     {//GEN-HEADEREND:event_btnDeleteMusicMP3ActionPerformed
+        // Extract MP3 ID and memory to delete from text fields
         String mp3Id = txtSelectMP3Id.getText();
         String deleteMusic = txtDeleteMusicFromMp3Player.getText();
 
+        // Check if the gadget list is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Delete Music MP3.");
             return;
-
         }
 
+        // Check for empty or invalid MP3 ID
         if (mp3Id.trim().isBlank() && mp3Id.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A MP3 Id From The List. ");
             return;
         }
 
+        // Validate if MP3 ID is a non-negative numeric value
         if (!isNonNegativeNumeric(mp3Id))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid MP3 Id Number (1,2...) Not Un: " + mp3Id);
             return;
-
         }
 
+        // Check for empty or invalid memory value
         if (deleteMusic.trim().isBlank() && deleteMusic.isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
             return;
         }
 
+        // Validate if memory value is a non-negative numeric value
         if (!isNonNegativeNumeric(deleteMusic))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Memory  Number  From MP3 (1,2...) Not A: " + deleteMusic);
             return;
-
         }
 
         try
         {
+            // Attempt to parse MP3 ID to an integer
             int idMp3 = Integer.parseInt(mp3Id);
 
+            // Check if the ID is within the range and if it's an MP3
             if (idMp3 >= 1 && idMp3 <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(idMp3 - 1) instanceof MP3)
             {
+                // Display update message
                 TextAreaShowData.append("MP3 Update with Delete Music Memory:\n");
+
+                // Delete music from MP3 and display success message
                 ((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).deleteMusic(Integer.parseInt(deleteMusic));
-                JOptionPane.showMessageDialog(null, "Great!. The Delete Music To MP3 Was Successfuully." + deleteMusic + " Minutes");
+                JOptionPane.showMessageDialog(null, "Great!. The Delete Music To MP3 Was Successfully." + deleteMusic + " Minutes");
+
+                // Display updated MP3 details
                 TextAreaShowData.append(((MP3) gadgetShopController.getGadgets().get(idMp3 - 1)).display() + "\n");
 
+                // Reset text fields
                 txtSelectMP3Id.setText("");
                 txtDownload.setText("");
                 txtDeleteMusicFromMp3Player.setText("");
-
             }
             else
             {
                 throw new IndexOutOfBoundsException();
             }
-
         }
         catch (IndexOutOfBoundsException | InputMismatchException e)
         {
+            // Handle exceptions
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter a Valid Number On The List.): " + e.getMessage());
             return;
         }
+
+        // Append separator to the text area
         TextAreaShowData.append("-------------------------------------------------------------\n");
+
     }//GEN-LAST:event_btnDeleteMusicMP3ActionPerformed
+
+    /**
+     * Action performed when the make a call button for mobile is clicked.
+     *
+     * @param evt Action event generated when the button is clicked.
+     * 
+     * The instanceof operator in Java is used to test whether an object is an instance of a particular class or interface. 
+     * It also checks if an object is an instance of a subclass of the specified class or interface.
+     */
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
     {//GEN-HEADEREND:event_btnMakeACallActionPerformed
-
+        // Extract mobile ID, phone number, and call duration from text fields
         String mobileId = txtSelectMobileId.getText();
         String phoneNumber = txtPhoneNumber.getText();
         String duration = txtDuration.getText();
 
+        // Check if the gadget list is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Make Call From Mobile.");
             return;
-
         }
 
+        // Check for empty or invalid mobile ID
         if (mobileId.trim().isBlank() && mobileId.trim().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter A Mobile Id From The List. ");
             return;
         }
 
+        // Validate if mobile ID is a non-negative numeric value
         if (!isNonNegativeNumeric(mobileId))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Mobile Id Number (1,2...) Not A: " + mobileId);
             return;
-
         }
 
+        // Check for empty or invalid phone number
         if (phoneNumber.trim().isBlank() && phoneNumber.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (MInutes).");
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Phone Number  To Make A Call (Minutes).");
             return;
         }
 
-        if (phoneNumber.length() > 10)
+        // Validate phone number format
+        if (phoneNumber.length() != 9 || !isNonNegativeNumeric(phoneNumber))
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  ( 9-Digits) Not A: " + phoneNumber);
+            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (9-Digits) Not A: " + phoneNumber);
             return;
         }
 
-        if (!isNonNegativeNumeric(phoneNumber))
-        {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Phone Number To Make A Call  (1,2... Minutes) Not A: " + phoneNumber);
-            return;
-
-        }
-
+        // Check for empty or invalid call duration
         if (duration.trim().isBlank() && duration.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (MInutes).");
+            JOptionPane.showMessageDialog(null, "Error: Please Enter A Duration The Call. (Minutes).");
             return;
         }
 
+        // Validate if call duration is a non-negative numeric value
         if (!isNonNegativeNumeric(duration))
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Duration Number (1,2... (Minutes)) Not A: " + duration);
             return;
-
         }
 
         try
         {
-
+            // Attempt to parse values to integers
             int mobileID = Integer.parseInt(mobileId);
             int NumberPhone = Integer.parseInt(phoneNumber);
             int callDuration = Integer.parseInt(duration);
 
+            // Check if the mobile ID is within the range and if it's a Mobile object
             if (mobileID >= 1 && mobileID <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileID - 1) instanceof Mobile)
             {
-
+                // Make the call and handle the result
                 boolean resultMakeCAll = ((Mobile) gadgetShopController.getGadgets().get(mobileID - 1)).mobileMakeCall(NumberPhone, callDuration);
                 if (resultMakeCAll)
                 {
+                    // Display success message and updated details
                     TextAreaShowData.append("Making A Call From Mobile\n");
                     JOptionPane.showMessageDialog(null, "Great!. Call Was Successfully");
                     TextAreaShowData.append("CALLING NUMBER: " + phoneNumber + " FOR: " + duration + " MINUTES.\n");
                     TextAreaShowData.append(((Mobile) gadgetShopController.getGadgets().get(mobileID - 1)).display() + "\n");
 
+                    // Reset text fields
                     txtDisplayNumber.setText(txtPhoneNumber.getText());
                     txtSelectMobileId.setText("");
                     txtPhoneNumber.setText("");
@@ -1571,6 +1616,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 }
                 else
                 {
+                    // Display error message for insufficient credit
                     JOptionPane.showMessageDialog(null, "Sorry!. Insufficient Credit To Make The Call.");
                 }
             }
@@ -1581,8 +1627,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         }
         catch (IndexOutOfBoundsException | InputMismatchException e)
         {
+            // Handle exceptions
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter A Valid Number On The List.: " + e.getMessage());
-
         }
 
     }//GEN-LAST:event_btnMakeACallActionPerformed
@@ -1622,10 +1668,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
     }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
-    private void callMakeACall()
-    {
-
-    }
+   
     private void txtSelectMobileIdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtSelectMobileIdActionPerformed
     {//GEN-HEADEREND:event_txtSelectMobileIdActionPerformed
         // TODO add your handling code here:
