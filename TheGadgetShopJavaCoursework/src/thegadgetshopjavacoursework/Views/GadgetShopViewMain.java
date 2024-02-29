@@ -251,7 +251,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
     private void btnGuiProgramActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGuiProgramActionPerformed
     {//GEN-HEADEREND:event_btnGuiProgramActionPerformed
 
-//This code is to display the program in the graphical user interface
+// This code is to display the program in the graphical user interface
         GadgetShopViewGUI gadgetShop = new GadgetShopViewGUI();
         gadgetShop.setVisible(true);
         gadgetShop.setLocationRelativeTo(null);
