@@ -23,7 +23,10 @@ public class GadgetShopViewPrompt
     // Constructor to initialize view with controller and scanner
     public GadgetShopViewPrompt()
     {
+        // Display welcome message and information about the program
         System.out.println("");
+        // Display welcome message and information about the program
+
         System.out.println("================================================");
         System.out.println("=                    WELCOME                   =");
         System.out.println("=                                              =");
@@ -44,7 +47,9 @@ public class GadgetShopViewPrompt
         System.out.println("=                      2024                    =");
         System.out.println("================================================");
 
+        // Initialize the gadget shop controller
         this.gadgetShopController = new TheGadgetShopController();
+        // Initialize a Scanner object to read input from the command line
         this.scanner = new Scanner(System.in);
         System.out.println("");
     }
@@ -52,7 +57,7 @@ public class GadgetShopViewPrompt
     // Method to display menu options
     public void displayMenu()
     {
-
+        // Display the menu options
         System.out.println("");
         System.out.println("======================= MENU ===================");
         System.out.println("1. ADD MOBILE.                                 =");
@@ -67,20 +72,26 @@ public class GadgetShopViewPrompt
 
     }
 
-    // Method to run the gadget shop Application
+    /**
+     * Main method to run the CLI interface of the gadget shop application. It
+     * displays the menu, reads user input, and executes corresponding actions.
+     */
     public void run()
     {
-        int choice = -1;
+        int choice = -1; // Initialize choice with a non-exit value
 
+        // Main loop to display menu and process user input
         do
         {
-            displayMenu();
-            System.out.print("Enter your Choice: ");
+            displayMenu(); // Display the menu options
+            System.out.print("Enter your Choice: "); // Prompt the user for input
+
             try
             {
-                choice = scanner.nextInt(); // Read user choice
-                scanner.nextLine(); // Consume newline
+                choice = scanner.nextInt(); // Read the user's choice
+                scanner.nextLine(); // Consume newline character
 
+                // Switch statement to perform actions based on user's choice
                 switch (choice)
                 {
                     case 1:
@@ -90,89 +101,97 @@ public class GadgetShopViewPrompt
                         addMP3Player(); // Add MP3 Player
                         break;
                     case 3:
-                        displayAllGadgets(); // Display all gadget
+                        displayAllGadgets(); // Display all gadgets
                         break;
                     case 4:
-                        addCallingCredit(); // Add MP3 Player
+                        addCallingCredit(); // Add calling credit to mobile
                         break;
                     case 5:
-                        makeCallFromMobile();
+                        makeCallFromMobile(); // Make a call from mobile
                         break;
                     case 6:
-                        DownloadMusictoMP3Player();
+                        DownloadMusictoMP3Player(); // Download music to MP3 player
                         break;
                     case 7:
-                        deleteMusicFromMP3Player();
+                        deleteMusicFromMP3Player(); // Delete music from MP3 player
                         break;
                     case 8:
-                        System.out.println("");
-                        System.out.println("");
+                        // Display goodbye message and exit the application
                         System.out.println("================================================");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
-                        System.out.println("=  THANKS YOU!. GOOD BYE, EXIT THE SYSTEM  ):  =");
+                        System.out.println("=  THANK YOU! GOODBYE, EXITING THE SYSTEM :)  =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
                         System.out.println("================================================");
-                        System.out.println("");
-                        System.exit(0); // Exit the Application
-                        System.out.println("");
+                        System.exit(0); // Exit the application
                         break;
                     default:
-                        System.out.println("");
-                        System.out.println("*****  - Sorry!: Invalid Choice. Please enter again. - *****"); // Invalid choice
+                        // Display error message for invalid choice
+                        System.out.println("***** - Sorry! Invalid Choice. Please enter again. - *****");
                 }
-
             }
             catch (InputMismatchException e)
             {
-                System.out.println("");
-                System.out.println("*****  - Sorry!. Invalid input. Please enter a number  -  *****"); // Handle non-integer input
+                // Handle exception for non-integer input
+                System.out.println("***** - Sorry! Invalid input. Please enter a number. - *****");
                 scanner.nextLine(); // Consume invalid input
-                choice = 0; // Rest choice to trigger menu redisplay
+                choice = 0; // Reset choice to trigger menu redisplay
             }
         }
-        while (choice != 8); // Continue ubtil choose to exit
+        while (choice != 8); // Continue until the user chooses to exit
     }
 
-    // Method to add a mobile phone
+    /**
+     * Method to add a mobile phone to the gadget shop.
+     */
     private void addMobile()
     {
+        // Display message to indicate adding a mobile
         System.out.println("");
         System.out.println("================ ADDING MOBILE =================");
-        System.out.print("Enter Mobil Model: ");
+
+        // Prompt user for mobile details
+        System.out.print("Enter Mobile Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
         double price = scanner.nextDouble();
         System.out.print("Enter Weight: ");
         int weight = scanner.nextInt();
-        scanner.nextLine(); // Consume newLine
+        scanner.nextLine(); // Consume newline character
         System.out.print("Enter Size: ");
         String size = scanner.nextLine();
         System.out.print("Enter Calling Credit: ");
         int callingCredit = scanner.nextInt();
-        System.out.println("================================================");
 
-        Mobile mobile = new Mobile(); // Create new Mobile Object
+        // Create a new Mobile object
+        Mobile mobile = new Mobile();
+        // Set the attributes of the mobile object
         mobile.setModel(model);
         mobile.setPrice(price);
         mobile.setWeight(weight);
         mobile.setSize(size);
+
+        // Set the calling credit for the mobile
         if (callingCredit >= 0)
         {
             mobile.setNumberOfMinutesOfCallingCreditRemaining(callingCredit);
         }
         else
         {
+            // Display error message for negative calling credit
             System.out.println("");
             System.out.println("***** - Sorry!. Please enter a positive amount for adding credit. - *****");
-            return;
+            return; // Exit method if calling credit is negative
         }
 
+        // Add the mobile to the list of gadgets in the controller
+        gadgetShopController.addGadget(mobile);
+
+        // Display success message
         System.out.println("");
-        gadgetShopController.addGadget(mobile);  // Add mobile to the list
         System.out.println("##### Mobile Added Successfully! #####");
     }
 
@@ -236,7 +255,6 @@ public class GadgetShopViewPrompt
             return;
         }
 
-     
         displayMobiles(gadgetShopController.getGadgets());
         System.out.print("Choose the Id Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
@@ -333,7 +351,7 @@ public class GadgetShopViewPrompt
 
         try
         {
-           
+
             displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The Id MP3 Player To Download Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();

@@ -1,13 +1,9 @@
 package thegadgetshopjavacoursework.Controllers;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 import thegadgetshopjavacoursework.Models.Gadget;
-
-import thegadgetshopjavacoursework.Models.Mobile;
 
 /**
  * Controller class responsible for managing gadgets within the Gadget Shop
@@ -75,19 +71,25 @@ public class TheGadgetShopController
      */
     public void displayAllGadgets()
     {
+        // Print a header for the display
         System.out.println("============= DISPLAY ALL GADGETS ==============");
 
+        // Check if the collection of gadgets is empty
         if (gadgets.isEmpty())
         {
-            System.out.println("Sorry!. No Gadgets available to Add Calling Credit.");
+            // If the collection is empty, print a message indicating no gadgets are available
+            System.out.println("Sorry!. No Gadgets available to display.");
         }
 
+        // Iterate over each gadget in the collection
         for (Gadget gadget : gadgets)
         {
+            // Display information about the current gadget
             System.out.println(gadget.display());
-            System.out.println("");
+            System.out.println(""); // Print a blank line for better readability
         }
 
+        // Print a footer for the display
         System.out.println("================================================");
     }
 }

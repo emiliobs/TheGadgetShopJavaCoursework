@@ -1,4 +1,5 @@
 package thegadgetshopjavacoursework.Models;
+
 /**
  * Model class representing a Gadget. A Gadget object encapsulates information
  * about a particular gadget, including its ID, model, price, weight, and size.
@@ -10,6 +11,7 @@ package thegadgetshopjavacoursework.Models;
  */
 public class Gadget
 {
+
     // Instance Variables
     private static int gadgetCounter = -1; // Counter for generating unique gadget IDs
 
@@ -26,6 +28,7 @@ public class Gadget
      */
     public Gadget()
     {
+        // Set the gadgetId using gadgetCounter and increment gadgetCounter
         this.gadgetId = gadgetCounter++;
     }
 
@@ -41,7 +44,10 @@ public class Gadget
      */
     public Gadget(int gadgetId, String model, double price, int weight, String size)
     {
+        // Set the gadgetId using gadgetCounter and increment gadgetCounter
         this.gadgetId = gadgetCounter++;
+
+        // Initialize other attributes with the provided values
         this.model = model;
         this.price = price;
         this.weight = weight;
@@ -109,6 +115,7 @@ public class Gadget
      */
     public String display()
     {
+        // Construct and return a string containing the gadget's attributes
         return " Id: " + gadgetId + "\n " + " Model: " + model + "\n " + " Price: £" + price + "\n " + " Weight: " + weight + " Grams" + "\n " + " Size: " + size;
     }
 }

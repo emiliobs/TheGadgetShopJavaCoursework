@@ -33,6 +33,7 @@ public class MP3 extends Gadget
      */
     public MP3(double availableMemory)
     {
+        // Set the available memory for the MP3 player using the provided value
         this.availableMemory = availableMemory;
     }
 
@@ -50,7 +51,10 @@ public class MP3 extends Gadget
      */
     public MP3(double availableMemory, int gadgetId, String model, double price, int weight, String size)
     {
+        // Call the constructor of the superclass (Gadget) with specified parameters
         super(gadgetId, model, price, weight, size);
+
+        // Initialize the available memory attribute for the MP3 object with the provided value
         this.availableMemory = availableMemory;
     }
 
@@ -75,11 +79,15 @@ public class MP3 extends Gadget
      */
     public boolean downloadMusic(double memoryRequired)
     {
+        // Check if the required memory for downloading the music is less than or equal to the available memory
         if (memoryRequired <= availableMemory)
         {
+            // If there is sufficient available memory, deduct the required memory from the available memory
             availableMemory -= memoryRequired;
+            // Return true indicating the music was successfully downloaded
             return true;
         }
+        // Return false indicating the music cannot be downloaded due to insufficient available memory
         return false;
     }
 
@@ -92,13 +100,17 @@ public class MP3 extends Gadget
      */
     public boolean deleteMusic(int memoryFreed)
     {
+        // Check if the memory freed after deleting the music is non-negative
         if (memoryFreed >= 0)
         {
+            // If it's non-negative, add the freed memory to the available memory
             availableMemory += memoryFreed;
+            // Return true indicating the music was successfully deleted
             return true;
         }
         else
         {
+            // If it's negative, return false indicating deletion failure
             return false;
         }
     }
@@ -114,6 +126,8 @@ public class MP3 extends Gadget
     @Override
     public String display()
     {
+        // Calls the display method of the superclass (presumably Gadget) to get basic gadget information,
+        // Concatenates information about the available memory to the returned string
         return super.display() + "\n " + "AVAILABLE MEMORY: " + availableMemory + " MB";
     }
 
