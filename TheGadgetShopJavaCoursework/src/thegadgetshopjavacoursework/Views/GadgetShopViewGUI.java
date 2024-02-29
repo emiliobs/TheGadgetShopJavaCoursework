@@ -32,11 +32,15 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
     public GadgetShopViewGUI()
     {
         initComponents(); // Initialize GUI components
-        setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage()); // Set application icon
 
-        gadgetShopController = new TheGadgetShopController(); // Instantiate controller
+        // Set application icon
+        setIconImage(new ImageIcon(getClass().getResource("/Helps/Images/logo.png")).getImage());
 
-        txtModel.requestFocus(); // Set focus to txtModel text field
+        // Instantiate controller
+        gadgetShopController = new TheGadgetShopController();
+
+        // Set focus to txtModel text field
+        txtModel.requestFocus();
 
         // Add radio buttons to a button group
         buttonGroup.add(jRadioButtonMObile);
@@ -1393,7 +1397,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         {
             JOptionPane.showMessageDialog(null, "Error: Please Enter a Valid Add Credit From Mobile Minutes  (1,2...) Not A: " + creditToAdd);
             return;
-
         }
 
         try
@@ -1524,9 +1527,10 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
      * Action performed when the make a call button for mobile is clicked.
      *
      * @param evt Action event generated when the button is clicked.
-     * 
-     * The instanceof operator in Java is used to test whether an object is an instance of a particular class or interface. 
-     * It also checks if an object is an instance of a subclass of the specified class or interface.
+     *
+     * The instanceof operator in Java is used to test whether an object is an
+     * instance of a particular class or interface. It also checks if an object
+     * is an instance of a subclass of the specified class or interface.
      */
 
     private void btnMakeACallActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnMakeACallActionPerformed
@@ -1638,37 +1642,43 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDisplayNumberActionPerformed
 
+    /**
+     * Action performed when the button to show all MP3 gadgets is clicked.
+     *
+     * @param evt Action event generated when the button is clicked.
+     */
+
     private void btnSHowAllMP3ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSHowAllMP3ActionPerformed
     {//GEN-HEADEREND:event_btnSHowAllMP3ActionPerformed
+        // Clear the text area
         TextAreaShowData.setText("");
 
+        // Check if the gadget list is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available From MP3s.");
             return;
-
         }
         else
         {
+            // Iterate through the list of gadgets
+            // Display MP3 gadgets
             TextAreaShowData.append("MP3s List:\n");
             for (Gadget gadget : gadgetShopController.getGadgets())
             {
                 if (gadget instanceof MP3)
                 {
-
+                    // Display MP3 gadget details
                     TextAreaShowData.append(" " + gadget.display() + "\n");
                     TextAreaShowData.append("\n");
-
                 }
-
             }
+            // Append separator to the text area
             TextAreaShowData.append("-------------------------------------------------------------\n");
         }
-
-
     }//GEN-LAST:event_btnSHowAllMP3ActionPerformed
 
-   
+
     private void txtSelectMobileIdActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtSelectMobileIdActionPerformed
     {//GEN-HEADEREND:event_txtSelectMobileIdActionPerformed
         // TODO add your handling code here:
@@ -1679,68 +1689,100 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSelectMP3IdActionPerformed
 
+    /**
+     * Event handler triggered when a key is typed in the txtPhoneNumber text
+     * field.
+     *
+     * @param evt The KeyEvent representing the key typed event.
+     */
+
     private void txtPhoneNumberKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_txtPhoneNumberKeyTyped
     {//GEN-HEADEREND:event_txtPhoneNumberKeyTyped
+        // Check if the length of the text in the txtPhoneNumber field is greater than or equal to 9
         if (txtPhoneNumber.getText().length() >= 9)
         {
+            // If the length is greater than or equal to 9, consume the event (ignore the key input)
             evt.consume();
         }
     }//GEN-LAST:event_txtPhoneNumberKeyTyped
 
+    /**
+     * Event handler triggered when the "Mobile" radio button is selected.
+     *
+     * @param evt The ActionEvent representing the action performed event.
+     */
+
     private void jRadioButtonMObileActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jRadioButtonMObileActionPerformed
     {//GEN-HEADEREND:event_jRadioButtonMObileActionPerformed
+        // Display a message indicating that mobiles are selected
         JOptionPane.showMessageDialog(null, "Brilliant!. Your Select Was Add Mobiles.");
 
+        // Enable text fields related to mobile information
         txtModel.setEnabled(true);
         txtPrice.setEnabled(true);
         txtWeight.setEnabled(true);
         txtSize.setEnabled(true);
         txtCredit.setEnabled(true);
+
+        // Disable text field related to MP3 memory (assuming it's related to MP3s)
         txtMemory.setEnabled(false);
 
+        // Enable buttons related to adding mobiles and disable buttons related to adding MP3s
         btnAddMobile.setEnabled(true);
         btnAddMP3.setEnabled(false);
-
-//        txtMemory.setVisible(false);
-//        lblMP3.setVisible(false);
-//        lblMemory.setVisible(false);
-//        txtCredit.setVisible(true);
-//        lblMobile.setVisible(true);
-//        lblCredit.setVisible(true);
-
     }//GEN-LAST:event_jRadioButtonMObileActionPerformed
+
+    /**
+     * Event handler triggered when the "MP3" radio button is selected.
+     *
+     * @param evt The ActionEvent representing the action performed event.
+     */
 
     private void jRadioButtonMPSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jRadioButtonMPSActionPerformed
     {//GEN-HEADEREND:event_jRadioButtonMPSActionPerformed
-        JOptionPane.showMessageDialog(null, "Brilliant!. Your Select Was Add  MP3 Players.");
+        // Display a message indicating that MP3 players are selected
+        JOptionPane.showMessageDialog(null, "Brilliant!. Your Select Was Add MP3 Players.");
 
+        // Enable text fields related to MP3 player information
         txtModel.setEnabled(true);
         txtPrice.setEnabled(true);
         txtWeight.setEnabled(true);
         txtSize.setEnabled(true);
+
+        // Disable text fields related to mobile credit (assuming it's related to mobiles)
         txtCredit.setEnabled(false);
+
+        // Enable text field related to MP3 memory
         txtMemory.setEnabled(true);
 
+        // Enable button related to adding MP3s and disable button related to adding mobiles
         btnAddMobile.setEnabled(false);
         btnAddMP3.setEnabled(true);
 
-//        txtMemory.setVisible(true);
-//        lblMP3.setVisible(true);
-//        lblMemory.setVisible(true);
-//        txtCredit.setVisible(false);
-//        lblMobile.setVisible(false);
-//        lblCredit.setVisible(false);
-
     }//GEN-LAST:event_jRadioButtonMPSActionPerformed
 
+    /**
+     * Checks if the given text represents a non-negative numeric value.
+     *
+     * @param text The text to be checked.
+     * @return True if the text represents a non-negative numeric value,
+     * otherwise false.
+     */
     private boolean isNonNegativeNumeric(String text)
     {
+        // The regular expression "\\d+" matches one or more digits
+        // The method matches checks if the entire text matches the regular expression
+        // Integer.parseInt(text) parses the text to an integer value
+        // Returns true if the text consists of one or more digits and the parsed integer value is non-negative
         return text.matches("\\d+") && Integer.parseInt(text) >= 0;
-
     }
 
+    /**
+     * Clears the content of all text fields and text area.
+     */
     private void Clear()
     {
+        // Clear the text in each text field and text area by setting their text to an empty string
         txtModel.setText("");
         txtPrice.setText("");
         txtWeight.setText("");
@@ -1755,6 +1797,8 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         txtAddCallingCreditToMObile.setText("");
         txtDownload.setText("");
         txtDeleteMusicFromMp3Player.setText("");
+
+        // Clear the text area
         TextAreaShowData.setText("");
     }
 
