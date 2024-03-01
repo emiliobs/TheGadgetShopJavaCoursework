@@ -392,106 +392,135 @@ public class GadgetShopViewPrompt
 
     }
 
+    /**
+     * Method to download music to an MP3 player.
+     */
     private void DownloadMusictoMP3Player()
     {
+        // Display message indicating downloading music to an MP3 player
         System.out.println("");
         System.out.println("========= DOWNLOAD MUSIC TO MP3 PLAYER =========");
 
+        // Check if there are any gadgets available
         if (gadgetShopController.getGadgets().isEmpty())
         {
+            // If no gadgets are available, display an error message and return
             System.out.println("*****  - Sorry!. No Gadgets Available to Download Music To MP3 Player. - *****");
             return;
         }
 
         try
         {
-
+            // Display available MP3 players for user selection
             displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The Id MP3 Player To Download Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
-            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
+
+            // Check if the chosen ID is valid and if the gadget at that ID is an MP3 player
+            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size()
+                    && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
             {
+                // Prompt user to enter memory required for the music
                 System.out.print("Enter Memory Required For The Music: ");
                 int memory = scanner.nextInt();
                 System.out.println("");
+
+                // Download music to the chosen MP3 player
                 boolean resultDownload = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).downloadMusic(memory);
+
+                // Display updated information of the MP3 player
                 ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
                 System.out.println("=================================================");
                 System.out.println("");
 
+                // Display success or failure message based on the result of the download
                 if (resultDownload)
                 {
-                    System.out.println("##### Great!!. The Downlaod Successfully! :) #####");
+                    System.out.println("##### Great!!. The Download Successfully! :) #####");
                 }
                 else
                 {
                     System.out.println("##### Sorry!. Not Enough Memory To Download Music! ): #####");
-
                 }
             }
             else
             {
+                // If the chosen ID is invalid or the gadget is not an MP3 player, throw an exception
                 throw new IndexOutOfBoundsException();
             }
-
         }
         catch (InputMismatchException | IndexOutOfBoundsException e)
         {
+            // Handle input mismatch or index out of bounds exceptions
             System.out.println("*****  -   Error!. Invalid Choice, Please Enter a Valid Number.  -  *****");
-            scanner.nextLine();// Clear de input buffer
+            scanner.nextLine(); // Clear the input buffer
         }
 
     }
 
+    /**
+     * Method to delete music from an MP3 player.
+     */
     private void deleteMusicFromMP3Player()
     {
+        // Display message indicating deleting music from an MP3 player
         System.out.println("");
         System.out.println("========= DELETE MUSIC FROM  MP3 PLAYER ========");
 
+        // Check if there are any gadgets available
         if (gadgetShopController.getGadgets().isEmpty())
         {
+            // If no gadgets are available, display an error message and return
             System.out.println("*****  - Sorry!. No Gadgets Available to Delete Music. - *****");
             return;
         }
 
         try
         {
+            // Display all gadgets including MP3 players for user selection
             displayAllGadgets();
-            //displayMP3(gadgetShopController.getGadgets());
             System.out.print("Choose The Id MP3 Player To Delete Music (Enter Its Numbers): ");
             int mp3Id = scanner.nextInt();
-            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
+
+            // Check if the chosen ID is valid and if the gadget at that ID is an MP3 player
+            if (mp3Id >= 1 && mp3Id <= gadgetShopController.getGadgets().size()
+                    && gadgetShopController.getGadgets().get(mp3Id - 1) instanceof MP3)
             {
-                System.out.print("Enter Memory To Free From The Deleted  Music: ");
+                // Prompt user to enter memory to free from the deleted music
+                System.out.print("Enter Memory To Free From The Deleted Music: ");
                 int memory = scanner.nextInt();
                 System.out.println("");
-                boolean resultdeletMusic = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).deleteMusic(memory);
-                //((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).display();
-                System.out.println("Update The MP3sPlayer Was Delete Music.");
+
+                // Delete music from the chosen MP3 player
+                boolean resultDeleteMusic = ((MP3) gadgetShopController.getGadgets().get(mp3Id - 1)).deleteMusic(memory);
+
+                // Display message indicating the MP3 player was updated and the result of the deletion
+                System.out.println("Update The MP3 Player Was Delete Music.");
                 displayMP3(gadgetShopController.getGadgets());
                 System.out.println("==================================================");
                 System.out.println("");
-                if (resultdeletMusic)
+
+                // Display success or failure message based on the result of the deletion
+                if (resultDeleteMusic)
                 {
                     System.out.println("##### Great!!. The Deleted Music Was Successfully! :) #####");
                 }
                 else
                 {
-                    System.out.println("##### Sorry!. The Music Could Not Delete (Please Enter a Value >= 0)! ): #####");
-
+                    System.out.println("##### Sorry!. The Music Could Not Be Deleted (Please Enter a Value >= 0)! ): #####");
                 }
-
             }
             else
             {
+                // If the chosen ID is invalid or the gadget is not an MP3 player, throw an exception
                 throw new IndexOutOfBoundsException();
             }
-
         }
         catch (InputMismatchException | IndexOutOfBoundsException e)
         {
+            // Handle input mismatch or index out of bounds exceptions
             System.out.println("*****  -   Error!. Invalid Choice, Please Enter a Valid Number On The List.  -  *****");
-            scanner.nextLine();// Clear de input buffer
+            scanner.nextLine(); // Clear the input buffer
         }
 
         System.out.println("");
