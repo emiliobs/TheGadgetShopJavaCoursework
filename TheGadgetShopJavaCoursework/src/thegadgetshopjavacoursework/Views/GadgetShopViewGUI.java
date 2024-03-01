@@ -1025,11 +1025,11 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             return;
         }
 
-// Appending to TextArea
+        // Appending to TextArea
         TextAreaShowData.append("\n-------------------------------------------------------------\n");
-
     }//GEN-LAST:event_btnDownloadMusicActionPerformed
 
+    
     /**
      * Handles the action event when the user clicks the "Show All Mobiles"
      * button. This method clears the TextAreaShowData and then iterates through
@@ -1634,7 +1634,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             // Handle exceptions
             JOptionPane.showMessageDialog(null, "Error: Invalid Choice. Please Enter A Valid Number On The List.: " + e.getMessage());
         }
-
     }//GEN-LAST:event_btnMakeACallActionPerformed
 
     private void txtDisplayNumberActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDisplayNumberActionPerformed
@@ -1802,6 +1801,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         TextAreaShowData.setText("");
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaShowData;
     private javax.swing.JButton btnAddCallingCredit;
