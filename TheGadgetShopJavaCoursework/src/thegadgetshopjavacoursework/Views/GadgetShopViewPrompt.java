@@ -526,41 +526,49 @@ public class GadgetShopViewPrompt
         System.out.println("");
     }
 
+    /**
+     * Method to display information about mobile phones.
+     *
+     * @param gadgets The list of gadgets to display.
+     */
     private static void displayMobiles(List<Gadget> gadgets)
     {
         System.out.println("----------- MOBILES -----------");
 
+        // Iterate over each gadget in the list
         for (Gadget gadget : gadgets)
         {
+            // Check if the gadget is an instance of Mobile
             if (gadget instanceof Mobile)
             {
-
+                // If it is a Mobile, display its information
                 System.out.println(" " + gadget.display());
                 System.out.println("");
-
             }
-
         }
-
         System.out.println("---------------------------------");
     }
 
+    /**
+     * Method to display information about MP3 players.
+     *
+     * @param gadgets The list of gadgets to display.
+     */
     private void displayMP3(List<Gadget> gadgets)
     {
         System.out.println("----------- MP3s -----------");
 
+        // Iterate over each gadget in the list
         for (Gadget gadget : gadgets)
         {
+            // Check if the gadget is an instance of MP3
             if (gadget instanceof MP3)
             {
-
+                // If it is an MP3, display its information
                 System.out.println(" " + gadget.display());
                 System.out.println("");
-
             }
-
         }
-
         System.out.println("---------------------------------");
     }
 
