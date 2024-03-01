@@ -195,126 +195,179 @@ public class GadgetShopViewPrompt
         System.out.println("##### Mobile Added Successfully! #####");
     }
 
-    //Method to add an MP3 player
+    /**
+     * Method to add an MP3 player to the gadget shop.
+     */
     private void addMP3Player()
     {
+        // Display message to indicate adding an MP3 player
         System.out.println("");
         System.out.println("============= ADDING MP3 PLAYER ================");
+
+        // Prompt user for MP3 player details
         System.out.print("Enter MP3 Player Model: ");
         String model = scanner.nextLine();
         System.out.print("Enter Price: ");
         double price = scanner.nextDouble();
         System.out.print("Enter Weight: ");
         int weight = scanner.nextInt();
-        scanner.nextLine(); //Consume newline
+        scanner.nextLine(); // Consume newline character
         System.out.print("Enter Size: ");
         String size = scanner.nextLine();
         System.out.print("Enter Available Memory (in MB): ");
         int availableMemory = scanner.nextInt();
-        System.out.println("===============================================");
 
+        // Create a new MP3 object
         MP3 mp3 = new MP3();
+        // Set the attributes of the MP3 object
         mp3.setModel(model);
         mp3.setPrice(price);
         mp3.setWeight(weight);
         mp3.setSize(size);
 
+        // Set the available memory for the MP3 player
         if (availableMemory >= 0)
         {
             mp3.setAvailableMemory(availableMemory);
-
         }
         else
         {
-            System.out.println("");
+            // Display error message for negative available memory
             System.out.println("");
             System.out.println("***** - Sorry!. Please enter a positive amount for Available Memory. - *****");
-            return;
+            return; // Exit method if available memory is negative
         }
-        System.out.println("");
+
+        // Add the MP3 player to the list of gadgets in the controller
         gadgetShopController.addGadget(mp3);
+
+        // Display success message
+        System.out.println("");
         System.out.println("##### MP3 Player Added Successfully! #####");
 
     }
 
+    /**
+     * Method to display all gadgets.
+     */
     private void displayAllGadgets()
     {
+        // Print a newline for formatting
         System.out.println("");
+
+        // Call the displayAllGadgets method of gadgetShopController
         gadgetShopController.displayAllGadgets();
 
     }
 
+    /**
+     * Method to add calling credit to a mobile phone.
+     */
     private void addCallingCredit()
     {
+        // Display message indicating adding calling credit to a mobile phone
         System.out.println("");
         System.out.println("======= ADDING CALLING CREDIT TO MOBILE ========");
+
+        // Check if there are any gadgets available
         if (gadgetShopController.getGadgets().isEmpty())
         {
-
+            // If no gadgets are available, display an error message and return
             System.out.println("*****  - Sorry!. No Gadgets Available to Add Calling Credit. - *****");
             return;
         }
 
+        // Display available mobile phones for user selection
         displayMobiles(gadgetShopController.getGadgets());
+
+        // Prompt user to choose a mobile phone by its ID
         System.out.print("Choose the Id Mobile to Add Calling Credit (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
         try
         {
-            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
+            // Check if the chosen ID is valid and if the gadget at that ID is a Mobile object
+            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size()
+                    && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
             {
+                // Prompt user to enter calling credit to add
                 System.out.print("Enter Calling Credit to Add (Minutes): ");
                 int creditToAdd = scanner.nextInt();
                 System.out.println("");
+
+                // Add calling credit to the chosen mobile phone
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).addCallingCredit(creditToAdd);
+
+                // Display updated information of the mobile phone
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).display();
+
+                // Display success message
                 System.out.println("===============================================");
                 System.out.println("");
                 System.out.println("##### Calling Credit Added Successfully!  :) #####");
             }
             else
             {
+                // If the chosen ID is invalid or the gadget is not a Mobile object, throw an exception
                 throw new IndexOutOfBoundsException();
             }
         }
         catch (InputMismatchException | IndexOutOfBoundsException e)
         {
+            // Handle input mismatch or index out of bounds exceptions
             System.out.println("");
             System.out.println("Error: Invalid Choice, Please Enter a Valid Number  On The List. " + e.getMessage());
         }
 
     }
 
+    /**
+     * Method to make a call from a mobile phone.
+     */
     private void makeCallFromMobile()
     {
+        // Display message indicating making a call from a mobile phone
         System.out.println("");
         System.out.println("============ MAKE A CALL FROM MOBILE ============");
 
+        // Check if there are any gadgets available
         if (gadgetShopController.getGadgets().isEmpty())
         {
+            // If no gadgets are available, display an error message and return
             System.out.println("*****  - Sorry!. No Gadgets Available to Make Call From Mobile. - *****");
             return;
         }
 
+        // Display available mobile phones for user selection
         displayMobiles(gadgetShopController.getGadgets());
-        System.out.print("Choose the Id Mobile to Add Calling Credit (Enter its Number): ");
+
+        // Prompt user to choose a mobile phone by its ID
+        System.out.print("Choose the Id Mobile to Make Call (Enter its Number): ");
         int mobileId = scanner.nextInt();
 
         try
         {
-            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size() && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
+            // Check if the chosen ID is valid and if the gadget at that ID is a Mobile object
+            if (mobileId >= 1 && mobileId <= gadgetShopController.getGadgets().size()
+                    && gadgetShopController.getGadgets().get(mobileId - 1) instanceof Mobile)
             {
+                // Prompt user to enter phone number and call duration
                 System.out.print("Enter Phone Number: ");
                 int phoneNumber = scanner.nextInt();
 
                 System.out.print("Enter Duration Of The Call: ");
                 int duration = scanner.nextInt();
                 System.out.println("");
+
+                // Make the call from the chosen mobile phone
                 var resultCall = ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).mobileMakeCall(phoneNumber, duration);
+
+                // Display updated information of the mobile phone
                 ((Mobile) gadgetShopController.getGadgets().get(mobileId - 1)).display();
                 System.out.println("======================================================");
                 System.out.println("");
 
+                // Display success or failure message based on the result of the call
                 if (resultCall)
                 {
                     System.out.println("##### Great!!. Call Made Successfully! :) #####");
@@ -322,16 +375,17 @@ public class GadgetShopViewPrompt
                 else
                 {
                     System.out.println("##### Sorry!. Insufficient Credit To Make The Call. ): #####");
-
                 }
             }
             else
             {
+                // If the chosen ID is invalid or the gadget is not a Mobile object, throw an exception
                 throw new IndexOutOfBoundsException();
             }
         }
         catch (InputMismatchException | IndexOutOfBoundsException e)
         {
+            // Handle input mismatch or index out of bounds exceptions
             System.out.println("");
             System.out.println("Error: Invalid Choice, Please Enter a Valid Number  On The List. " + e.getMessage());
         }
