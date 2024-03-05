@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import thegadgetshopjavacoursework.Models.Gadget;
-
 /**
  * Controller class responsible for managing gadgets within the Gadget Shop
  * application. TheGadgetShopController class provides methods to add gadgets to

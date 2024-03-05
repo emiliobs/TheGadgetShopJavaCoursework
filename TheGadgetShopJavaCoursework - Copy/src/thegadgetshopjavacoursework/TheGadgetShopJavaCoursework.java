@@ -1,5 +1,7 @@
 package thegadgetshopjavacoursework;
 
+import thegadgetshopjavacoursework.Views.GadgetShopViewMain;
+
 /**
  * This class serves as the main entry point of the application.
  * It creates an instance of GadgetShopViewMain, sets its visibility to true,

@@ -1,13 +1,13 @@
-package thegadgetshopjavacoursework.Views;
+package thegadgetshopjavacoursework;
 
 import java.util.InputMismatchException;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
-import thegadgetshopjavacoursework.Models.Gadget;
-import thegadgetshopjavacoursework.Models.MP3;
-import thegadgetshopjavacoursework.Models.Mobile;
+import thegadgetshopjavacoursework.TheGadgetShopController;
+import thegadgetshopjavacoursework.Gadget;
+import thegadgetshopjavacoursework.MP3;
+import thegadgetshopjavacoursework.Mobile;
 
 /**
  * This class represents the GUI view for a gadget shop application. It contains
@@ -894,7 +894,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 .addGroup(jPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanelCallDowbloads, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanelMobileMp3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelShowData, javax.swing.GroupLayout.PREFERRED_SIZE, 793, Short.MAX_VALUE))
+                    .addComponent(jPanelShowData, javax.swing.GroupLayout.DEFAULT_SIZE, 793, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -919,7 +919,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelMain, javax.swing.GroupLayout.PREFERRED_SIZE, 1619, Short.MAX_VALUE)
+            .addComponent(jPanelMain, javax.swing.GroupLayout.DEFAULT_SIZE, 1619, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1800,6 +1800,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // Clear the text area
         TextAreaShowData.setText("");
     }
+    
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

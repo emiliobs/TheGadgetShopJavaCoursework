@@ -1,4 +1,4 @@
-package thegadgetshopjavacoursework.Views;
+ package thegadgetshopjavacoursework.Views;
 
 import javax.swing.ImageIcon;
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
