@@ -952,7 +952,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // Check if the gadget list is empty
         if (gadgetShopController.getGadgets().isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Delete Music MP3.");
+            JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available To Download Music MP3.");
             return;
         }
 
@@ -973,7 +973,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // Validate memory input
         if (downloadMusic.trim().isBlank() && downloadMusic.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Delete Music (MB).");
+            JOptionPane.showMessageDialog(null, "Error: Please Enter Memory To Free From The Download Music (MB).");
             return;
         }
 
