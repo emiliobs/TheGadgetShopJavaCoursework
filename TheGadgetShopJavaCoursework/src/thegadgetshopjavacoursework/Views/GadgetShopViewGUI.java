@@ -1179,7 +1179,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
             if (containsSpecialCharacters(model))
             {
-                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Model  Without Special Caracters.");
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Model  Without Special Characters.");
                 return;
             }
 
@@ -1293,6 +1293,13 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 txtDeleteMusicFromMp3Player.setEnabled(true);
                 btnDownloadMusic.setEnabled(true);
                 btnDeleteMusicMP3.setEnabled(true);
+            }
+            
+            
+             if (containsSpecialCharacters(model))
+            {
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Model  Without Special Characters.");
+                return;
             }
 
             if (price.trim().isBlank() && price.trim().isEmpty())
