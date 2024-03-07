@@ -1,4 +1,4 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Models;
 
 /**
  * Subclass MP3 inheriting from Gadget. Represents an MP3 player gadget with
@@ -38,8 +38,8 @@ public class MP3 extends Gadget
     }
 
     /**
-     * Constructor for initializing both MP3 attributes and Gadget attributes
-     * with specified values.
+     * Constructor for initializing both MP3 attributes and Gadget1 attributes
+ with specified values.
      *
      * @param availableMemory Available memory of the MP3 player in megabytes
      * (MB)
@@ -51,7 +51,7 @@ public class MP3 extends Gadget
      */
     public MP3(double availableMemory, int gadgetId, String model, double price, int weight, String size)
     {
-        // Call the constructor of the superclass (Gadget) with specified parameters
+        // Call the constructor of the superclass (Gadget1) with specified parameters
         super(gadgetId, model, price, weight, size);
 
         // Initialize the available memory attribute for the MP3 object with the provided value
@@ -126,7 +126,7 @@ public class MP3 extends Gadget
     @Override
     public String display()
     {
-        // Calls the display method of the superclass (presumably Gadget) to get basic gadget information,
+        // Calls the display method of the superclass (presumably Gadget1) to get basic gadget information,
         // Concatenates information about the available memory to the returned string
         return super.display() + "\n " + "AVAILABLE MEMORY: " + availableMemory + " MB";
     }

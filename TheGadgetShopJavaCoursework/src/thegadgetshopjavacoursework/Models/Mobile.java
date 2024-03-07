@@ -1,4 +1,4 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Models;
 
 /**
  * Subclass Mobile inheriting from Gadget. Represents a mobile device with
@@ -26,8 +26,8 @@ public class Mobile extends Gadget
     }
 
     /**
-     * Constructor for initializing Mobile attributes and Gadget attributes with
-     * specified values.
+     * Constructor for initializing Mobile attributes and Gadget1 attributes with
+ specified values.
      *
      * @param numberOfMinutesOfCallingCreditRemaining Number of calling credit
      * minutes remaining
@@ -39,7 +39,7 @@ public class Mobile extends Gadget
      */
     public Mobile(int numberOfMinutesOfCallingCreditRemaining, int gadgetId, String model, double price, int weight, String size)
     {
-        // Call the constructor of the superclass (Gadget) with specified parameters
+        // Call the constructor of the superclass (Gadget1) with specified parameters
         super(gadgetId, model, price, weight, size);
         
         // Initialize the numberOfMinutesOfCallingCreditRemaining attribute with the provided value
@@ -146,6 +146,7 @@ public class Mobile extends Gadget
      * @return A string representation of the mobile device's information,
      * including the calling credit.
      */
+    
     @Override
     public String display()
     {

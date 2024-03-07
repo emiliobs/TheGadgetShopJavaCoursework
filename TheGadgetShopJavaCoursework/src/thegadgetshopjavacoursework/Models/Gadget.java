@@ -1,4 +1,4 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Models;
 
 /**
  * Model class representing a Gadget. A Gadget object encapsulates information
@@ -54,7 +54,7 @@ public class Gadget
         this.size = size;
     }
 
-    // Accessor methods for Gadget attributes
+    // Accessor methods for Gadget1 attributes
     public int getGadgetId()
     {
         return gadgetId;
@@ -105,10 +105,10 @@ public class Gadget
         this.weight = weight;
     }
 
-    // Method to display Gadget details
+    // Method to display Gadget1 details
     /**
-     * Generates a string representation of the Gadget object, including its
-     * details.
+     * Generates a string representation of the Gadget1 object, including its
+ details.
      *
      * @return A string containing details of the gadget (ID, model, price,
      * weight, size)

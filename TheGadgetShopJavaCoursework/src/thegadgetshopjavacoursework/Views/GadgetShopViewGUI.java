@@ -1,13 +1,15 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Views;
 
+import thegadgetshopjavacoursework.Models.MP3;
+import thegadgetshopjavacoursework.Models.Mobile;
+import thegadgetshopjavacoursework.Models.Gadget;
+import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 import java.util.InputMismatchException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import thegadgetshopjavacoursework.TheGadgetShopController;
-import thegadgetshopjavacoursework.Gadget;
-import thegadgetshopjavacoursework.MP3;
-import thegadgetshopjavacoursework.Mobile;
 
 /**
  * This class represents the GUI view for a gadget shop application. It contains
@@ -1029,7 +1031,6 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         TextAreaShowData.append("\n-------------------------------------------------------------\n");
     }//GEN-LAST:event_btnDownloadMusicActionPerformed
 
-    
     /**
      * Handles the action event when the user clicks the "Show All Mobiles"
      * button. This method clears the TextAreaShowData and then iterates through
@@ -1106,7 +1107,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
 
         // Appending a header for displaying all gadgets
         TextAreaShowData.append("Display All Gadgets:\n");
-
+        System.out.println("Display All Gadgets:\n");
         // Iterating over each gadget in the list
         for (Gadget gadget : gadgetShopController.getGadgets())
         {
@@ -1114,6 +1115,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
             TextAreaShowData.append(" " + gadget.display() + "\n");
             // Adding a newline after displaying each gadget
             TextAreaShowData.append("\n");
+            System.out.println(" " + gadget.display() + "\n");
         }
 
         // Appending a separator line
@@ -1173,6 +1175,12 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
                 txtAddCallingCreditToMObile.setEnabled(true);
                 btnMakeACall.setEnabled(true);
                 btnAddCallingCredit.setEnabled(true);
+            }
+
+            if (containsSpecialCharacters(model))
+            {
+                JOptionPane.showMessageDialog(null, "Please, Enter a Gadget Mobile Model  Without Special Caracters.");
+                return;
             }
 
             if (price.trim().isBlank() && price.trim().isEmpty())
@@ -1363,7 +1371,7 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         String mobileId = txtSelectMobileId.getText();
         String creditToAdd = txtAddCallingCreditToMObile.getText();
 
-        // Step 2: Checking for Empty Gadget List
+        // Step 2: Checking for Empty Gadget1 List
         if (gadgetShopController.getGadgets().isEmpty())
         {
             JOptionPane.showMessageDialog(null, "Sorry!. No Gadgets Available to Add Calling Credit..");
@@ -1800,9 +1808,21 @@ public class GadgetShopViewGUI extends javax.swing.JFrame
         // Clear the text area
         TextAreaShowData.setText("");
     }
-    
 
-    
+    public static boolean containsSpecialCharacters(String input)
+    {
+        // Define the regular expression for the unwanted characters
+        String regex = "[%^$&*()]+";
+
+        // Use Pattern and Matcher to check for matches
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        // Return true if there is at least one match, false otherwise
+        return matcher.find();
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaShowData;
     private javax.swing.JButton btnAddCallingCredit;

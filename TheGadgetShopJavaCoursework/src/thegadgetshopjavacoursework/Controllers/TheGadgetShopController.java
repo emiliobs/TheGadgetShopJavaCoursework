@@ -1,7 +1,8 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import thegadgetshopjavacoursework.Models.Gadget;
 
 /**
  * Controller class responsible for managing gadgets within the Gadget Shop
@@ -19,7 +20,7 @@ import java.util.List;
 public class TheGadgetShopController
 {
 
-    // Create an empty ArrayList to store Gadget objects
+    // Create an empty ArrayList to store Gadget1 objects
     private List<Gadget> gadgets;
     Gadget gadget;
 

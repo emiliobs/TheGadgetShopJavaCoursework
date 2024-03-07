@@ -1,12 +1,12 @@
-package thegadgetshopjavacoursework;
+package thegadgetshopjavacoursework.Views;
 
+import thegadgetshopjavacoursework.Models.MP3;
+import thegadgetshopjavacoursework.Models.Mobile;
+import thegadgetshopjavacoursework.Models.Gadget;
+import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import thegadgetshopjavacoursework.TheGadgetShopController;
-import thegadgetshopjavacoursework.Gadget;
-import thegadgetshopjavacoursework.MP3;
-import thegadgetshopjavacoursework.Mobile;
 
 /**
  *
