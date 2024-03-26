@@ -25,8 +25,8 @@ public class GadgetShopViewPrompt
     {
         // Display welcome message and information about the program
         System.out.println("");
+        
         // Display welcome message and information about the program
-
         System.out.println("================================================");
         System.out.println("=                    WELCOME                   =");
         System.out.println("=                                              =");
@@ -117,11 +117,13 @@ public class GadgetShopViewPrompt
                         break;
                     case 8:
                         // Display goodbye message and exit the application
+                        System.out.println("");
+                        System.out.println("");
                         System.out.println("================================================");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
-                        System.out.println("=  THANK YOU! GOODBYE, EXITING THE SYSTEM :)  =");
+                        System.out.println("=  THANK YOU! GOODBYE, EXITING THE SYSTEM :)   =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
                         System.out.println("=                                              =");
