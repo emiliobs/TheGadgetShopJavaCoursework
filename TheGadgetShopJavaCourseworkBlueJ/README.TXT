@@ -9,3 +9,8 @@ PURPOSE OF PROJECT: COURSEWORK PROGRAMMING
 VERSION or DATE: V 1.0 2024
 AUTHORS: Emilio Antonio Barrera Sepúlveda
 
+# Java Coursework 2024: The Gadget Shop Project with BlueJ
+  
+![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/6376cf1d-b5fe-4395-b0bc-31d15b3b2290)
+
+
