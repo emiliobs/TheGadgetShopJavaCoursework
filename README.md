@@ -16,7 +16,7 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
   Welcome, Menu and Exit the System.
   ![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/b8766540-c9df-42d6-941d-978966cf1239)
 
- # Java Coursework 2024: The Gadget Shop Project with BlueJ"
+ # Java Coursework 2024: The Gadget Shop Project with BlueJ
   
 ![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/6376cf1d-b5fe-4395-b0bc-31d15b3b2290)
 
