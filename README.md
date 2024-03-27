@@ -2,7 +2,8 @@
 The GadgetShop Java application exemplifies advanced OOP principles, featuring a parent class, Gadgets, and subclasses Phone and MP3. With a Java Swing GUI and MVC architecture, the system excels in functionality, adhering to coding standards for clarity and reliability.
 # GUI Desing Main 
 
-![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/78bd4083-09a3-4fc8-9333-fb775085c930)
+![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/1305c4ef-1027-497e-a4e1-31f36db89687)
+
 
 
 ##
