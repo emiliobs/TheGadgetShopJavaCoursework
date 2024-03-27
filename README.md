@@ -24,7 +24,9 @@ The GadgetShop Java application exemplifies advanced OOP principles, featuring a
 
 
 
-
+# Java Coursework 2024: The Gadget Shop Project with BlueJ
+  
+![image](https://github.com/emiliobs/TheGadgetShopJavaCoursework/assets/3122465/6376cf1d-b5fe-4395-b0bc-31d15b3b2290)
 
 
 
