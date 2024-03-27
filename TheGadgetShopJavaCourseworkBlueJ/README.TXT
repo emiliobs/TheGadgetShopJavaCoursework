@@ -4,9 +4,8 @@ Tell the reader (someone who does not know anything about this project)
 all they need to know. The comments should usually include at least:
 ------------------------------------------------------------------------
 
-PROJECT TITLE:
-PURPOSE OF PROJECT:
-VERSION or DATE:
-HOW TO START THIS PROJECT:
-AUTHORS:
-USER INSTRUCTIONS:
+PROJECT TITLE: DEVELOPMENT OF THE GADGET SHOP APPLICATION IN JAVA 
+PURPOSE OF PROJECT: COURSEWORK PROGRAMMING
+VERSION or DATE: V 1.0 2024
+AUTHORS: Emilio Antonio Barrera Sepúlveda
+
