@@ -1,5 +1,6 @@
   
 
+
 import javax.swing.ImageIcon;
 
 
@@ -15,10 +16,10 @@ public class GadgetShopViewMain extends javax.swing.JFrame
      */
     
          // Create an instance of TheGadgetShopController
-        //TheGadgetShopController gadgetShopController;
+        TheGadgetShopController gadgetShopController;
 
         // Create an instance of GadgetShopViewPrompt
-        //GadgetShopViewPrompt viewPrompt;
+        GadgetShopViewPrompt viewPrompt;
     
     public GadgetShopViewMain()
     {
@@ -121,9 +122,9 @@ public class GadgetShopViewMain extends javax.swing.JFrame
                 .addComponent(btnGuiProgram)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addComponent(btnCommandPrompt)
-                .addGap(69, 69, 69)
-                .addComponent(btnExit)
-                .addGap(68, 68, 68))
+                .addGap(64, 64, 64)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
         );
         jPanelOptionProgramLayout.setVerticalGroup(
             jPanelOptionProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +132,7 @@ public class GadgetShopViewMain extends javax.swing.JFrame
                 .addGap(59, 59, 59)
                 .addGroup(jPanelOptionProgramLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCommandPrompt)
-                    .addComponent(btnExit)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGuiProgram))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
@@ -257,12 +258,12 @@ public class GadgetShopViewMain extends javax.swing.JFrame
     {                                                     
         // Create an instance of TheGadgetShopController
         //TheGadgetShopController gadgetShopController = new TheGadgetShopController();
-        TheGadgetShopController gadgetShopController = new TheGadgetShopController();
+      gadgetShopController = new TheGadgetShopController();
         
         // Create an instance of GadgetShopViewPrompt      
         
         //GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt();
-        GadgetShopViewPrompt viewPrompt = new GadgetShopViewPrompt();
+        viewPrompt = new GadgetShopViewPrompt();
    
         
 
