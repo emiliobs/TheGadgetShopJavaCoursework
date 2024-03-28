@@ -2,6 +2,7 @@
 
 import thegadgetshopjavacoursework.Controllers.TheGadgetShopController;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 
 
 /**
@@ -269,6 +270,9 @@ public class GadgetShopViewMain extends javax.swing.JFrame
 
         // Run the view in the command prompt
         viewPrompt.run();
+        
+     // Set the state of the JFrame to ICONIFIED (minimize the GUI of the menu)
+       this.setState(JFrame.ICONIFIED);
     }//GEN-LAST:event_btnCommandPromptActionPerformed
 
     /**
@@ -287,6 +291,8 @@ public class GadgetShopViewMain extends javax.swing.JFrame
         // Set the location of the GUI view to be centered on the screen
         gadgetShop.setLocationRelativeTo(null);
 
+       // Set the state of the JFrame to ICONIFIED (minimize the GUI of the menu)
+       this.setState(JFrame.ICONIFIED);
 
     }//GEN-LAST:event_btnGuiProgramActionPerformed
 

@@ -39,7 +39,7 @@ public class GadgetShopViewPrompt
         System.out.println("=                                              =");
         System.out.println("=                       BY                     =");
         System.out.println("=                                              =");
-        System.out.println("=             EMILIO BARRERA SEPULVEDA         =");
+        System.out.println("=         EMILIO ANTONIO BARRERA SEPULVEDA     =");
         System.out.println("=                    22047090                  =");
         System.out.println("=                                              =");
         System.out.println("=                 MET UNIVERSITY               =");

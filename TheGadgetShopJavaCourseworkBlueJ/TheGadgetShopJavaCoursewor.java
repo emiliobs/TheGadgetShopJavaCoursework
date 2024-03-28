@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
  *
  * @author Emilio
  */
+
+
+
 public class TheGadgetShopJavaCoursewor
 {
 
@@ -20,7 +23,8 @@ public class TheGadgetShopJavaCoursewor
      *
      * @param args Command-line arguments (not used in this application)
      */
-    public static void main(String[] args)
+    
+     TheGadgetShopJavaCoursewor()
     {
         // Create an instance of GadgetShopViewMain
         GadgetShopViewMain gadgetShopViewMain = new GadgetShopViewMain();
@@ -32,9 +36,10 @@ public class TheGadgetShopJavaCoursewor
         gadgetShopViewMain.setLocationRelativeTo(null);
     }
     
-    TheGadgetShopJavaCoursewor()
+      
+    public static void main(String[] args)
     {
-        // Create an instance of GadgetShopViewMain
+       // Create an instance of GadgetShopViewMain
         GadgetShopViewMain gadgetShopViewMain = new GadgetShopViewMain();
 
         // Set the visibility of GadgetShopViewMain to true
@@ -43,4 +48,6 @@ public class TheGadgetShopJavaCoursewor
         // Center the GadgetShopViewMain window on the screen
         gadgetShopViewMain.setLocationRelativeTo(null);
     }
+    
+   
 }
