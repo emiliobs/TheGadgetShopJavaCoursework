@@ -120,7 +120,7 @@ public class Mobile extends Gadget
      * @return True if the call can be made (sufficient calling credit), false
      * otherwise.
      */
-    public boolean mobileMakeCall(int phoneNumber, int duration)
+public boolean mobileMakeCall(int phoneNumber, int duration)
     {
         // Check if there is sufficient calling credit remaining and if the duration is within the available credit
         if (numberOfMinutesOfCallingCreditRemaining != 0 && numberOfMinutesOfCallingCreditRemaining >= duration)
